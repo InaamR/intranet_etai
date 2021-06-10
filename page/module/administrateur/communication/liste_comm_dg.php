@@ -180,6 +180,16 @@ if(empty($_SESSION['id'])){
                         </div>
                     </div>
                 </div>
+                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+                    <div class="form-group breadcrumb-right">
+                        <div class="dropdown">
+                        <button aria-expanded="false" aria-haspopup="true" class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle waves-effect waves-float waves-light" data-toggle="dropdown" type="button">Écrire un article</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#"><i data-feather='plus-square'></i>&nbsp&nbsp<span class="align-middle">Comm DG</span></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Begin : main content -->
@@ -220,7 +230,7 @@ if(empty($_SESSION['id'])){
                                             <thead>
                                                 <tr>
                                                     <th></th>
-                                                    <th></th>
+                                                    <th>Ordre</th>
                                                     <th>id</th>
                                                     <th>Nom et prénom</th>
                                                     <th>Titre de l'article</th>

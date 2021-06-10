@@ -161,7 +161,7 @@ $(function () {
       buttons: [
         {
           extend: 'collection',
-          className: 'btn btn-outline-secondary dropdown-toggle mr-2',
+          className: 'btn btn-outline-secondary dropdown-toggle mr-0',
           text: feather.icons['share'].toSvg({ class: 'font-small-4 mr-50' }) + 'Export',
           buttons: [
             {
@@ -202,7 +202,7 @@ $(function () {
               $(node).closest('.dt-buttons').removeClass('btn-group').addClass('d-inline-flex');
             }, 50);
           }
-        },
+        }/*,
         {
           text: feather.icons['plus'].toSvg({ class: 'mr-50 font-small-4' }) + 'Ecrire un article',
           className: 'create-new btn btn-primary',
@@ -212,7 +212,7 @@ $(function () {
           init: function (api, node, config) {
             $(node).removeClass('btn-secondary');
           }
-        }
+        }*/
       ],
       responsive: {
         details: {

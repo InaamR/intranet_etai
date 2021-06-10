@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $page = "";
 if (empty($page)) {
     $page = "function";
@@ -37,7 +37,8 @@ $st = '';
 if (isset($_GET['job'])) {
     $job = $_GET['job'];
 
-    if ($job == 'get_liste_niveau' || $job == 'add_niveau' || $job == 'get_niveau_edit' || $job == 'niveau_edit' || $job == 'del_niveau') {
+    if ($job == 'get_liste_comm_dg' || $job == 'add_niveau' || $job == 'get_niveau_edit' || $job == 'niveau_edit' || $job == 'del_niveau') {
+
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             if (!is_numeric($id)) {
@@ -58,56 +59,57 @@ if (isset($_GET['job'])) {
                 $mdp = '';
             }
         }
+
     } else {
         $job = '';
     }
+
 }
 
 $mysql_data = [];
 
 if ($job != '') {
-    if ($job == 'get_liste_niveau') {
-        $PDO_query_niveau = Bdd::connectBdd()->prepare("SELECT * FROM user_niveau_methode ORDER BY niveau_id ASC");
-        $PDO_query_niveau->execute();
+    if ($job == 'get_liste_comm_dg') {
 
-        while ($niveau = $PDO_query_niveau->fetch()) {
-            $functions =
-                ' 
-						<td class="product-action">
-						
-						<center>
-						<button type="button" class="btn btn-icon btn-success" id="function_edit_niveau" data-id="' .
-                $niveau['niveau_id'] .
-                '" data-name="' .
-                $niveau['niveau_name'] .
-                '"><i class="feather icon-check-square"></i></button>
-						<button type="button" class="btn btn-icon btn-danger rounded-circle" id="confirm-color" data-id="' .
-                $niveau['niveau_id'] .
-                '" data-name="' .
-                $niveau['niveau_name'] .
-                '"><i class="feather icon-x-square"></i></button>
-						</center>
-						
-						</td>
-		
-		';
+        $PDO_query_comm = Bdd::connectBdd()->prepare("SELECT * FROM etai_intranet_comm ORDER BY etai_intranet_comm_id ASC");
+        $PDO_query_comm->execute();
 
-            
+        while ($communication = $PDO_query_comm->fetch()) {
 
-            $date = date_create($niveau['niveau_date']);
+            $functions = '<div class="d-inline-flex"><a class="pr-1 dropdown-toggle hide-arrow text-primary" data-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu font-large-1"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></a><div class="dropdown-menu dropdown-menu-right" style=""><a href="javascript:;" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text font-small-4 mr-50"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>Valider</a><a href="javascript:;" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive font-small-4 mr-50"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>Archiver</a><a href="javascript:;" class="dropdown-item delete-record"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 font-small-4 mr-50"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>Supprimer</a></div></div>
+            <button type="button" class="btn btn-info btn-sm waves-effect waves-float waves-light">Modifier</button>';
+
+            $statut = '<div class="badge badge-warning">En attente</div>';       
+
+            $date = date_create($communication['etai_intranet_comm_date']);
+            $name_user = Membre::info($_SESSION['id'], 'nom').' '.Membre::info($_SESSION['id'], 'prenom');
+            $titre = $communication['etai_intranet_comm_titre'];
+            $id = $communication['etai_intranet_comm_id'];
+            $email = $communication['etai_intranet_comm_email_user'];
 
             $mysql_data[] = [
-                "Niveau" => $niveau['niveau_name'],
-                "Date_insertion" => date_format($date, "d/m/Y"),
-                "bouton" => $functions,
+                "responsive_id" => "",
+                "id" => $id,
+                "full_name" => $name_user,
+                "post" => $titre,
+                "email" => $email,
+                "city" => "Krasnosilka",
+                "start_date" => date_format($date, "d/m/Y"),
+                "age" => "61",
+                "experience" => "1 Year",
+                "status" => $statut,
+                "Actions" => $functions
             ];
         }
-        $PDO_query_niveau->closeCursor();
+
+        $PDO_query_comm->closeCursor();
         $result = 'success';
         $message = 'Succès de requête';
 
         $bdd = null;
-        $PDO_query_niveau = null;
+        $PDO_query_comm = null;
+
+
     } elseif ($job == 'add_niveau') {
         try {
             $query = Bdd::connectBdd()->prepare("INSERT INTO user_niveau_methode (`niveau_name`,`niveau_date`)

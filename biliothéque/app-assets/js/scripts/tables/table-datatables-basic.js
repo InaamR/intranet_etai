@@ -23,9 +23,7 @@ $(function () {
     var dt_basic = dt_basic_table.DataTable({
       ajax: assetPath + 'data/table-datatable.json',
       columns: [
-        { data: 'responsive_id' },
-        { data: 'id' },
-        { data: 'id' }, // used for sorting so will hide this column
+        
         { data: 'full_name' },
         { data: 'email' },
         { data: 'start_date' },
