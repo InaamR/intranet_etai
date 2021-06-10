@@ -1353,8 +1353,8 @@ class Admin {
 		$lien = URLSITE.'/administrateur/equipe/';
 		return $lien;
 	}
-	public static function menuniveau() {
-		$lien = URLSITE.'/administrateur/niveau/';
+	public static function menucomm() {
+		$lien = URLSITE.'/administrateur/communication/';
 		return $lien;
 	}
 	public static function menusocle() {

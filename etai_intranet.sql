@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 09 juin 2021 à 19:00
+-- Généré le :  jeu. 10 juin 2021 à 19:10
 -- Version du serveur :  10.3.16-MariaDB
 -- Version de PHP :  7.1.30
 
@@ -1079,6 +1079,21 @@ INSERT INTO `etai_intranet_avatar` (`id`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `etai_intranet_comm`
+--
+
+CREATE TABLE `etai_intranet_comm` (
+  `etai_intranet_comm_id` int(11) NOT NULL,
+  `etai_intranet_comm_user` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `etai_intranet_comm_date` date DEFAULT NULL,
+  `etai_intranet_comm_desc` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `etai_intranet_comm_img` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `etai_intranet_comm_statut` int(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `etai_intranet_membres`
 --
 
@@ -1205,7 +1220,7 @@ CREATE TABLE `etai_intranet_secure` (
 --
 
 INSERT INTO `etai_intranet_secure` (`id`, `id_membre`, `jeton`, `ip_connexion`, `date`) VALUES
-(15, 2, 'q?ZK\n?^?:\"iz??/g', '::1', '1623236270');
+(15, 2, 'q?ZK\n?^?:\"iz??/g', '::1', '1623343287');
 
 -- --------------------------------------------------------
 
@@ -1311,6 +1326,12 @@ ALTER TABLE `etai_intranet_avatar`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `etai_intranet_comm`
+--
+ALTER TABLE `etai_intranet_comm`
+  ADD PRIMARY KEY (`etai_intranet_comm_id`);
+
+--
 -- Index pour la table `etai_intranet_membres`
 --
 ALTER TABLE `etai_intranet_membres`
@@ -1367,6 +1388,12 @@ ALTER TABLE `etai_intranet_activationmail`
 --
 ALTER TABLE `etai_intranet_avatar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=946;
+
+--
+-- AUTO_INCREMENT pour la table `etai_intranet_comm`
+--
+ALTER TABLE `etai_intranet_comm`
+  MODIFY `etai_intranet_comm_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `etai_intranet_membres`

@@ -42,7 +42,7 @@
                 </a>
                 <ul class="menu-content">
                     <li>
-                        <a class="d-flex align-items-center" href="ComDG">
+                        <a class="d-flex align-items-center" href="communication/liste_comm_dg.php">
                             <i data-feather="circle"></i>
                             <span class="menu-item text-truncate" data-i18n="Direction Générale">Direction Générale</span>
                         </a>
@@ -118,7 +118,7 @@
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fas fa-user-cog" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Pages">Admin APP</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" title="Gestion du personnel" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Account Settings">Gestion du Personnel</span></a>
+                    <li><a class="d-flex align-items-center" title="Gestion du personnel" href="admin/listeMembre.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Account Settings">Gestion du Personnel</span></a>
                     </li>
                     <li><a class="d-flex align-items-center" title="Gestion de l'application" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">Gestion de l'application</span></a>
                     </li>
