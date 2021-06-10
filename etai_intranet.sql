@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 10 juin 2021 à 19:10
--- Version du serveur :  10.3.16-MariaDB
--- Version de PHP :  7.1.30
+-- Généré le : ven. 11 juin 2021 à 01:51
+-- Version du serveur :  10.4.17-MariaDB
+-- Version de PHP : 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `etai_intranet`
+-- Base de données : `etai_intranet`
 --
 
 -- --------------------------------------------------------
@@ -1085,11 +1084,22 @@ INSERT INTO `etai_intranet_avatar` (`id`, `url`) VALUES
 CREATE TABLE `etai_intranet_comm` (
   `etai_intranet_comm_id` int(11) NOT NULL,
   `etai_intranet_comm_user` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `etai_intranet_comm_email_user` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `etai_intranet_comm_date` date DEFAULT NULL,
+  `etai_intranet_comm_titre` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `etai_intranet_comm_desc` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `etai_intranet_comm_img` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `etai_intranet_comm_statut` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `etai_intranet_comm`
+--
+
+INSERT INTO `etai_intranet_comm` (`etai_intranet_comm_id`, `etai_intranet_comm_user`, `etai_intranet_comm_email_user`, `etai_intranet_comm_date`, `etai_intranet_comm_titre`, `etai_intranet_comm_desc`, `etai_intranet_comm_img`, `etai_intranet_comm_statut`) VALUES
+(1, 'Inaam', 'inaam.rach@gmail.com', '2021-06-11', 'Lorem Ipsum is simply dummy text of the printing', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'test.jpg', 1),
+(2, 'Inaam', 'inaam.rach@gmail.com', '2021-06-11', 'Lorem Ipsum is simply dummy text of the printing', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'test.jpg', 1),
+(3, 'Inaam', 'inaam.rach@gmail.com', '2021-06-11', 'Lorem Ipsum is simply dummy text of the printing', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'test.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -1220,7 +1230,7 @@ CREATE TABLE `etai_intranet_secure` (
 --
 
 INSERT INTO `etai_intranet_secure` (`id`, `id_membre`, `jeton`, `ip_connexion`, `date`) VALUES
-(15, 2, 'q?ZK\n?^?:\"iz??/g', '::1', '1623343287');
+(15, 2, 'q?ZK\n?^?:\"iz??/g', '::1', '1623360474');
 
 -- --------------------------------------------------------
 
@@ -1393,7 +1403,7 @@ ALTER TABLE `etai_intranet_avatar`
 -- AUTO_INCREMENT pour la table `etai_intranet_comm`
 --
 ALTER TABLE `etai_intranet_comm`
-  MODIFY `etai_intranet_comm_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `etai_intranet_comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `etai_intranet_membres`
