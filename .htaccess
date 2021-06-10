@@ -1,0 +1,51 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteOptions Inherit
+
+#RewriteCond %{SERVER_PORT} 80 
+#RewriteRule ^(.*)$ https://yourdomain.com/$1 [R,L]
+
+ErrorDocument 400 http://localhost/intranet_etai/error/erreur.php?erreur=400
+ErrorDocument 401 http://localhost/intranet_etai/error/erreur.php?erreur=401
+ErrorDocument 402 http://localhost/intranet_etai/error/erreur.php?erreur=402
+ErrorDocument 403 http://localhost/intranet_etai/error/erreur.php?erreur=403
+ErrorDocument 404 http://localhost/intranet_etai/error/erreur.php?erreur=404
+ErrorDocument 405 http://localhost/intranet_etai/error/erreur.php?erreur=405
+ErrorDocument 500 http://localhost/intranet_etai/error/erreur.php?erreur=500
+ErrorDocument 501 http://localhost/intranet_etai/error/erreur.php?erreur=501
+ErrorDocument 502 http://localhost/intranet_etai/error/erreur.php?erreur=502
+ErrorDocument 503 http://localhost/intranet_etai/error/erreur.php?erreur=503
+ErrorDocument 504 http://localhost/intranet_etai/error/erreur.php?erreur=504
+ErrorDocument 505 http://localhost/intranet_etai/error/erreur.php?erreur=505
+
+RewriteRule ^Contact$ page/contact.php [L]
+
+#AuthName "Page d'administration protégée"
+#AuthType Basic
+#AuthUserFile C:/xampp/htdocs/intranet_etai/.htpasswd
+#Require valid-user
+
+### SEUL LE FICHIER index.php EST SERVI COMME PREMIER FICHIER PAR DEFAUT. LES AUTRES SONT INTERDITS
+DirectoryIndex index.php
+
+### INTERDIRE LES AUTRES TYPES DE FICHIER INDEX
+<Files ~ "^(index)\.(p?s?x?htm?|txt|aspx?|cfml?|cgi|pl|php[3-9]|jsp|xml)$">
+order allow,deny
+deny from all
+</Files>
+
+### INTERDIRE L'AFFICHAGE DE CERTAINS FORMATS DE FICHIER 
+### EXÉCUTÉS PAR LE SERVEUR MAIS INTERDIT D'AFFICHAGE PAR LE NAVIGATEUR WEB
+<Files ~ "\.(inc|class|sql|ini|conf|exe|dll|bin|tpl|bkp|dat|c|h|py|spd|theme|module|mdb|rar|bash|git|hg|log|svn|swp|cvs)$">
+deny from all
+</Files>
+
+### INTERDIRE L'AFFICHAGE DE CERTAINS FICHIERS COMME config, option, login, setup, install, admin, home, default, readme, changelog, xmlrpc.
+### A ADAPTER SI CELA POSE PROBLEME, NOTAMMENT RETIREZ wp-(login|admin|config)| SI VOUS UTILISEZ WORDPRESS
+<Files ~ "^(wp-(login|admin|config)||install?||user|login|configure|configuration|options?\.inc|option|settings?(\.inc)?|functions?(\.inc)?|setup(\.inc)?|readme|changelog|license|default|xmlrpc|bigdump|uploadTester|errors?|test|data|members?|hacke?r?d?|[-_a-z0-9.]*mafia[-_a-z0-9.]*|[-_a-z0-9.]*power[-_a-z0-9.]*|[-_a-z0-9.]*jihad[-_a-z0-9.]*|php|shell|ssh|root|cmd|[0-9]{1,6})\.(p?s?x?htm?l?|txt|md|aspx?|cfml?|cgi|pl|php[3-9]{0,1}|jsp?|sql|xml)$">
+order allow,deny
+deny from all
+</Files>
+
+# Aucun script dans le dossier et ses sous-dossiers, que ce soit PHP, PERL ou autre CGI, ne pourra s'executer si ExecCGI est inactif. Et interdit d'afficher la liste des fichiers.
+OPTIONS -ExecCGI  -Indexes

@@ -1,0 +1,98 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteOptions Inherit
+
+ErrorDocument 400 http://localhost/intranet_etai/error/erreur.php?erreur=400
+ErrorDocument 401 http://localhost/intranet_etai/error/erreur.php?erreur=401
+ErrorDocument 402 http://localhost/intranet_etai/error/erreur.php?erreur=402
+ErrorDocument 403 http://localhost/intranet_etai/error/erreur.php?erreur=403
+ErrorDocument 404 http://localhost/intranet_etai/error/erreur.php?erreur=404
+ErrorDocument 405 http://localhost/intranet_etai/error/erreur.php?erreur=405
+ErrorDocument 500 http://localhost/intranet_etai/error/erreur.php?erreur=500
+ErrorDocument 501 http://localhost/intranet_etai/error/erreur.php?erreur=501
+ErrorDocument 502 http://localhost/intranet_etai/error/erreur.php?erreur=502
+ErrorDocument 503 http://localhost/intranet_etai/error/erreur.php?erreur=503
+ErrorDocument 504 http://localhost/intranet_etai/error/erreur.php?erreur=504
+ErrorDocument 505 http://localhost/intranet_etai/error/erreur.php?erreur=505
+
+RewriteRule ^TableadeBord$ home.php [L]
+
+RewriteRule ^Bye$ logout.php [L]
+
+
+RewriteRule ^Config$ admin.php [L]
+
+#ADMIN
+RewriteRule ^ListeUsers$  module/admin/liste_contact.php  [L]
+RewriteRule ^PUsers$  module/admin/profil_contact.php  [L]
+RewriteRule ^ListeGroupe$  module/admin/liste_equipe.php  [L]
+
+#COMM
+RewriteRule ^ComDG$  administrateur/communication/liste_comm_dg.php  [L]
+
+#NIVEAU
+RewriteRule ^ListeNiveau$  module/niveau/liste_niveau.php  [L]
+
+#SOCLE
+RewriteRule ^ListeSocle$  module/socle/liste_socle.php  [L]
+
+#CHAPITRE
+RewriteRule ^ListeChapitre$  module/chapitre/liste_chapitre.php  [L]
+
+#SOUS CHAPITRE
+RewriteRule ^ListeSousChapitre$  module/sous_chapitre/liste_sous_chapitre.php  [L]
+
+#IDENTITE VEHICULE
+RewriteRule ^ListeIdentiteVehicule$  module/identite_vehicule/liste_identite_vehicule.php  [L]
+
+#AJOUTER IDENTITE
+RewriteRule ^AjouterIdentiteVehicule$  module/identite_vehicule/ajout_identite_vehicule.php  [L]
+
+#PLANNING
+RewriteRule ^ListePlanning$  module/planning/liste_planning.php  [L]
+
+
+#SERVICE ET ENTRETIEN
+RewriteRule ^ListeUsersEquipe1$  module/service_et_entretien/liste_contact.php  [L]
+RewriteRule ^PUsersEquipe1$  module/service_et_entretien/profil_contact.php  [L]
+RewriteRule ^ListeGroupeEquipe1$  module/service_et_entretien/liste_equipe.php  [L]
+
+
+#AuthName "Page d'administration protégée"
+#AuthType Basic
+#AuthUserFile C:/xampp/htdocs/intranet_etai/.htpasswd
+#Require valid-user
+
+###FILTRE CONTRE CERTAINS ROBOTS DES PIRATES
+RewriteEngine On
+## EXCEPTION: TOUS LES ROBOTS MEMES ANONYMES OU BANNIS PEUVENT ACCEDER A CES FICHIERS
+RewriteCond %{REQUEST_URI} !^/robots.txt
+RewriteCond %{REQUEST_URI} !^/sitemap.xml
+##
+RewriteCond %{HTTP_USER_AGENT} ^-?$ [OR] ## ANONYMES
+RewriteCond %{HTTP_USER_AGENT} ^curl|^Fetch\ API\ Request|GT::WWW|^HTTP::Lite|httplib|^Java|^LeechFTP|lwp-trivial|^LWP|libWeb|libwww|^PEAR|PECL::HTTP|PHPCrawl|PycURL|python|^ReGet|Rsync|Snoopy|URI::Fetch|urllib|WebDAV|^Wget [NC] ## BIBLIOTHEQUES / CLASSES HTTP DONT ON NE VEUT PAS. ATTENTION, CELA PEUT BLOQUER CERTAINES FONCTIONS DE VOTRE CMS. NE PAS TOUT EFFACER, MAIS CHERCHEZ LE NOM DE LA CLASSE HTTP CONCERNEE (DEMANDEZ AUX DEVELOPPEURS DE VOTRE CMS). CETTE LISTE BLOQUE 80% DES ROBOTS SPAMMEURS. IL FAUT LA CONSERVER.
+## RewriteCond %{HTTP_USER_AGENT} ^[bcdfghjklmnpqrstvwxz\ ]{10,}|^[0-9a-z]{15,}|^[0-9A-Za-z]{19,}|^[A-Za-z]{3,}\ [a-z]{4,}\ [a-z]{4,} [OR] ## CEUX QUI INVENTENT DES NOMS AU HASARD, RETIREZ LES 2 DIESES EN DEBUT DE LIGNE POUR L'ACTIVER
+RewriteRule (.*) - [F]
+
+
+### FILTRE CONTRE XSS, REDIRECTIONS HTTP, base64_encode, VARIABLE PHP GLOBALS VIA URL, MODIFIER VARIABLE _REQUEST VIA URL, TEST DE FAILLE PHP, INJECTION SQL SIMPLE
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} (GET|POST) [NC]
+RewriteCond %{QUERY_STRING} ^(.*)(%3C|<)/?script(.*)$ [NC,OR]
+RewriteCond %{QUERY_STRING} ^(.*)(%3D|=)?javascript(%3A|:)(.*)$ [NC,OR]
+RewriteCond %{QUERY_STRING} ^(.*)document\.location\.href(.*)$ [OR]
+RewriteCond %{QUERY_STRING} ^.*(%24&x).* [NC,OR]
+RewriteCond %{QUERY_STRING} ^.*(127\.0).* [NC,OR]
+RewriteCond %{QUERY_STRING} ^(.*)(%3D|=)(https?|ftp|mosConfig)(%3A|:)//(.*)$ [NC,OR] ## ATTENTION A CETTE REGLE. ELLE PEUT CASSER CERTAINES REDIRECTIONS RESSEMBLANT A: http://www.truc.fr/index.php?r=http://www.google.fr ##
+RewriteCond %{QUERY_STRING} ^.*(_encode|localhost|loopback).* [NC,OR]
+RewriteCond %{QUERY_STRING} ^(.*)GLOBALS(=|[|%[0-9A-Z]{0,2})(.*)$ [OR]
+RewriteCond %{QUERY_STRING} ^(.*)_REQUEST(=|[|%[0-9A-Z]{0,2})(.*)$ [OR]
+RewriteCond %{QUERY_STRING} ^(.*)(SELECT(%20|\+)|UNION(%20|\+)ALL|INSERT(%20|\+)|DELETE(%20|\+)|CHAR\(|UPDATE(%20|\+)|REPLACE(%20|\+)|LIMIT(%20|\+)|CONCAT(%20|\+)|DECLARE(%20|\+))(.*)$ [NC]
+RewriteRule (.*) - [F]
+
+### DES FAUX URLS OU VIEUX SYSTEMES OBSOLETES, ON LES NEUTRALISE
+RedirectMatch 403 (\.\./|base64|boot\.ini|eval\(|\(null\)|^[-_a-z0-9/\.]*//.*|/etc/passwd|^/_vti.*|^/MSOffice.*|/fckeditor/|/elfinder/|zoho/|/jquery-file-upload/server/|/assetmanager/|wwwroot|e107\_)
+# DESACTIVE LES METHODES DE REQUETES TRACE TRACK DELETE
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^(TRACE|DELETE|TRACK) [NC]
+RewriteRule ^.* - [F]

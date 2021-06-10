@@ -1,0 +1,23 @@
+#basic-datatable {
+  .card {
+    .dataTables_wrapper {
+      .datatables-basic {
+        thead{
+            .sorting{
+                text-align: center;
+            }
+        }
+        tbody {
+          tr {
+            td {
+              a {
+                font-size: 17px;
+                margin-right: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
