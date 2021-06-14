@@ -168,10 +168,10 @@ if(empty($_SESSION['id'])){
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Home</h2>
+                            <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#communication">Communication</a>
+                                    <li class="breadcrumb-item"><a href="#communication">Communications</a>
                                     </li>
                                     <li class="breadcrumb-item active"><a href="com_dg.php">Direction Générale</a>
                                     </li>
@@ -197,29 +197,7 @@ if(empty($_SESSION['id'])){
                 <div class="row">
                     <div class="col-12">
 
-                        <!-- carte de Bienvenue -->
-                        <!-- <div class="col-lg-4 col-md-12 col-sm-12 p-0">
-                            <div class="card card-congratulations">
-                                <div class="card-body text-center">
-                                    <img src="app-assets/images/elements/decore-left.png" class="congratulations-img-left" alt="card-img-left">
-                                    <img src="app-assets/images/elements/decore-right.png" class="congratulations-img-right" alt="card-img-right">
-                                    
-                                    <div class="avatar avatar-xl bg-primary shadow">
-                                        <div class="avatar-content">
-                                            <img class="round" src="app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40">
-                                        </div>
-                                    </div>
-                                    <div class="text-center">
-                                        <h1 class="mb-1 text-white">Bienvenue <strong>Mohamed Zied</strong>,</h1>
-                                        <p class="card-text m-auto w-75">
-                                            You have done <strong>57.6%</strong> more sales today. Check your new badge
-                                            in your profile.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- carte de Bienvenue -->
+                        
 
                         <!-- Basic table -->
                         <section id="basic-datatable">

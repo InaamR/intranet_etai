@@ -37,7 +37,7 @@ $(function () {
         },
         {
           // For Checkboxes
-          targets: 0,
+          targets: 1,
           orderable: false,
           responsivePriority: 3,
           render: function (data, type, full, meta) {

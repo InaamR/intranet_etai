@@ -5,10 +5,10 @@
             <li class="nav-item mr-auto">
                 <a class="navbar-brand" href="index.html">
                     <span class="brand-logo">
-                        <img src="../../../app-assets/images/logo/favicon-48x48.png" alt="petit-logo" class="">
+                        <img src="../../../../app-assets/images/logo/favicon-48x48.png" alt="petit-logo" class="">
                     </span>
                     <span class="brand-logo-big">
-                        <img src="../../../app-assets/images/logo/Infopro-logo-216x94.png" alt="">
+                        <img src="../../../../app-assets/images/logo/Infopro-logo-216x94.png" alt="">
                     </span>
                 </a>
             </li>
@@ -42,7 +42,7 @@
                 </a>
                 <ul class="menu-content">
                     <li>
-                        <a class="d-flex align-items-center" href="communication/liste_comm_dg.php">
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/communication/liste_comm_dg.php">
                             <i data-feather="circle"></i>
                             <span class="menu-item text-truncate" data-i18n="Direction Générale">Direction Générale</span>
                         </a>
@@ -118,7 +118,7 @@
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fas fa-user-cog" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Pages">Admin APP</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" title="Gestion du personnel" href="admin/listeMembre.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Account Settings">Gestion du Personnel</span></a>
+                    <li><a class="d-flex align-items-center" title="Gestion du personnel" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/admin/listeMembre.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Account Settings">G.Personnel</span></a>
                     </li>
                     <li><a class="d-flex align-items-center" title="Gestion de l'application" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">Gestion de l'application</span></a>
                     </li>

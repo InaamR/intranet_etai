@@ -35,23 +35,20 @@ if (preg_match("/config/", $page)) {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>Cube | Liste des utilisateurs</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <title>Liste des membres - Infopro-Digital</title>
     <link rel="apple-touch-icon" href="../../../../app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../../../app-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../app-assets/images/ico/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
+        rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/vendors.min.css">
-	<link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/tables/datatable/datatables.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/file-uploaders/dropzone.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/tables/datatable/extensions/dataTables.checkboxes.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/extensions/toastr.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/animate/animate.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -60,31 +57,26 @@ if (preg_match("/config/", $page)) {
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/colors.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/components.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/themes/bordered-layout.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/pages/ui-feather.css">
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/file-uploaders/dropzone.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/pages/data-list-view.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/extensions/toastr.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/forms/validation/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/themes/bordered-layout.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
     <!-- END: Custom CSS-->
-	
-    
-    
- 
 
 </head>
 <!-- END: Head-->
 
 <!-- BEGIN: Body-->
 
-<body class="vertical-layout vertical-menu-modern 2-columns navbar-floating footer-static" data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click"
+    data-menu="vertical-menu-modern" data-col="">
 
 
     <!-- BEGIN: Header-->
@@ -111,8 +103,8 @@ if (preg_match("/config/", $page)) {
 	else {
 	
 		// On vérifie que la page est bien sur le serveur
-		if (file_exists("../include/".$page) && $page != 'index.php') {
-		   include("../include/".$page); 
+		if (file_exists("../../../include/".$page) && $page != 'index.php') {
+		   include("../../../include/".$page); 
 		}
 	
 		else {
@@ -149,8 +141,8 @@ if (preg_match("/config/", $page)) {
 	else {
 	
 		// On vérifie que la page est bien sur le serveur
-		if (file_exists("../include/".$page) && $page != 'index.php') {
-		   include("../include/".$page); 
+		if (file_exists("../../../include/".$page) && $page != 'index.php') {
+		   include("../../../include/".$page); 
 		}
 	
 		else {
@@ -173,65 +165,57 @@ if (preg_match("/config/", $page)) {
                             <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Membres/Activation</a>
+                                    <li class="breadcrumb-item"><a href="#">Admin APP</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Liste des membres
+                                    <li class="breadcrumb-item active">Gestion du Personnel
                                     </li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+                    <div class="form-group breadcrumb-right">
+                        <div class="dropdown">
+                        <button aria-expanded="false" aria-haspopup="true" class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle waves-effect waves-float waves-light" data-toggle="dropdown" type="button">Ajouter un membre au personnel</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#"><i data-feather='plus-square'></i>&nbsp&nbsp<span class="align-middle">Administration</span></a>
+                            <a class="dropdown-item" href="#"><i data-feather='plus-square'></i>&nbsp&nbsp<span class="align-middle">Collborateur</span></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="content-body">
     			<!-- Column selectors with Export Options and print table -->
                 <section id="data-list-view" class="data-list-view-header">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-content">
-                                
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <p>Use class as wrapper for to create a divider text</p>
-                                                <div class="divider">
-                                                    <div class="divider-text">Gestion du module</div>
-                                                </div>
-                                                <button type="button" class="btn btn-success action-edit float-right" id="add_membre"  tabindex="0" aria-controls="DataTables_Table_0"><i class="fa fa-plus-circle mr-1"></i>Ajouter un membre</button>
-
-                                                <?php
+                        <?php
 
 
-                                                if(!empty($_POST['validBannir'])) {
-                                                    Admin::bannir($_POST['id'], $_POST['message']);
-                                                }
+                        if(!empty($_POST['validBannir'])) {
+                            Admin::bannir($_POST['id'], $_POST['message']);
+                        }
 
-                                                if(!empty($_POST['debannir'])) {
-                                                    Admin::debannir($_POST['id']);
-                                                }
+                        if(!empty($_POST['debannir'])) {
+                            Admin::debannir($_POST['id']);
+                        }
 
-                                                if(!empty($_POST['moderateur'])) {
-                                                    Admin::passeModo($_POST['id']);
-                                                }
+                        if(!empty($_POST['moderateur'])) {
+                            Admin::passeModo($_POST['id']);
+                        }
 
-                                                if(!empty($_POST['membre'])) {
-                                                    Admin::passeMembre($_POST['id']);
-                                                }
+                        if(!empty($_POST['membre'])) {
+                            Admin::passeMembre($_POST['id']);
+                        }
 
-                                                if(!empty($_POST['inscription'])) {
-                                                    Activation::activationAuto(Membre::info($_POST['id'], 'pseudo'));
-                                                }
+                        if(!empty($_POST['inscription'])) {
+                            Activation::activationAuto(Membre::info($_POST['id'], 'pseudo'));
+                        }
 
 
-                                                ?>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        ?>
                         
                         <?php
                         if(!empty($_POST['bannir'])) {
@@ -277,9 +261,71 @@ if (preg_match("/config/", $page)) {
                         ?>
                                             
                         <div class="col-12">
+                            <!-- Basic table -->
+                        <section id="basic-datatable">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <table class="datatables-basic table" >
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Ordre</th>
+                                                    <th>id</th>
+                                                    <th>Nom et prénom</th>
+                                                    <th>Niveau des Membres</th>
+                                                    <th>Date d'ajout</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal to add new record -->
+                            <!-- <div class="modal modal-slide-in fade" id="modals-slide-in">
+                                <div class="modal-dialog sidebar-sm">
+                                    <form class="add-new-record modal-content pt-0">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                                        <div class="modal-header mb-1">
+                                            <h5 class="modal-title" id="exampleModalLabel">New Record</h5>
+                                        </div>
+                                        <div class="modal-body flex-grow-1">
+                                            <div class="form-group">
+                                                <label class="form-label" for="basic-icon-default-fullname">Full Name</label>
+                                                <input type="text" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="John Doe" aria-label="John Doe" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="basic-icon-default-post">Post</label>
+                                                <input type="text" id="basic-icon-default-post" class="form-control dt-post" placeholder="Web Developer" aria-label="Web Developer" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="basic-icon-default-email">Email</label>
+                                                <input type="text" id="basic-icon-default-email" class="form-control dt-email" placeholder="john.doe@example.com" aria-label="john.doe@example.com" />
+                                                <small class="form-text text-muted"> You can use letters, numbers & periods </small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="basic-icon-default-date">Joining Date</label>
+                                                <input type="text" class="form-control dt-date" id="basic-icon-default-date" placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY" />
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label class="form-label" for="basic-icon-default-salary">Salary</label>
+                                                <input type="text" id="basic-icon-default-salary" class="form-control dt-salary" placeholder="$12000" aria-label="$12000" />
+                                            </div>
+                                            <button type="button" class="btn btn-primary data-submit mr-1">Submit</button>
+                                            <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div> -->
+
+                        </section>
+                        
+                        <!--/ Basic table -->
                             <div class="card">
                             <div class="card-header">
-                                    <h4 class="card-title">Liste des membres SERVICE MÉTHODE :</h4>
+                                    <h4 class="card-title">Liste des membres du personnel ETAI :</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard"> 
@@ -310,53 +356,6 @@ if (preg_match("/config/", $page)) {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- add new sidebar starts -->
-                    <div class="add-new-data-sidebar">
-                        <div class="overlay-bg"></div>
-                        <div class="add-new-data">
-                            
-                            <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
-                                <div>
-                                    <h4 id="titre_h4"></h4>
-                                </div>
-                                <div class="hide-data-sidebar">
-                                    <i class="feather icon-x"></i>
-                                </div>
-                            </div>
-
-							<form class="form add" id="form_company" data-id="">
-
-                                <div class="data-items pb-3">
-                                    <div class="data-fields px-2 mt-3">
-                                        <div class="row">
-                                        
-                                            <div class="col-sm-12 data-field-col">
-                                            
-
-                                                <label for="nom_socle">Nom du socle*</label>
-                                                <div class="field_container">
-                                                <input type="text" class="form-control" id="nom_socle" name="nom_socle" required>
-                                                </div>
-                                                
-    
-                                            </div>
-                                            
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
-                                    <div class="add-data-btn">
-                                        <button class="btn btn-primary" type="submit" id="btn_ok"></button>
-                                    </div>
-                                    <div class="cancel-data-btn">
-                                        <button class="btn btn-outline-danger" type="reset">Annuler</button>
-                                    </div>
-                                </div>
-							
-                            </form>
                         </div>
                     </div>
                 </section>
@@ -392,8 +391,8 @@ if (preg_match("/config/", $page)) {
 	else {
 	
 		// On vérifie que la page est bien sur le serveur
-		if (file_exists("../include/".$page) && $page != 'index.php') {
-		   include("../include/".$page); 
+		if (file_exists("../../../include/".$page) && $page != 'index.php') {
+		   include("../../../include/".$page); 
 		}
 	
 		else {
@@ -407,47 +406,48 @@ if (preg_match("/config/", $page)) {
 
     <!-- BEGIN: Vendor JS-->
     <script src="../../../../app-assets/vendors/js/vendors.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/jquery.validate.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
+    <script src="../../../../app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="../../../../app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+    <script src="../../../../app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="../../../../app-assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
+    <script src="../../../../app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    <script src="../../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+    <script src="../../../../app-assets/vendors/js/tables/datatable/jszip.min.js"></script>
     <script src="../../../../app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
     <script src="../../../../app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
-    <script src="../../../../app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
     <script src="../../../../app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
     <script src="../../../../app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>  
-    <script src="../../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/forms/validation/jqBootstrapValidation.js"></script>
+    <script src="../../../../app-assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="../../../../app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
     <script src="../../../../app-assets/js/core/app-menu.js"></script>
     <script src="../../../../app-assets/js/core/app.js"></script>
-    <script src="../../../../app-assets/js/scripts/components.js"></script>
     <!-- END: Theme JS-->
 
-    <!-- BEGIN: Page JS
-    <script src="../../../../app-assets/js/scripts/datatables/datatable.js"></script>-->
-    <!-- END: Page JS-->
-    <script charset="utf-8" src="module/socle/table/js/webapp_liste_socle.js"></script>
-    
-    
     <!-- BEGIN: Page JS-->
-    <script src="../../../../app-assets/js/scripts/ui/data-list-view.js"></script>
-    <script src="../../../../app-assets/js/scripts/extensions/toastr.js"></script>
-    <script src="../../../../app-assets/js/scripts/extensions/sweet-alerts.js"></script>
-    <script src="../../../../app-assets/js/scripts/forms/validation/form-validation.js"></script>
+    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_dg_up.js"></script>
     <!-- END: Page JS-->
 
-    <script charset="utf-8" src="js/webapp_liste_membre.js"></script>
-    <script src="../../../../app-assets/js/scripts/modal/components-modal.js"></script>
-
-
+    <!-- BEGIN: Page JS-->
+    <script src="../../../../app-assets/js/scripts/ui/ui-feather.js"></script>
+    <!-- END: Page JS-->
+    
+    <script>
+        $(window).on('load', function () {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+        })
+    </script>
+    <script src="https://kit.fontawesome.com/7791373c6a.js" crossorigin="anonymous"></script>
 </body>
 <!-- END: Body-->
 
