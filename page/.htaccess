@@ -29,6 +29,7 @@ RewriteRule ^ListeGroupe$  module/admin/liste_equipe.php  [L]
 
 #COMM
 RewriteRule ^ComDG$  administrateur/communication/liste_comm_dg.php  [L]
+RewriteRule ^ComDGmodif$  administrateur/communication/modif_comm_dg.php  [L]
 
 #NIVEAU
 RewriteRule ^ListeNiveau$  module/niveau/liste_niveau.php  [L]
