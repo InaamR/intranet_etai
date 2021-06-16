@@ -58,6 +58,8 @@ if(empty($_SESSION['id'])){
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -73,6 +75,9 @@ if(empty($_SESSION['id'])){
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
+    
+    
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -185,7 +190,7 @@ if(empty($_SESSION['id'])){
                         <div class="dropdown">
                         <button aria-expanded="false" aria-haspopup="true" class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle waves-effect waves-float waves-light" data-toggle="dropdown" type="button">Écrire un article</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="modif_comm_dg.php"><i data-feather='plus-square'></i>&nbsp&nbsp<span class="align-middle">Comm DG</span></a>
+                            <a class="dropdown-item" href="modif_comm.php"><i data-feather='plus-square'></i>&nbsp&nbsp<span class="align-middle">Ajouter</span></a>
                         </div>
                         </div>
                     </div>
@@ -204,14 +209,15 @@ if(empty($_SESSION['id'])){
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card">
-                                        <table class="datatables-basic table" >
+                                        <table class="datatables-basic table" id="datatable">
                                             <thead>
                                                 <tr>
                                                     <th></th>
-                                                    <th>Ordre</th>
+                                                    <th></th>
                                                     <th>id</th>
                                                     <th>Nom et prénom</th>
-                                                    <th>Titre de l'article</th>
+                                                    <th>Catégorie</th>
+                                                    <th>Titre de l'article</th>                                                    
                                                     <th>Date d'ajout</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
@@ -339,10 +345,13 @@ if(empty($_SESSION['id'])){
 
     <!-- BEGIN: Page JS-->
     <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_dg_up.js"></script>
+    <script src="../../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script src="../../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
     <!-- END: Page JS-->
 
     <!-- BEGIN: Page JS-->
     <script src="../../../../app-assets/js/scripts/ui/ui-feather.js"></script>
+    <script src="../../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
     <!-- END: Page JS-->
     
     <script>

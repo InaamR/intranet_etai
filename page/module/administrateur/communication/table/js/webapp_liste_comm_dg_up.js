@@ -4,25 +4,27 @@
 
 $(function () {
   'use strict';
-
+  $(document).ready(function(){
   var dt_basic_table = $('.datatables-basic'),
     dt_date_table = $('.dt-date'),
     assetPath = '../app-assets/';
+  
+  var form_comm = $('#form_comm');
 
   
 
   // DataTable with buttons
   // --------------------------------------------------------------------
-
   if (dt_basic_table.length) {
     var dt_basic = dt_basic_table.DataTable({
-      ajax: 'table/php/data_liste_comm_dg.php?job=get_liste_comm_dg',
+      ajax: 'table/php/data_liste_comm_dg.php?job=get_liste_comm',
       columns: [    
         { data: 'responsive_id' },
         { data: 'id' },
         { data: 'id' }, // used for sorting so will hide this column    
         { data: 'full_name' },
-        { data: 'email' },
+        { data: 'cat' },
+        { data: 'post' },
         { data: 'start_date' },
         { data: 'status' },
         { data: 'Actions' }
@@ -100,57 +102,6 @@ $(function () {
         {
           responsivePriority: 1,
           targets: 4
-        },
-        {
-          // Label
-          /*targets: -2,
-          render: function (data, type, full, meta) {
-            var $status_number = full['status'];
-            var $status = {
-              1: { title: 'Current', class: 'badge-light-primary' },
-              2: { title: 'Professional', class: ' badge-light-success' },
-              3: { title: 'Rejected', class: ' badge-light-danger' },
-              4: { title: 'Resigned', class: ' badge-light-warning' },
-              5: { title: 'Applied', class: ' badge-light-info' }
-            };
-            if (typeof $status[$status_number] === 'undefined') {
-              return data;
-            }
-            return (
-              '<span class="badge badge-pill ' +
-              $status[$status_number].class +
-              '">' +
-              $status[$status_number].title +
-              '</span>'
-            );
-          }*/
-        },
-        {
-          // Actions
-          targets: -1,
-          title: 'Actions',
-          orderable: false,
-          render: function (data, type, full, meta) {
-            return (
-              '<div class="d-inline-flex">' +
-              '<a class="pr-1 dropdown-toggle hide-arrow text-primary" data-toggle="dropdown">' +
-              feather.icons['menu'].toSvg({ class: 'font-large-1' }) +
-              '</a>' +
-              '<div class="dropdown-menu dropdown-menu-right">' +
-              '<a href="javascript:;" class="dropdown-item">' +
-              feather.icons['file-text'].toSvg({ class: 'font-small-4 mr-50' }) +
-              'Valider</a>' +
-              '<a href="javascript:;" class="dropdown-item">' +
-              feather.icons['archive'].toSvg({ class: 'font-small-4 mr-50' }) +
-              'Archiver</a>' +
-              '<a href="javascript:;" class="dropdown-item delete-record">' +
-              feather.icons['trash-2'].toSvg({ class: 'font-small-4 mr-50' }) +
-              'Supprimer</a>' +
-              '</div>' +
-              '</div>' +
-              '<button type="button" class="btn btn-info btn-sm waves-effect waves-float waves-light">Modifier</button>'
-            );
-          }
         }
       ],
       order: [[2, 'desc']],
@@ -260,9 +211,9 @@ $(function () {
           search: "Recherche :"
       }
     });
-    $('div.head-label').html('<h6 class="mb-0">Communication direction générale</h6>');
+    $('div.head-label').html('<h6 class="mb-0">Liste des communications ETAI/COMML</h6>');
+  
   }
-
   // Flat Date picker
   if (dt_date_table.length) {
     dt_date_table.flatpickr({
@@ -300,8 +251,127 @@ $(function () {
   });
 
   // Delete Record
-  $('.datatables-basic tbody').on('click', '.delete-record', function () {
-    dt_basic.row($(this).parents('tr')).remove().draw();
+  $(document).on('click', '.delete-record', function (e) {
+    Swal.fire({
+		  title: 'Êtes-vous sûr ?',
+		  text: "Vous ne pourrez pas annuler cela !",
+		  type: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: 'Oui, supprimez-le !',
+		  confirmButtonClass: 'btn btn-primary',
+		  cancelButtonClass: 'btn btn-danger ml-1',
+		  buttonsStyling: false,
+		}).then(function (result) {
+		  if (result.value) {
+							e.preventDefault();
+							var id      = $(".delete-record").data('id');
+							var name      = $(".delete-record").data('name');
+							var request = $.ajax({
+							url:          'table/php/data_liste_comm_dg.php?job=del_com&id=' + id,
+							cache:        false,
+							dataType:     'json',
+							contentType:  'application/json; charset=utf-8',
+							type:         'get'
+							});
+							
+							request.done(function(output){
+								if (output.result == 'success'){
+									  Swal.fire({
+										  type: "success",
+										  title: 'Supprimée!',
+										  text: "Niveau '" + name + "' effacé avec succès.",
+										  confirmButtonClass: 'btn btn-success',
+										});
+                    dt_basic.ajax.reload();
+								} else {
+									Swal.fire({
+									  title: 'Annulée',
+									  text: "Une erreur s'est produite lors de l'enregistrement " + textStatus,
+									  type: 'error',
+									  confirmButtonClass: 'btn btn-success',
+									})
+								}
+							});
+							request.fail(function(jqXHR, textStatus){
+								Swal.fire({
+								  title: 'Annulée',
+								  text: "Une erreur s'est produite lors de l'enregistrement " + textStatus,
+								  type: 'error',
+								  confirmButtonClass: 'btn btn-success',
+								})
+							})
+			
+		  }
+		  else if (result.dismiss === Swal.DismissReason.cancel) {
+			  
+			Swal.fire({
+			  title: 'Annulée',
+			  text: 'Votre fichier est en sécurité',
+			  type: 'error',
+			  confirmButtonClass: 'btn btn-success',
+			})
+		  }
+		})
   });
 
+  $(document).on('submit', '#form_comm.add', function(){
+	
+	  			
+      var form_data = $('#form_comm').serialize();
+	  
+      var request   = $.ajax({
+        url:          'table/php/data_liste_comm_dg.php?job=add_comm',
+        cache:        false,
+        data:         form_data,
+        dataType:     'json',
+        contentType:  'application/json; charset=utf-8',
+        type:         'get'
+      });
+	  
+      request.done(function(output){
+        if (output.result == 'success'){		
+			
+          $.blockUI({
+            message:
+              '<div class="d-flex justify-content-center align-items-center"><p class="mr-50 mb-0">Please wait...</p> <div class="spinner-grow spinner-grow-sm text-white" role="status"></div> </div>',
+            timeout: 1000,
+            css: {
+              backgroundColor: 'transparent',
+              color: '#fff',
+              border: '0'
+            },
+            overlayCSS: {
+              opacity: 0.5
+            }
+          });
+          window.location.replace("liste_comm.php");
+			
+		  
+        } else {
+          Swal.fire({
+            title: "ERREUR !",
+            text: "ALERTE : " + output.message,
+            type: "error",
+            confirmButtonClass: 'btn btn-primary',
+            buttonsStyling: false,
+          });
+        }
+
+      });
+	  
+      request.fail(function(jqXHR, textStatus){
+        Swal.fire({
+          title: "ERREUR !",
+          text: "ALERTE : " + output.message,
+          type: "error",
+          confirmButtonClass: 'btn btn-primary',
+          buttonsStyling: false,
+        });  
+      });
+  });
+
+
+});
 });

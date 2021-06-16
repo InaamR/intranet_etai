@@ -42,35 +42,11 @@
                 </a>
                 <ul class="menu-content">
                     <li>
-                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/communication/liste_comm_dg.php">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="Direction Générale">Direction Générale</span>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/communication/liste_comm.php">
+                            <i data-feather="plus"></i>
+                            <span class="menu-item text-truncate" data-i18n="Direction Générale">Gestion Comm.</span>
                         </a>
-                    </li>
-                    <li>
-                        <a class="d-flex align-items-center" href="com_rh.php">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="Profile">Res. Humaine</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="d-flex align-items-center" href="com_sg.php">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="Knowledge Base">Service généraux</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="d-flex align-items-center" href="com_dsi.php">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="FAQ">DSI</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="d-flex align-items-center" href="com_cce.php">
-                            <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="Pricing">CCE</span>
-                        </a>
-                    </li>
+                    </li>                    
                 </ul>
             </li>
 
