@@ -2,7 +2,7 @@
     "use strict";
 $(document).ready(function(){
 	
-  	var table_companies = $('#table_niveau').dataTable({
+var table_companies = $('#table_niveau').dataTable({
 		
 	"bStateSave": false,
 	
