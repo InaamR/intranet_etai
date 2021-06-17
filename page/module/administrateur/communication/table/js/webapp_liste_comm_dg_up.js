@@ -328,9 +328,7 @@ $(function () {
         data:         form_data,
         dataType:     'json',
         contentType:  'application/json; charset=utf-8',
-        type:         'get',
-        method: "POST", 
-            body: formData
+        type:         'get'
       });
       
       
@@ -340,7 +338,7 @@ $(function () {
           
           
 
-          /*$.blockUI({
+          $.blockUI({
             message:
               '<div class="d-flex justify-content-center align-items-center"><p class="mr-50 mb-0">Please wait...</p> <div class="spinner-grow spinner-grow-sm text-white" role="status"></div> </div>',
             timeout: 1000,
@@ -352,8 +350,8 @@ $(function () {
             overlayCSS: {
               opacity: 0.5
             }
-          });*/
-          //window.location.replace("liste_comm.php");
+          });
+          window.location.replace("liste_comm.php");
 			
 		  
         } else {

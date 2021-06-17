@@ -286,7 +286,7 @@ $PDO_query_comm_unique->closeCursor();
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
                                                     <label for="blog-edit-status">Status *:</label>
-                                                    <select class="form-control" id="blog-edit-status" name="statu">
+                                                    <select class="select2 form-control" id="blog-edit-status" name="statu">
                                                         <?php 
                                                             if($communication['etai_intranet_comm_statut'] == 1){ echo '<option value="1" selected>En attente de confirmation</option>';}else{ echo '<option value="1">En attente de confirmation</option>';}
                                                             if($communication['etai_intranet_comm_statut'] == 2){ echo '<option value="2" selected>Valider</option>';}else{ echo '<option value="2">Valider</option>';}
@@ -302,12 +302,12 @@ $PDO_query_comm_unique->closeCursor();
                                                     <input name="about" type="hidden">
                                                     <div id="blog-editor-wrapper">
                                                         <div id="blog-editor-container">
-                                                            <div class="editor">
+                                                            <textarea div class="editor form-control" rows="3">
                                                             <?php
                                                             if(!empty($id_comm))
                                                             {echo $communication['etai_intranet_comm_desc'];}                                                           
                                                             ?>
-                                                            </div>
+                                                            </textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -330,10 +330,10 @@ $PDO_query_comm_unique->closeCursor();
                                                             <div class="d-inline-block">
                                                                 <div class="form-group mb-0">
                                                                     <div class="custom-file">
-                                                                        <input name="fileupload" type="file" class="custom-file-input" id="fileupload" accept="image/*" required/>
+                                                                        <input name="fileupload" type="file" class="custom-file-input" id="blogCustomFile" accept="image/*" required/>
                                                                         <label class="custom-file-label" for="blogCustomFile">Choisir un fichier</label>
                                                                         <div class="valid-feedback">Champs valider !</div>
-                                                    <div class="invalid-feedback">Champs Obligatoire !</div>
+                                                                        <div class="invalid-feedback">Champs Obligatoire !</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
