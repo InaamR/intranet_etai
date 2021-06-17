@@ -138,11 +138,17 @@ if ($job != '') {
 
     } elseif ($job == 'add_comm') {
         try {
-            $query = Bdd::connectBdd()->prepare("INSERT INTO etai_intranet_comm (`etai_intranet_comm_titre`,`etai_intranet_comm_sous_titre`, `etai_intranet_comm_date`)
-			 VALUES (:comm_titre, :comm_sous_titre, now())");
+            $query = Bdd::connectBdd()->prepare("INSERT INTO etai_intranet_comm (`etai_intranet_comm_titre`, `etai_intranet_comm_sous_titre`, `etai_intranet_comm_date`, `etai_intranet_comm_desc`, `etai_intranet_comm_img`, `etai_intranet_comm_statut`, `etai_intranet_comm_cat`, `etai_intranet_comm_email_user`, `etai_intranet_comm_user`)
+			 VALUES (:comm_titre, :comm_sous_titre, now(), :desc, :img, :statu, :cat, :email, :user)");
 
             $query->bindParam(":comm_titre", $_GET['titre'], PDO::PARAM_STR);
             $query->bindParam(":comm_sous_titre", $_GET['stitre'], PDO::PARAM_STR);
+            $query->bindParam(":desc", $_GET['about'], PDO::PARAM_STR);
+            $query->bindParam(":img", $_FILES['file']['name'], PDO::PARAM_STR);
+            $query->bindParam(":statu", $_GET['statu'], PDO::PARAM_INT);
+            $query->bindParam(":cat", $_GET['cat'], PDO::PARAM_INT);
+            $query->bindParam(":email", $_GET['email'], PDO::PARAM_STR);
+            $query->bindParam(":user", $_GET['user'], PDO::PARAM_STR);
 
             $query->execute();
             $query->closeCursor();

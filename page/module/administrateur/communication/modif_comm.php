@@ -45,6 +45,7 @@ $PDO_query_comm_unique->execute();
 $communication = $PDO_query_comm_unique->fetch();
 $PDO_query_comm_unique->closeCursor();
 
+
 ?>
 <!DOCTYPE html>
 <html class="loading bordered-layout" lang="Fr" data-layout="bordered-layout" data-textdirection="ltr">
@@ -92,7 +93,16 @@ $PDO_query_comm_unique->closeCursor();
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
     <!-- END: Custom CSS-->
-
+    <script>
+        async function uploadFile() {
+            let formData = new FormData();           
+            formData.append("file", fileupload.files[0]);
+            await fetch('table/php/myscript.php', {
+            method: "POST", 
+            body: formData
+            });    
+        }
+    </script>
 </head>
 <!-- END: Head-->
 
@@ -226,10 +236,12 @@ $PDO_query_comm_unique->closeCursor();
                                         </div>
                                     </div>
                                     <!-- Form -->
-                                    <form class="mt-2 needs-validation <?php
+                                    <form method="post" class="mt-2 needs-validation <?php
                                                             if(!empty($id_comm))
                                                             {echo 'edit';}else{echo 'add';}                                                         
-                                                            ?>" id="form_comm" novalidate>
+                                                            ?>" id="form_comm"  enctype="multipart/form-data" novalidate>
+                                                            <input name="user" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'nom').' '.Membre::info($_SESSION['id'], 'prenom');?>">
+                                                            <input name="email" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'email');?>">
                                         <div class="row">
 
                                             <div class="col-md-6 col-12">
@@ -247,13 +259,13 @@ $PDO_query_comm_unique->closeCursor();
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
                                                     <label for="blog-edit-category">Catégories *:</label>
-                                                    <select id="blog-edit-category" class="select2 form-control" multiple>                                                        
+                                                    <select id="blog-edit-category" class="select2 form-control" name="cat" required>                                                        
                                                         <?php 
-                                                            if($communication['etai_intranet_comm_statut'] == 1){ echo '<option value="1" selected>Direction générale</option>';}else{ echo '<option value="1">Direction générale</option>';}
-                                                            if($communication['etai_intranet_comm_statut'] == 2){ echo '<option value="2" selected>RH</option>';}else{ echo '<option value="2">RH</option>';}
-                                                            if($communication['etai_intranet_comm_statut'] == 3){ echo '<option value="3" selected>Services généraux</option>';}else{ echo '<option value="3">Services généraux</option>';}
-                                                            if($communication['etai_intranet_comm_statut'] == 4){ echo '<option value="4" selected>DSI</option>';}else{ echo '<option value="4">DSI</option>';}
-                                                            if($communication['etai_intranet_comm_statut'] == 5){ echo '<option value="4" selected>CCE</option>';}else{ echo '<option value="4">CCE</option>';}
+                                                            if($communication['etai_intranet_comm_cat'] == 1){ echo '<option value="1" selected>Direction générale</option>';}else{ echo '<option value="1">Direction générale</option>';}
+                                                            if($communication['etai_intranet_comm_cat'] == 2){ echo '<option value="2" selected>RH</option>';}else{ echo '<option value="2">RH</option>';}
+                                                            if($communication['etai_intranet_comm_cat'] == 3){ echo '<option value="3" selected>Services généraux</option>';}else{ echo '<option value="3">Services généraux</option>';}
+                                                            if($communication['etai_intranet_comm_cat'] == 4){ echo '<option value="4" selected>DSI</option>';}else{ echo '<option value="4">DSI</option>';}
+                                                            if($communication['etai_intranet_comm_cat'] == 5){ echo '<option value="4" selected>CCE</option>';}else{ echo '<option value="4">CCE</option>';}
                                                         ?>
                                                     </select>
                                                     <div class="valid-feedback">Champs valider !</div>
@@ -274,7 +286,7 @@ $PDO_query_comm_unique->closeCursor();
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
                                                     <label for="blog-edit-status">Status *:</label>
-                                                    <select class="form-control" id="blog-edit-status">
+                                                    <select class="form-control" id="blog-edit-status" name="statu">
                                                         <?php 
                                                             if($communication['etai_intranet_comm_statut'] == 1){ echo '<option value="1" selected>En attente de confirmation</option>';}else{ echo '<option value="1">En attente de confirmation</option>';}
                                                             if($communication['etai_intranet_comm_statut'] == 2){ echo '<option value="2" selected>Valider</option>';}else{ echo '<option value="2">Valider</option>';}
@@ -306,7 +318,7 @@ $PDO_query_comm_unique->closeCursor();
                                                     <div class="media flex-column flex-md-row">
                                                         <?php
                                                         if(!empty($id_comm))
-                                                        {echo '<img src="upload/'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';}
+                                                        {echo '<img src="uploads/'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';}
                                                         else
                                                         {echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';}
                                                         ?>
@@ -318,8 +330,10 @@ $PDO_query_comm_unique->closeCursor();
                                                             <div class="d-inline-block">
                                                                 <div class="form-group mb-0">
                                                                     <div class="custom-file">
-                                                                        <input type="file" class="custom-file-input" id="blogCustomFile" accept="image/*" />
+                                                                        <input name="fileupload" type="file" class="custom-file-input" id="fileupload" accept="image/*" required/>
                                                                         <label class="custom-file-label" for="blogCustomFile">Choisir un fichier</label>
+                                                                        <div class="valid-feedback">Champs valider !</div>
+                                                    <div class="invalid-feedback">Champs Obligatoire !</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -328,7 +342,7 @@ $PDO_query_comm_unique->closeCursor();
                                                 </div>
                                             </div>
                                             <div class="col-12 mt-50">
-                                                <button type="submit" class="btn btn-primary mr-1">Enregistrement</button>
+                                                <button type="submit" class="btn btn-primary mr-1"  onclick="uploadFile()">Enregistrement</button>
                                                 <button type="reset" class="btn btn-outline-secondary">Annuler</button>
                                             </div>
                                         </div>
