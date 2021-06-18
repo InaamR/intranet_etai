@@ -426,18 +426,36 @@ $PDO_query_comm_unique->closeCursor();
 
     <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_dg_up.js"></script>
     <script src="../../../../app-assets/js/scripts/extensions/ckeditor.js"></script>
+    <script src="../../../../app-assets/js/scripts/extensions/ckfinder.js"></script>
 
 <script>
 	ClassicEditor
 		.create( document.querySelector( '#editor' ), {
-			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            ckfinder: {
+             uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+            },
+            toolbar: {
+            items: [ 'ckfinder', 'imageUpload', '|', 'heading', '|',
+        'fontfamily', 'fontsize', '|',
+        'alignment', '|',
+        'fontColor', 'fontBackgroundColor', '|',
+        'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
+        'link', '|',
+        'outdent', 'indent', '|',
+        'bulletedList', 'numberedList', 'todoList', '|',
+        'code', 'codeBlock', '|',
+        'insertTable', '|', 'blockQuote', '|',
+        'undo', 'redo' ],
+            viewportTopOffset: 30,
+            shouldNotGroupWhenFull: true
+            }
 		} )
 		.then( editor => {
 			window.editor = editor;
 		} )
-		.catch( err => {
-			console.error( err.stack );
-		} );
+		.catch( function( error ) {
+         console.error( error );
+     } );
 
         $(window).on('load', function () {
             if (feather) {
@@ -446,7 +464,7 @@ $PDO_query_comm_unique->closeCursor();
                     height: 14
                 });
             }
-        })
+        });
     </script>
     <script src="https://kit.fontawesome.com/7791373c6a.js" crossorigin="anonymous"></script>
 </body>
