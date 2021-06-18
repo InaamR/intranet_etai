@@ -64,9 +64,7 @@ $PDO_query_comm_unique->closeCursor();
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/vendors.min.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/forms/select/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/editors/quill/katex.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/editors/quill/monokai-sublime.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/editors/quill/quill.snow.css">
+    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/extensions/sample.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
     <!-- END: Vendor CSS-->
 
@@ -94,14 +92,14 @@ $PDO_query_comm_unique->closeCursor();
     <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
     <!-- END: Custom CSS-->
     <script>
-        async function uploadFile() {
+        /*async function uploadFile() {
             let formData = new FormData();           
             formData.append("file", fileupload.files[0]);
             await fetch('table/php/myscript.php', {
             method: "POST", 
             body: formData
             });    
-        }
+        }*/
     </script>
 </head>
 <!-- END: Head-->
@@ -299,10 +297,10 @@ $PDO_query_comm_unique->closeCursor();
                                             <div class="col-12">
                                                 <div class="form-group mb-2">
                                                     <label>Texte de l'article *:</label>
-                                                    <input name="about" type="hidden">
+                                                    
                                                     <div id="blog-editor-wrapper">
                                                         <div id="blog-editor-container">
-                                                            <textarea div class="editor form-control" rows="3">
+                                                            <textarea name ="desc" class="editor form-control" rows="3" id="editor">
                                                             <?php
                                                             if(!empty($id_comm))
                                                             {echo $communication['etai_intranet_comm_desc'];}                                                           
@@ -342,7 +340,7 @@ $PDO_query_comm_unique->closeCursor();
                                                 </div>
                                             </div>
                                             <div class="col-12 mt-50">
-                                                <button type="submit" class="btn btn-primary mr-1"  onclick="uploadFile()">Enregistrement</button>
+                                                <button type="submit" class="btn btn-primary mr-1">Enregistrement</button>
                                                 <button type="reset" class="btn btn-outline-secondary">Annuler</button>
                                             </div>
                                         </div>
@@ -408,9 +406,7 @@ $PDO_query_comm_unique->closeCursor();
 
     <!-- BEGIN: Page Vendor JS-->
     <script src="../../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/editors/quill/katex.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/editors/quill/highlight.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/editors/quill/quill.min.js"></script>
+    
     <script src="../../../../app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
     <!-- END: Page Vendor JS-->
 
@@ -429,8 +425,20 @@ $PDO_query_comm_unique->closeCursor();
     <!-- END: Page JS-->
 
     <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_dg_up.js"></script>
-    
-    <script>
+    <script src="../../../../app-assets/js/scripts/extensions/ckeditor.js"></script>
+
+<script>
+	ClassicEditor
+		.create( document.querySelector( '#editor' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+
         $(window).on('load', function () {
             if (feather) {
                 feather.replace({
