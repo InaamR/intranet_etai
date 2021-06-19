@@ -144,7 +144,7 @@ if ($job != '') {
             $query->bindParam(":comm_titre", $_GET['titre'], PDO::PARAM_STR);
             $query->bindParam(":comm_sous_titre", $_GET['stitre'], PDO::PARAM_STR);
             $query->bindParam(":desc", $_GET['desc'], PDO::PARAM_STR);
-            $query->bindParam(":img", $_FILES['file']['name'], PDO::PARAM_STR);
+            $query->bindParam(":img", $_GET['img'], PDO::PARAM_STR);
             $query->bindParam(":statu", $_GET['statu'], PDO::PARAM_INT);
             $query->bindParam(":cat", $_GET['cat'], PDO::PARAM_INT);
             $query->bindParam(":email", $_GET['email'], PDO::PARAM_STR);

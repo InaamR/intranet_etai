@@ -86,21 +86,14 @@ $PDO_query_comm_unique->closeCursor();
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/forms/form-validation.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/forms/pickers/form-flat-pickr.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
+    
     <!-- END: Custom CSS-->
-    <script>
-        /*async function uploadFile() {
-            let formData = new FormData();           
-            formData.append("file", fileupload.files[0]);
-            await fetch('table/php/myscript.php', {
-            method: "POST", 
-            body: formData
-            });    
-        }*/
-    </script>
+    <script src="https://cdn.ckeditor.com/4.16.1/full/ckeditor.js"></script>
 </head>
 <!-- END: Head-->
 
@@ -300,7 +293,7 @@ $PDO_query_comm_unique->closeCursor();
                                                     
                                                     <div id="blog-editor-wrapper">
                                                         <div id="blog-editor-container">
-                                                            <textarea name ="desc" class="editor form-control" rows="3" id="editor">
+                                                            <textarea name="desc" class="editor form-control" cols="80" id="editor1" rows="10" data-sample-short>
                                                             <?php
                                                             if(!empty($id_comm))
                                                             {echo $communication['etai_intranet_comm_desc'];}                                                           
@@ -316,7 +309,7 @@ $PDO_query_comm_unique->closeCursor();
                                                     <div class="media flex-column flex-md-row">
                                                         <?php
                                                         if(!empty($id_comm))
-                                                        {echo '<img src="uploads/'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';}
+                                                        {echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';}
                                                         else
                                                         {echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';}
                                                         ?>
@@ -325,11 +318,17 @@ $PDO_query_comm_unique->closeCursor();
                                                             <p class="my-50">
                                                                 <a id="blog-image-text">C:\fakepath\banner.jpg</a>
                                                             </p>
-                                                            <div class="d-inline-block">
+                                                            <div class="d-inline-block col-12 mb-0">
                                                                 <div class="form-group mb-0">
                                                                     <div class="custom-file">
-                                                                        <input name="fileupload" type="file" class="custom-file-input" id="blogCustomFile" accept="image/*" required/>
-                                                                        <label class="custom-file-label" for="blogCustomFile">Choisir un fichier</label>
+                                                                    
+                                                                        <input id="txtSelectedFile" type="text" class="form-control" name="img" placeholder="Maximum 255 caractéres !" style="cursor:pointer;"  onclick="openCustomRoxy2()" value="" required>
+
+                                                                        <div id="roxyCustomPanel2" style="display: none;">
+                                                                        <iframe src="fileman/index.html?integration=custom&type=files&txtFieldId=txtSelectedFile" style="width:100%;height:100%" frameborder="0">
+                                                                        </iframe>
+                                                                        </div>
+
                                                                         <div class="valid-feedback">Champs valider !</div>
                                                                         <div class="invalid-feedback">Champs Obligatoire !</div>
                                                                     </div>
@@ -422,41 +421,29 @@ $PDO_query_comm_unique->closeCursor();
     <script src="../../../../app-assets/js/scripts/forms/form-validation.js"></script>
     <script src="../../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
     <script src="../../../../app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
+    
     <!-- END: Page JS-->
 
     <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_dg_up.js"></script>
-    <script src="../../../../app-assets/js/scripts/extensions/ckeditor.js"></script>
-    <script src="../../../../app-assets/js/scripts/extensions/ckfinder.js"></script>
+    
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
 <script>
-	ClassicEditor
-		.create( document.querySelector( '#editor' ), {
-            ckfinder: {
-             uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-            },
-            toolbar: {
-            items: [ 'ckfinder', 'imageUpload', '|', 'heading', '|',
-        'fontfamily', 'fontsize', '|',
-        'alignment', '|',
-        'fontColor', 'fontBackgroundColor', '|',
-        'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
-        'link', '|',
-        'outdent', 'indent', '|',
-        'bulletedList', 'numberedList', 'todoList', '|',
-        'code', 'codeBlock', '|',
-        'insertTable', '|', 'blockQuote', '|',
-        'undo', 'redo' ],
-            viewportTopOffset: 30,
-            shouldNotGroupWhenFull: true
-            }
-		} )
-		.then( editor => {
-			window.editor = editor;
-		} )
-		.catch( function( error ) {
-         console.error( error );
-     } );
-
+    
+    var roxyFileman = 'fileman/index.html?integration=ckeditor';
+$(function(){
+  CKEDITOR.replace( 'editor1',{filebrowserBrowseUrl:roxyFileman, 
+                               filebrowserImageBrowseUrl:roxyFileman+'&type=image',
+                               removeDialogTabs: 'link:upload;image:upload'});
+});
+        
+function openCustomRoxy2(){
+  $('#roxyCustomPanel2').dialog({modal:false, width:875,height:600});
+}
+function closeCustomRoxy2(){
+  $('#roxyCustomPanel2').dialog('close');
+}
         $(window).on('load', function () {
             if (feather) {
                 feather.replace({
@@ -464,7 +451,9 @@ $PDO_query_comm_unique->closeCursor();
                     height: 14
                 });
             }
-        });
+        });       
+        
+
     </script>
     <script src="https://kit.fontawesome.com/7791373c6a.js" crossorigin="anonymous"></script>
 </body>

@@ -13,7 +13,7 @@
   var editor = '#blog-editor-container .editor';
   var blogFeatureImage = $('#blog-feature-image');
   var blogImageText = document.getElementById('blog-image-text');
-  var blogImageInput = $('#blogCustomFile');
+  var blogImageInput = $('#txtSelectedFile');
 
   // Basic Select2 select
   select.each(function () {
@@ -102,28 +102,24 @@
     theme: 'snow'
   });
 
-  var form = document.querySelector('form');
-  form.onsubmit = function() {
-    // Populate hidden form on submit
-    var about = document.querySelector('input[name=about]');
-    about.value = JSON.stringify(blogEditor.getContents());
-    
-    
-    return false;
-  };
-
+ 
   // Change featured image
   if (blogImageInput.length) {
+
     $(blogImageInput).on('change', function (e) {
+
       var reader = new FileReader(),
-        files = e.target.files;
+      files = e.target.files;
       reader.onload = function () {
         if (blogFeatureImage.length) {
           blogFeatureImage.attr('src', reader.result);
         }
       };
+
       reader.readAsDataURL(files[0]);
       blogImageText.innerHTML = blogImageInput.val();
+
     });
   }
+
 })(window, document, jQuery);
