@@ -81,14 +81,13 @@ $PDO_query_comm_unique->closeCursor();
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/forms/form-validation.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/forms/pickers/form-flat-pickr.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
-    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">    
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
     
     <!-- END: Custom CSS-->
-    <script src="https://cdn.ckeditor.com/4.16.1/full/ckeditor.js"></script>
 </head>
 <!-- END: Head-->
 
@@ -225,14 +224,18 @@ $PDO_query_comm_unique->closeCursor();
                                     </div>
 
                                     <!-- Form -->
-                                    <form method="post" id="jquery-val-form" class="<?php
-                                                            if(!empty($id_comm))
-                                                            {echo 'edit';}else{echo 'add';}                                                         
-                                                            ?>" 
-                                                            id="form_comm"  enctype="multipart/form-data">
+                                    <form 
+                                    method="post" id="jquery-val-form" 
+                                    class="<?php
+                                    if(!empty($id_comm))
+                                    {echo 'edit';}else{echo 'add';}                                                         
+                                    ?>" 
+                                    id="form_comm"  
+                                    enctype="multipart/form-data">
                                                             
                                         <input name="user" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'nom').' '.Membre::info($_SESSION['id'], 'prenom');?>">
                                         <input name="email" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'email');?>">
+
                                         <div class="row">
 
                                             <div class="col-md-6 col-12">
@@ -264,6 +267,7 @@ $PDO_query_comm_unique->closeCursor();
                                                     </select>
                                                 </div>
                                             </div>
+
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
                                                     <label for="basic-default-stitre">Sous-titre *:</label>
@@ -274,6 +278,7 @@ $PDO_query_comm_unique->closeCursor();
                                                     
                                                 </div>
                                             </div>
+
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
                                                     <label for="blog-edit-status">Status *:</label>
@@ -285,17 +290,16 @@ $PDO_query_comm_unique->closeCursor();
                                                             if($communication['etai_intranet_comm_statut'] == 4){ echo '<option value="4" selected>Annuler</option>';}else{ echo '<option value="4">Annuler</option>';}
                                                         ?>
                                                     </select>
-                                                    <div class="valid-feedback">Champs valider !</div>
-                                                    <div class="invalid-feedback">Champs Obligatoire !</div>
                                                 </div>
                                             </div>
+
                                             <div class="col-12">
                                                 <div class="form-group mb-2">
                                                     <label>Texte de l'article *:</label>
                                                     
                                                     <div id="blog-editor-wrapper">
                                                         <div id="blog-editor-container">
-                                                            <textarea name="desc" class="editor form-control" cols="80" id="editor1" rows="10" data-sample-short required>
+                                                            <textarea name="desc" class="editor form-control" cols="80" id="editor" rows="10" data-sample-short required>
                                                             <?php
                                                             if(!empty($id_comm))
                                                             {echo $communication['etai_intranet_comm_desc'];}                                                           
@@ -305,47 +309,76 @@ $PDO_query_comm_unique->closeCursor();
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-12 mb-2">
                                                 <div class="border rounded p-2">
                                                     <h4 class="mb-1">Image principale de l'article *:</h4>
+
                                                     <div class="media flex-column flex-md-row">
+
                                                         <?php
                                                         if(!empty($id_comm))
-                                                        {echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';}
+                                                        {
+                                                            echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';
+                                                        }
                                                         else
-                                                        {echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';}
+                                                        {
+                                                            echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';
+                                                        }
                                                         ?>
+
                                                         <div class="media-body">
+
                                                             <small class="text-muted">Aucune limite de taille et de poids pour les images !</small>
+
                                                             <p class="my-50">
-                                                                <a id="blog-image-text"><?php if(!empty($id_comm)){echo $communication['etai_intranet_comm_img'];}else{echo 'C:\fakepath\image.jpg';}?></a>
-                                                            </p>
-                                                            <div class="d-inline-block col-12 mb-0">
-                                                                <div class="form-group mb-0">
-                                                                    <div class="custom-file">
+                                                                <a id="blog-image-text">
+
+                                                                    <?php 
+                                                                    if(!empty($id_comm)){
+                                                                        echo $communication['etai_intranet_comm_img'];
+                                                                    }else{
+                                                                        echo 'C:\fakepath\image.jpg';
+                                                                    }
+                                                                    ?>
                                                                     
-                                                                        <input id="txtSelectedFile" type="text" class="form-control" name="img" style="cursor:pointer;"  onclick="openCustomRoxy2()" required>
+                                                                </a>
+                                                            </p>
 
-                                                                        <div id="roxyCustomPanel2" style="display: none;">
-                                                                        <iframe src="fileman/index.html?integration=custom&type=files&txtFieldId=txtSelectedFile" style="width:100%;height:100%" frameborder="0">
-                                                                        </iframe>
+                                                            <div class="d-inline-block col-12 ">
+                                                                    <div class="custom-file">
+
+                                                                        <div class="col-md-4 col-6">
+                                                                            <div class="form-group">
+                                                                            <input id="ckfinder-input-1" type="text" class="form-control" name="img" required> 
+                                                                            </div>
                                                                         </div>
+                                                                        <div class="col-md-4 col-6">
+                                                                            <div class="form-group">
+                                                                            <a id="ckfinder-popup-1" class="btn btn-dark waves-effect waves-float waves-light">
+                                                                                <i data-feather="upload" class="mr-25"></i>
+                                                                                <span>Choisir une image</span>
+                                                                            </a> 
+                                                                            </div>
+                                                                        </div>                                       
+                                                                        
 
-                                                                        <div class="valid-feedback">Champs valider !</div>
-                                                                        <div class="invalid-feedback">Champs Obligatoire !</div>
                                                                     </div>
-                                                                </div>
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-12 mt-50">
                                                 <button type="submit" class="btn btn-primary mr-1">Enregistrement</button>
                                                 <button type="reset" class="btn btn-outline-secondary">Annuler</button>
                                             </div>
+
                                         </div>
                                     </form>
+                                    
                                     <!--/ Form -->
                                 </div>
                             </div>
@@ -424,28 +457,79 @@ $PDO_query_comm_unique->closeCursor();
     <script src="../../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
     <script src="../../../../app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
     <script src="../../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
-    
     <!-- END: Page JS-->
 
     <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_dg_up.js"></script>
-    
-    <script src="//code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
-    <script>
-    
-        var roxyFileman = 'fileman/index.html?integration=ckeditor';
-        $(function(){
-        CKEDITOR.replace( 'editor1',{filebrowserBrowseUrl:roxyFileman, 
-                                    filebrowserImageBrowseUrl:roxyFileman+'&type=image',
-                                    removeDialogTabs: 'link:upload;image:upload'});
-        });
+    <script src="ckeditor/ckeditor.js"></script>
+    <script src="ckfinder/ckfinder.js"></script>
+
+<script>
         
-        function openCustomRoxy2(){
-        $('#roxyCustomPanel2').dialog({modal:false, width:875,height:600});
-        }
-        function closeCustomRoxy2(){
-        $('#roxyCustomPanel2').dialog('close');
-        }
+        ClassicEditor
+        .create( document.querySelector( '#editor' ), {
+
+
+            image: {
+            // Configure the available styles.
+                styles: [
+                    'alignLeft', 'alignCenter', 'alignRight'
+                ],
+
+            // Configure the available image resize options.
+                resizeOptions: [
+                    {
+                        name: 'resizeImage:original',
+                        label: 'Original',
+                        value: null
+                    },
+                    {
+                        name: 'resizeImage:50',
+                        label: '50%',
+                        value: '50'
+                    },
+                    {
+                        name: 'resizeImage:75',
+                        label: '75%',
+                        value: '75'
+                    }
+                ],
+
+            // You need to configure the image toolbar, too, so it shows the new style
+            // buttons as well as the resize buttons.
+                toolbar: [
+                    'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
+                    '|',
+                    'resizeImage',
+                    '|',
+                    'imageTextAlternative'
+                ]
+            },
+            ckfinder: {
+                uploadUrl: 'http://localhost/intranet_etai/page/module/administrateur/communication/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+            },
+            toolbar: {
+                items: [ 'ckfinder', 'imageUpload', '|', 'heading', '|',
+                'alignment', '|',
+                'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
+                'link', '|',
+                'bulletedList', 'numberedList', 'todoList',
+                '|', // break point
+                'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
+                'code', 'codeBlock', '|',
+                'insertTable', '|',
+                'outdent', 'indent', '|',
+                'blockQuote', '|',
+                'undo', 'redo' ],
+                viewportTopOffset: 30,
+                shouldNotGroupWhenFull: true
+            }
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+ 
+ 
         $(window).on('load', function () {
             if (feather) {
                 feather.replace({
@@ -453,10 +537,35 @@ $PDO_query_comm_unique->closeCursor();
                     height: 14
                 });
             }
-        });       
-        
+        });
+        button1 = document.getElementById( 'ckfinder-popup-1' );
+        button1.onclick = function() {
+            selectFileWithCKFinder( 'ckfinder-input-1' );
+        };
+
+        function selectFileWithCKFinder( elementId ) {
+	CKFinder.modal( {
+		chooseFiles: true,
+		width: 800,
+		height: 600,
+		onInit: function( finder ) {
+			finder.on( 'files:choose', function( evt ) {
+				var file = evt.data.files.first();
+				var output = document.getElementById( elementId );
+				output.value = file.getUrl();
+			} );
+
+			finder.on( 'file:choose:resizedImage', function( evt ) {
+				var output = document.getElementById( elementId );
+				output.value = evt.data.resizedUrl;
+			} );
+		}
+	} );
+}
 
     </script>
+    
+
     <script src="https://kit.fontawesome.com/7791373c6a.js" crossorigin="anonymous"></script>
 </body>
 <!-- END: Body-->
