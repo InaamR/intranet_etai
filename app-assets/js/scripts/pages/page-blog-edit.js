@@ -107,7 +107,7 @@
   if (blogImageInput.length) {
 
     $(blogImageInput).on('change', function (e) {
-
+      
       var reader = new FileReader(),
       files = e.target.files;
       reader.onload = function () {

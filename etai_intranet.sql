@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 11 juin 2021 à 01:51
--- Version du serveur :  10.4.17-MariaDB
--- Version de PHP : 7.4.13
+-- Généré le :  lun. 21 juin 2021 à 17:56
+-- Version du serveur :  10.3.16-MariaDB
+-- Version de PHP :  7.1.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `etai_intranet`
+-- Base de données :  `etai_intranet`
 --
 
 -- --------------------------------------------------------
@@ -1086,7 +1087,9 @@ CREATE TABLE `etai_intranet_comm` (
   `etai_intranet_comm_user` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `etai_intranet_comm_email_user` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `etai_intranet_comm_date` date DEFAULT NULL,
+  `etai_intranet_comm_cat` int(1) NOT NULL DEFAULT 0,
   `etai_intranet_comm_titre` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `etai_intranet_comm_sous_titre` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `etai_intranet_comm_desc` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `etai_intranet_comm_img` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `etai_intranet_comm_statut` int(1) NOT NULL DEFAULT 0
@@ -1096,10 +1099,16 @@ CREATE TABLE `etai_intranet_comm` (
 -- Déchargement des données de la table `etai_intranet_comm`
 --
 
-INSERT INTO `etai_intranet_comm` (`etai_intranet_comm_id`, `etai_intranet_comm_user`, `etai_intranet_comm_email_user`, `etai_intranet_comm_date`, `etai_intranet_comm_titre`, `etai_intranet_comm_desc`, `etai_intranet_comm_img`, `etai_intranet_comm_statut`) VALUES
-(1, 'Inaam', 'inaam.rach@gmail.com', '2021-06-11', 'Lorem Ipsum is simply dummy text of the printing', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'test.jpg', 1),
-(2, 'Inaam', 'inaam.rach@gmail.com', '2021-06-11', 'Lorem Ipsum is simply dummy text of the printing', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'test.jpg', 1),
-(3, 'Inaam', 'inaam.rach@gmail.com', '2021-06-11', 'Lorem Ipsum is simply dummy text of the printing', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'test.jpg', 1);
+INSERT INTO `etai_intranet_comm` (`etai_intranet_comm_id`, `etai_intranet_comm_user`, `etai_intranet_comm_email_user`, `etai_intranet_comm_date`, `etai_intranet_comm_cat`, `etai_intranet_comm_titre`, `etai_intranet_comm_sous_titre`, `etai_intranet_comm_desc`, `etai_intranet_comm_img`, `etai_intranet_comm_statut`) VALUES
+(1, 'Inaam', 'inaam.rach@gmail.com', '2021-06-11', 2, 'Lorem Ipsum is simply dummy text of the printing', 'sous titre 1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'cute.jpg', 1),
+(13, NULL, NULL, '2021-06-16', 0, 'RGPD', 'dddd', NULL, NULL, 0),
+(14, NULL, NULL, '2021-06-16', 0, 'dddd', 'dddd', NULL, NULL, 0),
+(15, NULL, NULL, '2021-06-16', 0, 'RGPD', 'dddd', NULL, NULL, 0),
+(16, NULL, NULL, '2021-06-16', 0, 'RGPD', 'dddd', NULL, NULL, 0),
+(19, 'RACHDIidd MEDdddd', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-06-18', 1, 'LEADS HONDA - CONTACT', 'TEST INAAM', '<p><strong>dddddddddddd</strong></p>', NULL, 1),
+(20, 'RACHDIidd MEDdddd', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-06-21', 4, 'TEST V1', 'TEST V1', '<p><img alt=\"TEST IMG V1\" src=\"/intranet_etai/page/module/administrateur/communication/fileman/Uploads/Images/RH/1b298435_207c_49bd_a745_b6508b7a.jpeg\" style=\"float:left; height:141px; width:250px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><u><em><strong>Moahmed Inaam RACHDI</strong></em></u></p>\r\n', '/intranet_etai/page/module/administrateur/communication/fileman/Uploads/Images/RH/inside_out_2015_joy_disney_pix.jpg', 2),
+(21, 'RACHDIidd MEDdddd', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-06-21', 0, '', '', '', '', 1),
+(22, 'RACHDIidd MEDdddd', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-06-21', 0, '', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -1230,7 +1239,7 @@ CREATE TABLE `etai_intranet_secure` (
 --
 
 INSERT INTO `etai_intranet_secure` (`id`, `id_membre`, `jeton`, `ip_connexion`, `date`) VALUES
-(15, 2, 'q?ZK\n?^?:\"iz??/g', '::1', '1623360474');
+(15, 2, 'q?ZK\n?^?:\"iz??/g', '::1', '1624290190');
 
 -- --------------------------------------------------------
 
@@ -1403,7 +1412,7 @@ ALTER TABLE `etai_intranet_avatar`
 -- AUTO_INCREMENT pour la table `etai_intranet_comm`
 --
 ALTER TABLE `etai_intranet_comm`
-  MODIFY `etai_intranet_comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `etai_intranet_comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `etai_intranet_membres`

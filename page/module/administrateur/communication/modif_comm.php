@@ -1,8 +1,6 @@
 <?php 
 
 session_start();
-
-
 if (empty($page)) {
     $page = "function";
     // On limite l'inclusion aux fichiers.php en ajoutant dynamiquement l'extension
@@ -26,7 +24,6 @@ if (preg_match("/config/", $page)) {
         echo "Page inexistante !";
     }
 }
-
 if(empty($_SESSION['id'])){
 
     ProtectEspace::administrateur("", "", "");
@@ -44,9 +41,8 @@ $PDO_query_comm_unique->bindParam(":id", $id_comm, PDO::PARAM_INT);
 $PDO_query_comm_unique->execute();
 $communication = $PDO_query_comm_unique->fetch();
 $PDO_query_comm_unique->closeCursor();
-
-
 ?>
+
 <!DOCTYPE html>
 <html class="loading bordered-layout" lang="Fr" data-layout="bordered-layout" data-textdirection="ltr">
 
@@ -55,7 +51,7 @@ $PDO_query_comm_unique->closeCursor();
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <title>Communication DG | Ajout - Infopro-Digital</title>
+    <title><?php if(!empty($_GET["id"])){echo'Communication DG | Modification - Infopro-Digital';}else{echo'Communication DG | Ajout - Infopro-Digital';} ?></title>
     <link rel="apple-touch-icon" href="../../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../../app-assets/images/ico/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
@@ -64,7 +60,6 @@ $PDO_query_comm_unique->closeCursor();
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/vendors.min.css">
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/forms/select/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/extensions/sample.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
     <!-- END: Vendor CSS-->
 
@@ -186,12 +181,8 @@ $PDO_query_comm_unique->closeCursor();
                             <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">Communications</li>
-                                    <li class="breadcrumb-item"><a href="com_dg.php">Direction Générale</a>
-                                    </li>
-
-                                    <li class="breadcrumb-item active">Ajout d'une communication</li>
-
+                                    <li class="breadcrumb-item"><a href="liste_comm.php">Communications</a></li>
+                                    <li class="breadcrumb-item active">Gestion des communications ETAI/CommL</li>
                                 </ol>
                             </div>
                         </div>
@@ -199,12 +190,18 @@ $PDO_query_comm_unique->closeCursor();
                 </div>
                 <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
                     <div class="form-group breadcrumb-right">
+
                         <div class="dropdown">
+                        <a class="btn-icon btn btn-success btn-round btn-sm waves-effect waves-float waves-light" href="liste_comm.php">Revenir à la liste</a>
                         <button aria-expanded="false" aria-haspopup="true" class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle waves-effect waves-float waves-light" data-toggle="dropdown" type="button">Écrire un article</button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="modif_comm.php"><i data-feather='plus-square'></i>&nbsp&nbsp<span class="align-middle">Comm DG</span></a>
+                        </div>                        
                         </div>
-                        </div>
+
+                        
+                        
+
                     </div>
                 </div>
             </div>
@@ -226,13 +223,16 @@ $PDO_query_comm_unique->closeCursor();
                                             <p class="card-text"><?php echo $date = date("d-m-Y");?></p>
                                         </div>
                                     </div>
+
                                     <!-- Form -->
                                     <form method="post" class="mt-2 needs-validation <?php
                                                             if(!empty($id_comm))
                                                             {echo 'edit';}else{echo 'add';}                                                         
-                                                            ?>" id="form_comm"  enctype="multipart/form-data" novalidate>
-                                                            <input name="user" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'nom').' '.Membre::info($_SESSION['id'], 'prenom');?>">
-                                                            <input name="email" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'email');?>">
+                                                            ?>" 
+                                                            id="form_comm"  enctype="multipart/form-data" name="myForm" novalidate>
+                                                            
+                                        <input name="user" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'nom').' '.Membre::info($_SESSION['id'], 'prenom');?>">
+                                        <input name="email" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'email');?>">
                                         <div class="row">
 
                                             <div class="col-md-6 col-12">
@@ -277,7 +277,7 @@ $PDO_query_comm_unique->closeCursor();
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
                                                     <label for="blog-edit-status">Status *:</label>
-                                                    <select class="select2 form-control" id="blog-edit-status" name="statu">
+                                                    <select class="select2 form-control" id="blog-edit-status" name="statu" required>
                                                         <?php 
                                                             if($communication['etai_intranet_comm_statut'] == 1){ echo '<option value="1" selected>En attente de confirmation</option>';}else{ echo '<option value="1">En attente de confirmation</option>';}
                                                             if($communication['etai_intranet_comm_statut'] == 2){ echo '<option value="2" selected>Valider</option>';}else{ echo '<option value="2">Valider</option>';}
@@ -285,6 +285,8 @@ $PDO_query_comm_unique->closeCursor();
                                                             if($communication['etai_intranet_comm_statut'] == 4){ echo '<option value="4" selected>Annuler</option>';}else{ echo '<option value="4">Annuler</option>';}
                                                         ?>
                                                     </select>
+                                                    <div class="valid-feedback">Champs valider !</div>
+                                                    <div class="invalid-feedback">Champs Obligatoire !</div>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -314,15 +316,15 @@ $PDO_query_comm_unique->closeCursor();
                                                         {echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';}
                                                         ?>
                                                         <div class="media-body">
-                                                            <small class="text-muted">Résolution d'image requise 800x400.</small>
+                                                            <small class="text-muted">Aucune limite de taille et de poids pour les images !</small>
                                                             <p class="my-50">
-                                                                <a id="blog-image-text">C:\fakepath\banner.jpg</a>
+                                                                <a id="blog-image-text"><?php if(!empty($id_comm)){echo $communication['etai_intranet_comm_img'];}else{echo 'C:\fakepath\image.jpg';}?></a>
                                                             </p>
                                                             <div class="d-inline-block col-12 mb-0">
                                                                 <div class="form-group mb-0">
                                                                     <div class="custom-file">
                                                                     
-                                                                        <input id="txtSelectedFile" type="text" class="form-control" name="img" placeholder="Maximum 255 caractéres !" style="cursor:pointer;"  onclick="openCustomRoxy2()" value="" required>
+                                                                        <input id="txtSelectedFile" type="text" class="form-control" name="img" style="cursor:pointer;"  onclick="openCustomRoxy2()" required>
 
                                                                         <div id="roxyCustomPanel2" style="display: none;">
                                                                         <iframe src="fileman/index.html?integration=custom&type=files&txtFieldId=txtSelectedFile" style="width:100%;height:100%" frameborder="0">
@@ -427,23 +429,23 @@ $PDO_query_comm_unique->closeCursor();
     <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_dg_up.js"></script>
     
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
-<script>
+    <script>
     
-    var roxyFileman = 'fileman/index.html?integration=ckeditor';
-$(function(){
-  CKEDITOR.replace( 'editor1',{filebrowserBrowseUrl:roxyFileman, 
-                               filebrowserImageBrowseUrl:roxyFileman+'&type=image',
-                               removeDialogTabs: 'link:upload;image:upload'});
-});
+        var roxyFileman = 'fileman/index.html?integration=ckeditor';
+        $(function(){
+        CKEDITOR.replace( 'editor1',{filebrowserBrowseUrl:roxyFileman, 
+                                    filebrowserImageBrowseUrl:roxyFileman+'&type=image',
+                                    removeDialogTabs: 'link:upload;image:upload'});
+        });
         
-function openCustomRoxy2(){
-  $('#roxyCustomPanel2').dialog({modal:false, width:875,height:600});
-}
-function closeCustomRoxy2(){
-  $('#roxyCustomPanel2').dialog('close');
-}
+        function openCustomRoxy2(){
+        $('#roxyCustomPanel2').dialog({modal:false, width:875,height:600});
+        }
+        function closeCustomRoxy2(){
+        $('#roxyCustomPanel2').dialog('close');
+        }
         $(window).on('load', function () {
             if (feather) {
                 feather.replace({
