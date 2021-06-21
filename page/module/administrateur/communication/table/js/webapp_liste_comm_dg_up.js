@@ -351,7 +351,7 @@ $(function () {
               opacity: 0.5
             }
           });
-          window.location.replace("liste_comm.php");
+          //window.location.replace("liste_comm.php");
 			
 		  
         } else {

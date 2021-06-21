@@ -225,11 +225,11 @@ $PDO_query_comm_unique->closeCursor();
                                     </div>
 
                                     <!-- Form -->
-                                    <form method="post" class="mt-2 needs-validation <?php
+                                    <form method="post" id="jquery-val-form" class="<?php
                                                             if(!empty($id_comm))
                                                             {echo 'edit';}else{echo 'add';}                                                         
                                                             ?>" 
-                                                            id="form_comm"  enctype="multipart/form-data" name="myForm" novalidate>
+                                                            id="form_comm"  enctype="multipart/form-data">
                                                             
                                         <input name="user" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'nom').' '.Membre::info($_SESSION['id'], 'prenom');?>">
                                         <input name="email" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'email');?>">
@@ -237,20 +237,23 @@ $PDO_query_comm_unique->closeCursor();
 
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
-                                                    <label for="blog-edit-title">Titre de la communication *:</label>
-                                                    <input type="text" id="blog-edit-title" class="form-control" value="<?php
-                                                            if(!empty($id_comm))
-                                                            {echo $communication['etai_intranet_comm_titre'];}                                                           
-                                                            ?>" name="titre" placeholder="Maximum 255 caractéres !" required/>
-                                                    <div class="valid-feedback">Champs valider !</div>
-                                                    <div class="invalid-feedback">Champs Obligatoire !</div>
+                                                    <label for="basic-default-titre">Titre de la communication *:</label>
+                                                    <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="basic-default-titre"
+                                                    name="titre"
+                                                    placeholder="Maximum 150 caractéres !"
+                                                    value="<?php if(!empty($id_comm)){echo $communication['etai_intranet_comm_titre'];}?>"
+                                                    required
+                                                    />                                                 
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
-                                                    <label for="blog-edit-category">Catégories *:</label>
-                                                    <select id="blog-edit-category" class="select2 form-control" name="cat" required>                                                        
+                                                    <label for="comm_category">Catégories *:</label>
+                                                    <select id="comm_category" class="select2 form-control" name="cat" multiple required>                                                        
                                                         <?php 
                                                             if($communication['etai_intranet_comm_cat'] == 1){ echo '<option value="1" selected>Direction générale</option>';}else{ echo '<option value="1">Direction générale</option>';}
                                                             if($communication['etai_intranet_comm_cat'] == 2){ echo '<option value="2" selected>RH</option>';}else{ echo '<option value="2">RH</option>';}
@@ -259,19 +262,16 @@ $PDO_query_comm_unique->closeCursor();
                                                             if($communication['etai_intranet_comm_cat'] == 5){ echo '<option value="4" selected>CCE</option>';}else{ echo '<option value="4">CCE</option>';}
                                                         ?>
                                                     </select>
-                                                    <div class="valid-feedback">Champs valider !</div>
-                                                    <div class="invalid-feedback">Champs Obligatoire !</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
-                                                    <label for="blog-edit-slug">Sous-titre *:</label>
-                                                    <input type="text" id="blog-edit-slug" class="form-control" name="stitre" value="<?php
+                                                    <label for="basic-default-stitre">Sous-titre *:</label>
+                                                    <input type="text" id="basic-default-stitre" class="form-control" name="stitre" value="<?php
                                                             if(!empty($id_comm))
                                                             {echo $communication['etai_intranet_comm_sous_titre'];}                                                           
                                                             ?>" placeholder="Maximum 255 caractéres !" required/>
-                                                    <div class="valid-feedback">Champs valider !</div>
-                                                    <div class="invalid-feedback">Champs Obligatoire !</div>
+                                                    
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-12">
@@ -295,7 +295,7 @@ $PDO_query_comm_unique->closeCursor();
                                                     
                                                     <div id="blog-editor-wrapper">
                                                         <div id="blog-editor-container">
-                                                            <textarea name="desc" class="editor form-control" cols="80" id="editor1" rows="10" data-sample-short>
+                                                            <textarea name="desc" class="editor form-control" cols="80" id="editor1" rows="10" data-sample-short required>
                                                             <?php
                                                             if(!empty($id_comm))
                                                             {echo $communication['etai_intranet_comm_desc'];}                                                           
@@ -423,12 +423,12 @@ $PDO_query_comm_unique->closeCursor();
     <script src="../../../../app-assets/js/scripts/forms/form-validation.js"></script>
     <script src="../../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
     <script src="../../../../app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
+    <script src="../../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     
     <!-- END: Page JS-->
 
     <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_dg_up.js"></script>
     
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
     <script>

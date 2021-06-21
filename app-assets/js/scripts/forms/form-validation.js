@@ -10,7 +10,7 @@
 $(function () {
   'use strict';
 
-  var bootstrapForm = $('.needs-validation'),
+  var bootstrapForm = $('#needs-validation'),
     jqForm = $('#jquery-val-form'),
     picker = $('#dob'),
     dtPicker = $('#dob-bootstrap-val'),
@@ -22,7 +22,7 @@ $(function () {
     $this.wrap('<div class="position-relative"></div>');
     $this
       .select2({
-        placeholder: 'Select value',
+        placeholder: 'Choisir une valeur !',
         dropdownParent: $this.parent()
       })
       .change(function () {
@@ -81,7 +81,10 @@ $(function () {
   if (jqForm.length) {
     jqForm.validate({
       rules: {
-        'basic-default-name': {
+        'basic-default-titre': {
+          required: true
+        },
+        'basic-default-stitre': {
           required: true
         },
         'basic-default-email': {
@@ -95,7 +98,7 @@ $(function () {
           required: true,
           equalTo: '#basic-default-password'
         },
-        'select-country': {
+        'comm_category': {
           required: true
         },
         dob: {
