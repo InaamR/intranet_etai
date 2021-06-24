@@ -168,11 +168,10 @@ if(empty($_SESSION['id'])){
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Home</h2>
+                            <h2 class="content-header-title float-left mb-0">Accueil</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a>
-                                    </li>
+                                    <li class="breadcrumb-item">Tableau de bord</li>
                                 </ol>
                             </div>
                         </div>
@@ -189,12 +188,12 @@ if(empty($_SESSION['id'])){
                         <div class="col-lg-6 col-md-12 col-sm-12 p-0">
                             <div class="card card-congratulations">
                                 <div class="card-body text-center">
-                                    <img src="../../../app-assets/images/elements/decore-left.png" class="congratulations-img-left" alt="card-img-left">
-                                    <img src="../../../app-assets/images/elements/decore-right.png" class="congratulations-img-right" alt="card-img-right">
+                                    <img src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/elements/decore-left.png" class="congratulations-img-left" alt="card-img-left">
+                                    <img src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/elements/decore-right.png" class="congratulations-img-right" alt="card-img-right">
                                     
                                     <div class="avatar avatar-xl bg-primary shadow">
                                         <div class="avatar-content">
-                                            <img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40">
+                                            <img class="round" src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40">
                                         </div>
                                     </div>
                                     <div class="text-center">
@@ -257,15 +256,15 @@ if(empty($_SESSION['id'])){
 
 
     <!-- BEGIN: Vendor JS-->
-    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <script src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
-    <script src="../../../app-assets/js/core/app-menu.js"></script>
-    <script src="../../../app-assets/js/core/app.js"></script>
+    <script src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/core/app-menu.js"></script>
+    <script src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/core/app.js"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
