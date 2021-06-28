@@ -506,7 +506,7 @@ $PDO_query_comm_unique->closeCursor();
                 ]
             },
             ckfinder: {
-                uploadUrl: 'http://localhost/intranet_etai/page/module/administrateur/communication/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+                uploadUrl: 'http://localhost/intranet_etai/page/module/administrateur/communication/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
             },
             toolbar: {
                 items: [ 'ckfinder', 'imageUpload', '|', 'heading', '|',
@@ -544,24 +544,25 @@ $PDO_query_comm_unique->closeCursor();
         };
 
         function selectFileWithCKFinder( elementId ) {
-	CKFinder.modal( {
-		chooseFiles: true,
-		width: 800,
-		height: 600,
-		onInit: function( finder ) {
-			finder.on( 'files:choose', function( evt ) {
-				var file = evt.data.files.first();
-				var output = document.getElementById( elementId );
-				output.value = file.getUrl();
-			} );
+            CKFinder.modal( {
+                chooseFiles: true,
+                language: 'fr',
+                width: 800,
+                height: 600,
+                onInit: function( finder ) {
+                    finder.on( 'files:choose', function( evt ) {
+                        var file = evt.data.files.first();
+                        var output = document.getElementById( elementId );
+                        output.value = file.getUrl();
+                    } );
 
-			finder.on( 'file:choose:resizedImage', function( evt ) {
-				var output = document.getElementById( elementId );
-				output.value = evt.data.resizedUrl;
-			} );
-		}
-	} );
-}
+                    finder.on( 'file:choose:resizedImage', function( evt ) {
+                        var output = document.getElementById( elementId );
+                        output.value = evt.data.resizedUrl;
+                    } );
+                }
+            } );
+        }
 
     </script>
     

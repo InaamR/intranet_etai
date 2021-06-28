@@ -17,7 +17,7 @@ ErrorDocument 505 http://localhost/intranet_etai/error/erreur.php?erreur=505
 
 RewriteRule ^TableadeBord$ home.php [L]
 
-RewriteRule ^Bye$ logout.php [L]
+RewriteRule ^Bye$ /logout.php [L]
 
 
 RewriteRule ^Config$ admin.php [L]

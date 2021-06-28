@@ -5,10 +5,10 @@
             <li class="nav-item mr-auto">
                 <a class="navbar-brand" href="index.html">
                     <span class="brand-logo">
-                        <img src="../../../../app-assets/images/logo/favicon-48x48.png" alt="petit-logo" class="">
+                        <img src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/logo/favicon-48x48.png" alt="petit-logo" class="">
                     </span>
                     <span class="brand-logo-big">
-                        <img src="../../../../app-assets/images/logo/Infopro-logo-216x94.png" alt="">
+                        <img src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/logo/Infopro-logo-216x94.png" alt="">
                     </span>
                 </a>
             </li>
@@ -28,71 +28,107 @@
 
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            
             <li class=" nav-item">
                 <a class="nav-lik d-flex" href="#">
                     <i class="fas fa-home"></i>
-                    <span class="menu-title text-truncate" data-i18n="Home">Accueil</span>
+                    <span class="menu-title text-truncate" data-i18n="Accueil">Accueil</span>
                 </a>
             </li>
-
+            <li class=" navigation-header"><span data-i18n="Section Direction">Section Direction</span><i data-feather="more-horizontal"></i></li>
+            
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="#">
                     <i class="far fa-comments" aria-hidden="true"></i>
-                    <span class="menu-title text-truncate" data-i18n="Pages" id="communication">Communications</span>
+                    <span class="menu-title text-truncate" data-i18n="Com. Générale" id="communication">Com. Générale</span>
                 </a>
                 <ul class="menu-content">
                     <li>
                         <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/communication/liste_comm.php">
-                            <i data-feather="plus"></i>
-                            <span class="menu-item text-truncate" data-i18n="Direction Générale">Gestion Comm.</span>
+                            <i data-feather="circle"></i>
+                            <span class="menu-item text-truncate" data-i18n="Gestion des Communications">Gestion Comm.</span>
+                        </a>
+                    </li> 
+                    <li>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/communication/liste_comm.php">
+                            <i data-feather="circle"></i>
+                            <span class="menu-item text-truncate" data-i18n="Archive">Archive</span>
                         </a>
                     </li>                    
                 </ul>
             </li>
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="far fa-handshake" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Pages">Social</span></a>
-                <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Account Settings">Info service</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">Events</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Knowledge Base">Animation</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="FAQ">Quiz</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pricing">Jeux</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pricing">Conventions</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pricing">Suggestions</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pricing">Sondage</span></a>
-                    </li>
-                </ul>
-            </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fas fa-users" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Pages">Res. Humaines</span></a>
-                <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Account Settings">Service et Employé</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">Organigramme</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Knowledge Base">Map interne</span></a>
-                    </li>
-                </ul>
-            </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i class="fas fa-link" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Email">Liens Utiles</span></a>
+            <li class=" navigation-header"><span data-i18n="Section Collaborateur">Section Collaborateur</span><i data-feather="more-horizontal"></i></li>
+
+            <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i class="fas fa-link" aria-hidden="true">                
+                </i><span class="menu-title text-truncate" data-i18n="">Liens Utiles</span></a>
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fas fa-shield-virus" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Pages">Hygiène & Santé </span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Account Settings">COVID-19</span></a>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">COVID-19</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">Vie interne</span></a>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Vie interne</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Knowledge Base">Planning du medecin</span></a>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Planning du medecin</span></a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fas fa-user-cog" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Pages">Admin APP</span></a>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="far fa-handshake" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Vie Sociale">Vie Sociale</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Info service</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Events</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Animation</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Quiz</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Jeux</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Conventions</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Suggestions</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Sondage</span></a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class=" navigation-header"><span data-i18n="DSI">DSI</span><i data-feather="more-horizontal"></i></li>
+
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="#">
+                    <i class="far fa-comments" aria-hidden="true"></i>
+                    <span class="menu-title text-truncate" data-i18n="Pages" id="Dir. des Systèmes d'information">Dir. Systèmes info</span>
+                </a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="d-flex align-items-center" href="#">
+                            <i data-feather="plus"></i>
+                            <span class="menu-item text-truncate" data-i18n="">Gestion ...</span>
+                        </a>
+                    </li> 
+                    <li>
+                        <a class="d-flex align-items-center" href="#">
+                            <i data-feather="plus"></i>
+                            <span class="menu-item text-truncate" data-i18n="">Gestion ...</span>
+                        </a>
+                    </li>                    
+                </ul>
+            </li>  
+            <li class=" navigation-header"><span data-i18n="Ressources Humaines">RH</span><i data-feather="more-horizontal"></i></li>          
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fas fa-users" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Res. Humaines">Res. Humaines</span></a>
+                <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Service et Employé</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Organigramme</span></a>
+                    </li>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Map interne</span></a>
+                    </li>
+                </ul>
+            </li>  
+            <li class=" navigation-header"><span data-i18n="Configuration">Configuration</span><i data-feather="more-horizontal"></i></li>          
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fas fa-user-cog" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Admin">Admin</span></a>
                 <ul class="menu-content">
                     <li><a class="d-flex align-items-center" title="Gestion du personnel" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/admin/listeMembre.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Account Settings">G.Personnel</span></a>
                     </li>
