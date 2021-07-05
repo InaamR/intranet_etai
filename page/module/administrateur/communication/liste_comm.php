@@ -45,7 +45,7 @@ if(empty($_SESSION['id'])){
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <title>Communication - Infopro-Digital</title>
+    <title>Communications Générale - Infopro-Digital</title>
     <link rel="apple-touch-icon" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
@@ -176,10 +176,7 @@ if(empty($_SESSION['id'])){
                             <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#communication">Communications</a>
-                                    </li>
-                                    <li class="breadcrumb-item active"><a href="com_dg.php">Direction Générale</a>
-                                    </li>
+                                    <li class="breadcrumb-item">Communications</li>
                                 </ol>
                             </div>
                         </div>
@@ -187,12 +184,8 @@ if(empty($_SESSION['id'])){
                 </div>
                 <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
                     <div class="form-group breadcrumb-right">
-                        <div class="dropdown">
-                        <button aria-expanded="false" aria-haspopup="true" class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle waves-effect waves-float waves-light" data-toggle="dropdown" type="button">Écrire un article</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="modif_comm.php"><i data-feather='plus-square'></i>&nbsp&nbsp<span class="align-middle">Ajouter</span></a>
-                        </div>
-                        </div>
+                        <a class="btn-icon btn btn-primary btn-round btn-sm waves-effect waves-float waves-light" href="modif_comm.php">Revenir à la liste</a>
+                        
                     </div>
                 </div>
             </div>

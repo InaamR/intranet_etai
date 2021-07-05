@@ -4,6 +4,7 @@
 
 $(function () {
   'use strict';
+
   $(document).ready(function(){
   var dt_basic_table = $('.datatables-basic'),
     dt_date_table = $('.dt-date'),
@@ -17,7 +18,7 @@ $(function () {
   // --------------------------------------------------------------------
   if (dt_basic_table.length) {
     var dt_basic = dt_basic_table.DataTable({
-      ajax: 'table/php/data_liste_comm_dg.php?job=get_liste_comm',
+      ajax: 'table/php/data_liste_comm.php?job=get_liste_comm',
       columns: [    
         { data: 'responsive_id' },
         { data: 'id' },
@@ -317,66 +318,30 @@ $(function () {
 			})
 		  }
 		})
-  });
+  }); 
 
- 
-
-  $(document).on('submit', '#form_comm.add', function(){
+  $(document).on('submit', '#jquery-val-form.add', function(){
 	  			
-      var form_data = $('#form_comm').serialize();
+      var form_data = $('#jquery-val-form').serialize();
 	  
       var request   = $.ajax({
-        url:          'table/php/data_liste_comm_dg.php?job=add_comm',
+        url:          'table/php/data_liste_comm.php?job=add_comm',
         cache:        false,
         data:         form_data,
         dataType:     'json',
         contentType:  'application/json; charset=utf-8',
-        type:         'get'
-      });
-      
-      
-	  
-      request.done(function(output){
-        if (output.result == 'success'){		
-          
-          
-
-          $.blockUI({
-            message:
-              '<div class="d-flex justify-content-center align-items-center"><p class="mr-50 mb-0">Please wait...</p> <div class="spinner-grow spinner-grow-sm text-white" role="status"></div> </div>',
-            timeout: 1000,
-            css: {
-              backgroundColor: 'transparent',
-              color: '#fff',
-              border: '0'
-            },
-            overlayCSS: {
-              opacity: 0.5
-            }
-          });
-          //window.location.replace("liste_comm.php");
-			
-		  
-        } else {
+        type:         'get',
+        success: function(data, textStatus) {
+          window.location.replace("liste_comm.php");      
+        },
+        error : function(resultat, statut, erreur){
           Swal.fire({
-            title: "ERREUR !",
-            text: "ALERTE : " + output.message,
-            type: "error",
-            confirmButtonClass: 'btn btn-primary',
-            buttonsStyling: false,
-          });
+            title: 'Annulée',
+            text: "Une erreur s'est produite lors de l'enregistrement",
+            type: 'error',
+            confirmButtonClass: 'btn btn-success',
+          })
         }
-
-      });
-	  
-      request.fail(function(jqXHR, textStatus){
-        Swal.fire({
-          title: "ERREUR !",
-          text: "ALERTE : " + output.message,
-          type: "error",
-          confirmButtonClass: 'btn btn-primary',
-          buttonsStyling: false,
-        });  
       });
   });
 

@@ -51,7 +51,7 @@ $PDO_query_comm_unique->closeCursor();
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <title><?php if(!empty($_GET["id"])){echo'Communication DG | Modification - Infopro-Digital';}else{echo'Communication DG | Ajout - Infopro-Digital';} ?></title>
+    <title><?php if(!empty($_GET["id"])){echo'Communication | Modification - Infopro-Digital';}else{echo'Communication | Ajout - Infopro-Digital';} ?></title>
     <link rel="apple-touch-icon" href="../../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../../app-assets/images/ico/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
@@ -180,27 +180,16 @@ $PDO_query_comm_unique->closeCursor();
                             <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="liste_comm.php">Communications</a></li>
-                                    <li class="breadcrumb-item active">Gestion des communications ETAI/CommL</li>
+                                    <li class="breadcrumb-item"><a href="liste_comm.php">Communications Générales</a></li>
+                                    <li class="breadcrumb-item active">Gestion des communications</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                    <div class="form-group breadcrumb-right">
-
-                        <div class="dropdown">
+                    <div class="form-group breadcrumb-right">                   
                         <a class="btn-icon btn btn-success btn-round btn-sm waves-effect waves-float waves-light" href="liste_comm.php">Revenir à la liste</a>
-                        <button aria-expanded="false" aria-haspopup="true" class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle waves-effect waves-float waves-light" data-toggle="dropdown" type="button">Écrire un article</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="modif_comm.php"><i data-feather='plus-square'></i>&nbsp&nbsp<span class="align-middle">Comm DG</span></a>
-                        </div>                        
-                        </div>
-
-                        
-                        
-
                     </div>
                 </div>
             </div>
@@ -213,7 +202,7 @@ $PDO_query_comm_unique->closeCursor();
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="media">
+                                    <div class="media mb-2">
                                         <div class="avatar mr-75">
                                             <img src="../../../../app-assets/images/portrait/small/man.png" width="38" height="38" alt="Avatar" />
                                         </div>
@@ -224,14 +213,7 @@ $PDO_query_comm_unique->closeCursor();
                                     </div>
 
                                     <!-- Form -->
-                                    <form 
-                                    method="post" id="jquery-val-form" 
-                                    class="<?php
-                                    if(!empty($id_comm))
-                                    {echo 'edit';}else{echo 'add';}                                                         
-                                    ?>" 
-                                    id="form_comm"  
-                                    enctype="multipart/form-data">
+                                    <form method="post" id="jquery-val-form" class="<?php if(!empty($id_comm)){echo 'edit';}else{echo 'add';} ?>">
                                                             
                                         <input name="user" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'nom').' '.Membre::info($_SESSION['id'], 'prenom');?>">
                                         <input name="email" type="hidden" value="<?php echo Membre::info($_SESSION['id'], 'email');?>">
@@ -246,7 +228,8 @@ $PDO_query_comm_unique->closeCursor();
                                                     class="form-control"
                                                     id="basic-default-titre"
                                                     name="titre"
-                                                    placeholder="Maximum 150 caractéres !"
+                                                    placeholder="Maximum 255 caractéres"
+                                                    maxlength="255"
                                                     value="<?php if(!empty($id_comm)){echo $communication['etai_intranet_comm_titre'];}?>"
                                                     required
                                                     />                                                 
@@ -255,14 +238,18 @@ $PDO_query_comm_unique->closeCursor();
 
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
-                                                    <label for="comm_category">Catégories *:</label>
-                                                    <select id="comm_category" class="select2 form-control" name="cat" multiple required>                                                        
+                                                    <label for="blog-edit-cat">Catégories de l'article *:</label>
+                                                    <select class="select2 form-control" id="blog-edit-cat" name="cat" required>                                                       
                                                         <?php 
-                                                            if($communication['etai_intranet_comm_cat'] == 1){ echo '<option value="1" selected>Direction générale</option>';}else{ echo '<option value="1">Direction générale</option>';}
-                                                            if($communication['etai_intranet_comm_cat'] == 2){ echo '<option value="2" selected>RH</option>';}else{ echo '<option value="2">RH</option>';}
-                                                            if($communication['etai_intranet_comm_cat'] == 3){ echo '<option value="3" selected>Services généraux</option>';}else{ echo '<option value="3">Services généraux</option>';}
-                                                            if($communication['etai_intranet_comm_cat'] == 4){ echo '<option value="4" selected>DSI</option>';}else{ echo '<option value="4">DSI</option>';}
-                                                            if($communication['etai_intranet_comm_cat'] == 5){ echo '<option value="4" selected>CCE</option>';}else{ echo '<option value="4">CCE</option>';}
+                                                            if($communication['etai_intranet_comm_cat'] == 1){ echo '<option value="1" selected>Direction générale</option>';}else{ echo '<option value="1">Direction générale</option><option value="" selected>Selectionnez une catégorie.</option>';}
+
+                                                            if($communication['etai_intranet_comm_cat'] == 2){ echo '<option value="2" selected>RH</option>';}else{ echo '<option value="2">RH</option><option value="" selected>Selectionnez une catégorie.</option>';}
+
+                                                            if($communication['etai_intranet_comm_cat'] == 3){ echo '<option value="3" selected>Services généraux</option>';}else{ echo '<option value="3">Services généraux</option><option value="" selected>Selectionnez une catégorie.</option>';}
+
+                                                            if($communication['etai_intranet_comm_cat'] == 4){ echo '<option value="4" selected>DSI</option>';}else{ echo '<option value="4">DSI</option><option value="" selected>Selectionnez une catégorie.</option>';}
+
+                                                            if($communication['etai_intranet_comm_cat'] == 5){ echo '<option value="4" selected>CCE</option>';}else{ echo '<option value="4">CCE</option><option value="" selected>Selectionnez une catégorie.</option>';}
                                                         ?>
                                                     </select>
                                                 </div>
@@ -270,24 +257,27 @@ $PDO_query_comm_unique->closeCursor();
 
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
-                                                    <label for="basic-default-stitre">Sous-titre *:</label>
+                                                    <label for="basic-default-stitre">Sous-titre de l'article*:</label>
                                                     <input type="text" id="basic-default-stitre" class="form-control" name="stitre" value="<?php
                                                             if(!empty($id_comm))
                                                             {echo $communication['etai_intranet_comm_sous_titre'];}                                                           
-                                                            ?>" placeholder="Maximum 255 caractéres !" required/>
+                                                            ?>" placeholder="Maximum 255 caractéres" maxlength="255" required/>
                                                     
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group mb-2">
-                                                    <label for="blog-edit-status">Status *:</label>
-                                                    <select class="select2 form-control" id="blog-edit-status" name="statu" required>
+                                                    <label for="blog-edit-statut">Statut de l'article *:</label>
+                                                    <select class="select2 form-control" id="blog-edit-statut" name="statut" required>
                                                         <?php 
-                                                            if($communication['etai_intranet_comm_statut'] == 1){ echo '<option value="1" selected>En attente de confirmation</option>';}else{ echo '<option value="1">En attente de confirmation</option>';}
-                                                            if($communication['etai_intranet_comm_statut'] == 2){ echo '<option value="2" selected>Valider</option>';}else{ echo '<option value="2">Valider</option>';}
-                                                            if($communication['etai_intranet_comm_statut'] == 3){ echo '<option value="3" selected>Archiver</option>';}else{ echo '<option value="3">Archiver</option>';}
-                                                            if($communication['etai_intranet_comm_statut'] == 4){ echo '<option value="4" selected>Annuler</option>';}else{ echo '<option value="4">Annuler</option>';}
+                                                            if($communication['etai_intranet_comm_statut'] == 1){ echo '<option value="1" selected>En attente de confirmation</option>';}else{ echo '<option value="1">En attente de confirmation</option><option value="" selected>Selectionnez un statut.</option>';}
+
+                                                            if($communication['etai_intranet_comm_statut'] == 2){ echo '<option value="2" selected>Valider</option>';}else{ echo '<option value="2">Valider</option><option value="" selected>Selectionnez un statut.</option>';}
+
+                                                            if($communication['etai_intranet_comm_statut'] == 3){ echo '<option value="3" selected>Archiver</option>';}else{ echo '<option value="3">Archiver</option><option value="" selected>Selectionnez un statut.</option>';}
+
+                                                            if($communication['etai_intranet_comm_statut'] == 4){ echo '<option value="4" selected>Annuler</option>';}else{ echo '<option value="4">Annuler</option><option value="" selected>Selectionnez un statut.</option>';}
                                                         ?>
                                                     </select>
                                                 </div>
@@ -299,7 +289,7 @@ $PDO_query_comm_unique->closeCursor();
                                                     
                                                     <div id="blog-editor-wrapper">
                                                         <div id="blog-editor-container">
-                                                            <textarea name="desc" class="editor form-control" cols="80" id="editor" rows="10" data-sample-short required>
+                                                            <textarea name="article" class="editor form-control" cols="80" id="editor" rows="10" data-sample-short required>
                                                             <?php
                                                             if(!empty($id_comm))
                                                             {echo $communication['etai_intranet_comm_desc'];}                                                           
@@ -368,12 +358,13 @@ $PDO_query_comm_unique->closeCursor();
 
                                                         </div>
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
 
                                             <div class="col-12 mt-50">
                                                 <button type="submit" class="btn btn-primary mr-1">Enregistrement</button>
-                                                <button type="reset" class="btn btn-outline-secondary">Annuler</button>
+                                                <button type="reset" class="btn btn-outline-secondary">Annuler les champs</button>
                                             </div>
 
                                         </div>
@@ -459,7 +450,7 @@ $PDO_query_comm_unique->closeCursor();
     <script src="../../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <!-- END: Page JS-->
 
-    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_dg_up.js"></script>
+    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm.js"></script>
 
     <script src="ckeditor/ckeditor.js"></script>
     <script src="ckfinder/ckfinder.js"></script>
