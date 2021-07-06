@@ -189,7 +189,7 @@ $PDO_query_comm_unique->closeCursor();
                 </div>
                 <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
                     <div class="form-group breadcrumb-right">                   
-                        <a class="btn-icon btn btn-success btn-round btn-sm waves-effect waves-float waves-light" href="liste_comm.php">Revenir à la liste</a>
+                        <a class="btn-icon btn btn-success btn-round btn-sm waves-effect waves-float waves-light" href="liste_comm_archive.php">Revenir à la liste</a>
                         <a class="btn-icon btn btn-dark btn-round btn-sm waves-effect waves-float waves-light" href="prev_comm.php?id=<?php echo $_GET["id"]?>" target="_blank">Prewiew</a>
                     </div>
                 </div>
@@ -617,7 +617,7 @@ $PDO_query_comm_unique->closeCursor();
     <script src="../../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <!-- END: Page JS-->
 
-    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm.js"></script>
+    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_archive.js"></script>
 
     <script src="ckeditor/ckeditor.js"></script>
     <script src="ckfinder/ckfinder.js"></script>

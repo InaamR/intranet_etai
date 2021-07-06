@@ -18,7 +18,7 @@ $(function () {
   // --------------------------------------------------------------------
   if (dt_basic_table.length) {
     var dt_basic = dt_basic_table.DataTable({
-      ajax: 'table/php/data_liste_comm.php?job=get_liste_comm',
+      ajax: 'table/php/data_liste_comm_archive.php?job=get_liste_comm',
       columns: [    
         { data: 'responsive_id' },
         { data: 'id' },
@@ -210,12 +210,12 @@ $(function () {
         info: "Affichage page _PAGE_ jusqu'à _PAGES_",
         lengthMenu: "Affichage _MENU_ lignes par page",
         search: "Recherche :",
-        zeroRecords: "Aucunes données disponibles !",
+        zeroRecords: "Aucunes Archives disponibles !",
         infoEmpty: "Aucun enregistrement disponible",
         infoFiltered: "(filtré depuis _MAX_ total des enregistrements)"
       }
     });
-    $('div.head-label').html('<h6 class="mb-0">Liste des communications générales ETAI / COL</h6>');
+    $('div.head-label').html('<h6 class="mb-0">Liste des communications générales archivées ETAI / COL</h6>');
   
   }
   // Flat Date picker
@@ -273,7 +273,7 @@ $(function () {
 							var id      = $(".delete-record").data('id');
 							var name      = $(".delete-record").data('name');
 							var request = $.ajax({
-							url:          'table/php/data_liste_comm.php?job=del_com&id=' + id,
+							url:          'table/php/data_liste_comm_archive.php?job=del_com&id=' + id,
 							cache:        false,
 							dataType:     'json',
 							contentType:  'application/json; charset=utf-8',
@@ -325,14 +325,14 @@ $(function () {
       var form_data = $('#jquery-val-form').serialize();
 	  
       var request   = $.ajax({
-        url:          'table/php/data_liste_comm.php?job=add_comm',
+        url:          'table/php/data_liste_comm_archive.php?job=add_comm',
         cache:        false,
         data:         form_data,
         dataType:     'json',
         contentType:  'application/json; charset=utf-8',
         type:         'get',
         success: function(data, textStatus) {
-          window.location.replace("liste_comm.php");      
+          window.location.replace("liste_comm_archive.php");      
         },
         error : function(resultat, statut, erreur){
           Swal.fire({
@@ -351,15 +351,14 @@ $(function () {
     var form_data = $('#jquery-val-form').serialize();
 
     var request   = $.ajax({
-    url:          'table/php/data_liste_comm.php?job=comm_edit&id=' + id,
+    url:          'table/php/data_liste_comm_archive.php?job=comm_edit&id=' + id,
     cache:        true,
     data:         form_data,
-    dataType:     'html',
+    dataType:     'json',
     contentType:  'application/json; charset=utf-8',
     type:         'get',
     success: function(data, textStatus) {
-        window.location.replace("liste_comm.php"); 
-  
+        window.location.replace("liste_comm_archive.php"); 
      
     },
     error : function(resultat, statut, erreur){
@@ -369,9 +368,6 @@ $(function () {
         type: 'error',
         confirmButtonClass: 'btn btn-success',
       })
-    },
-    complete : function(resultat, statut){
-      window.location.replace("liste_comm.php"); 
     }
     });
   

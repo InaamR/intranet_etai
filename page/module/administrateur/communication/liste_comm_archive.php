@@ -45,7 +45,7 @@ if(empty($_SESSION['id'])){
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <title>Communications Générale - Infopro-Digital</title>
+    <title>Communications Générale Archives - Infopro-Digital</title>
     <link rel="apple-touch-icon" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
@@ -176,16 +176,10 @@ if(empty($_SESSION['id'])){
                             <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">Communications générales</li>
+                                    <li class="breadcrumb-item">Communications générales Archives</li>
                                 </ol>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                    <div class="form-group breadcrumb-right">
-                        <a class="btn-icon btn btn-primary btn-round btn-sm waves-effect waves-float waves-light" href="modif_comm.php">Ajouter une communication</a>
-                        
                     </div>
                 </div>
             </div>
@@ -218,42 +212,6 @@ if(empty($_SESSION['id'])){
                                             </thead>
                                         </table>
                                     </div>
-                                </div>
-                            </div>
-                            <!-- Modal to add new record -->
-                            <div class="modal modal-slide-in fade" id="modals-slide-in">
-                                <div class="modal-dialog sidebar-sm">
-                                    <form class="add-new-record modal-content pt-0">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
-                                        <div class="modal-header mb-1">
-                                            <h5 class="modal-title" id="exampleModalLabel">New Record</h5>
-                                        </div>
-                                        <div class="modal-body flex-grow-1">
-                                            <div class="form-group">
-                                                <label class="form-label" for="basic-icon-default-fullname">Full Name</label>
-                                                <input type="text" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="John Doe" aria-label="John Doe" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label" for="basic-icon-default-post">Post</label>
-                                                <input type="text" id="basic-icon-default-post" class="form-control dt-post" placeholder="Web Developer" aria-label="Web Developer" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label" for="basic-icon-default-email">Email</label>
-                                                <input type="text" id="basic-icon-default-email" class="form-control dt-email" placeholder="john.doe@example.com" aria-label="john.doe@example.com" />
-                                                <small class="form-text text-muted"> You can use letters, numbers & periods </small>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label" for="basic-icon-default-date">Joining Date</label>
-                                                <input type="text" class="form-control dt-date" id="basic-icon-default-date" placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY" />
-                                            </div>
-                                            <div class="form-group mb-4">
-                                                <label class="form-label" for="basic-icon-default-salary">Salary</label>
-                                                <input type="text" id="basic-icon-default-salary" class="form-control dt-salary" placeholder="$12000" aria-label="$12000" />
-                                            </div>
-                                            <button type="button" class="btn btn-primary data-submit mr-1">Submit</button>
-                                            <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
                         </section>
@@ -337,7 +295,7 @@ if(empty($_SESSION['id'])){
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm.js"></script>
+    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_archive.js"></script>
 
     <script src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
     <script src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/js/extensions/polyfill.min.js"></script>

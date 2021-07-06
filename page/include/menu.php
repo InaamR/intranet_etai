@@ -3,7 +3,7 @@
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/index.php">
                     <span class="brand-logo">
                         <img src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/logo/favicon-48x48.png" alt="petit-logo" class="">
                     </span>
@@ -30,7 +30,7 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             
             <li class=" nav-item">
-                <a class="nav-lik d-flex" href="#">
+                <a class="nav-lik d-flex" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/index.php">
                     <i class="fas fa-home"></i>
                     <span class="menu-title text-truncate" data-i18n="Accueil">Accueil</span>
                 </a>
@@ -50,7 +50,7 @@
                         </a>
                     </li> 
                     <li>
-                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/communication/liste_comm.php">
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/communication/liste_comm_archive.php">
                             <i data-feather="circle"></i>
                             <span class="menu-item text-truncate" data-i18n="Archive">Archive</span>
                         </a>
@@ -92,6 +92,9 @@
                     <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Sondage</span></a>
                     </li>
                 </ul>
+            </li>            
+
+            <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i class="fas fa-link" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Liens Utiles">Liens Utiles</span></a>
             </li>
 
             <li class=" navigation-header"><span data-i18n="DSI">DSI</span><i data-feather="more-horizontal"></i></li>
@@ -130,11 +133,11 @@
             <li class=" navigation-header"><span data-i18n="Configuration">Configuration</span><i data-feather="more-horizontal"></i></li>          
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fas fa-user-cog" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Admin">Admin</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" title="Gestion du personnel" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/admin/listeMembre.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Account Settings">G.Personnel</span></a>
+                    <li><a class="d-flex align-items-center" title="Gestion du personnel" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/admin/listeMembre.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="G.Personnel">G.Personnel</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" title="Gestion de l'application" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Profile">Gestion de l'application</span></a>
+                    <li><a class="d-flex align-items-center" title="Gestion de l'application" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Gestion de l'application">Gestion de l'application</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" title="Gestion des modules" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Knowledge Base">Gestion des modules</span></a>
+                    <li><a class="d-flex align-items-center" title="Gestion des modules" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Gestion des modules">Gestion des modules</span></a>
                     </li>
                 </ul>
             </li>

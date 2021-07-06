@@ -74,21 +74,18 @@ $mysql_data = [];
 if ($job != '') {
     if ($job == 'get_liste_comm') {
 
-        $PDO_query_comm = Bdd::connectBdd()->prepare("SELECT * FROM etai_intranet_comm WHERE etai_intranet_comm_statut <> 3 ORDER BY etai_intranet_comm_id ASC");
+        $PDO_query_comm = Bdd::connectBdd()->prepare("SELECT * FROM etai_intranet_comm WHERE etai_intranet_comm_statut = 3 ORDER BY etai_intranet_comm_id ASC");
         $PDO_query_comm->execute();
 
         while ($communication = $PDO_query_comm->fetch()) {
 
-            $functions = '
-
-                            
-                            <a href="modif_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 0.9rem !important;" class="btn btn-info btn-sm waves-effect waves-float waves-light">Modifier</a>
-                            <a href="prev_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 0.9rem !important;" class="btn btn-dark btn-sm waves-effect waves-float waves-light">Preview</a>
-                            <a href="#" data-id="' .
-                            $communication['etai_intranet_comm_id'] .
-                            '" style="font-size: 0.9rem !important;" class="btn btn-danger btn-sm waves-effect waves-float waves-light delete-record">Supprimer</a>
-                            
-                            ';
+            $functions = '                            
+            <a href="modif_comm_archive.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 0.9rem !important;" class="btn btn-info btn-sm waves-effect waves-float waves-light">Modifier</a>
+            <a href="prev_comm_archive.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 0.9rem !important;" class="btn btn-dark btn-sm waves-effect waves-float waves-light">Preview</a>
+            <a href="#" data-id="' .
+            $communication['etai_intranet_comm_id'] .
+            '" style="font-size: 0.9rem !important;" class="btn btn-danger btn-sm waves-effect waves-float waves-light delete-record">Supprimer</a>            
+            ';
 
 
             $date = date_create($communication['etai_intranet_comm_date']);
@@ -125,7 +122,7 @@ if ($job != '') {
                     $statut = '<div class="badge badge-light-success">Valider</div>';
                 break;  
                 case '3':
-                    $statut = '<div class="badge badge-light-secondary">Archiver</div>';
+                    $statut = '<div class="badge badge-dark">Archiver</div>';
                 break; 
                 case '4':
                     $statut = '<div class="badge badge-light-danger">Annuler</div>';

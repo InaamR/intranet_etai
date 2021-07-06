@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 21 juin 2021 à 17:56
--- Version du serveur :  10.3.16-MariaDB
--- Version de PHP :  7.1.30
+-- Généré le : mar. 06 juil. 2021 à 22:58
+-- Version du serveur : 10.4.19-MariaDB
+-- Version de PHP : 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `etai_intranet`
+-- Base de données : `etai_intranet`
 --
 
 -- --------------------------------------------------------
@@ -1100,15 +1099,8 @@ CREATE TABLE `etai_intranet_comm` (
 --
 
 INSERT INTO `etai_intranet_comm` (`etai_intranet_comm_id`, `etai_intranet_comm_user`, `etai_intranet_comm_email_user`, `etai_intranet_comm_date`, `etai_intranet_comm_cat`, `etai_intranet_comm_titre`, `etai_intranet_comm_sous_titre`, `etai_intranet_comm_desc`, `etai_intranet_comm_img`, `etai_intranet_comm_statut`) VALUES
-(1, 'Inaam', 'inaam.rach@gmail.com', '2021-06-11', 2, 'Lorem Ipsum is simply dummy text of the printing', 'sous titre 1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'cute.jpg', 1),
-(13, NULL, NULL, '2021-06-16', 0, 'RGPD', 'dddd', NULL, NULL, 0),
-(14, NULL, NULL, '2021-06-16', 0, 'dddd', 'dddd', NULL, NULL, 0),
-(15, NULL, NULL, '2021-06-16', 0, 'RGPD', 'dddd', NULL, NULL, 0),
-(16, NULL, NULL, '2021-06-16', 0, 'RGPD', 'dddd', NULL, NULL, 0),
-(19, 'RACHDIidd MEDdddd', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-06-18', 1, 'LEADS HONDA - CONTACT', 'TEST INAAM', '<p><strong>dddddddddddd</strong></p>', NULL, 1),
-(20, 'RACHDIidd MEDdddd', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-06-21', 4, 'TEST V1', 'TEST V1', '<p><img alt=\"TEST IMG V1\" src=\"/intranet_etai/page/module/administrateur/communication/fileman/Uploads/Images/RH/1b298435_207c_49bd_a745_b6508b7a.jpeg\" style=\"float:left; height:141px; width:250px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><u><em><strong>Moahmed Inaam RACHDI</strong></em></u></p>\r\n', '/intranet_etai/page/module/administrateur/communication/fileman/Uploads/Images/RH/inside_out_2015_joy_disney_pix.jpg', 2),
-(21, 'RACHDIidd MEDdddd', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-06-21', 0, '', '', '', '', 1),
-(22, 'RACHDIidd MEDdddd', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-06-21', 0, '', '', '', '', 1);
+(36, 'RACHDI MED', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-07-06', 5, 'TEST', 'TEST', '<h3><strong>The standard Lorem Ipsum passage, used since the 1500s</strong></h3><p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"dsdsd</p><figure class=\"image image-style-align-left\"><img src=\"/ckfinder/userfiles/images/DSI/640x410_preparation-vaccin-covid-seringue-et-dose-illustration.jpg\"></figure><p>&nbsp;</p><h3><strong>The standard Lorem Ipsum passage, used since the 1500s</strong></h3><p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</p><h3><strong>The standard Lorem Ipsum passage, used since the 1500s</strong></h3><p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</p><h3><strong>The standard Lorem Ipsum passage, used since the 1500s</strong></h3><p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</p><p>&nbsp;</p><h3><strong>The standard Lorem Ipsum passage, used since the 1500s</strong></h3><p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</p><figure class=\"image image-style-align-right\"><img src=\"/ckfinder/userfiles/images/DSI/640x410_preparation-vaccin-covid-seringue-et-dose-illustration.jpg\"></figure><p>&nbsp;</p><h3><strong>The standard Lorem Ipsum passage, used since the 1500s</strong></h3><p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"ccccccccc</p>', '/ckfinder/userfiles/images/DSI/640x410_preparation-vaccin-covid-seringue-et-dose-illustration.jpg', 1),
+(37, 'RACHDI MED', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-07-06', 2, 'TEST', 'TEST', '<p>DDDDDDD</p>', '/ckfinder/userfiles/images/DSI/640x410_preparation-vaccin-covid-seringue-et-dose-illustration.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -1118,21 +1110,18 @@ INSERT INTO `etai_intranet_comm` (`etai_intranet_comm_id`, `etai_intranet_comm_u
 
 CREATE TABLE `etai_intranet_membres` (
   `id` int(11) NOT NULL,
-  `pseudo` varchar(50) DEFAULT NULL,
-  `password` varchar(150) DEFAULT NULL,
-  `email` varchar(150) DEFAULT NULL,
-  `tel` varchar(14) NOT NULL DEFAULT '00.00.00.00.00',
-  `adresse` varchar(500) NOT NULL DEFAULT 'adresse',
-  `cp` varchar(5) NOT NULL DEFAULT '00000',
-  `ville` varchar(150) NOT NULL DEFAULT 'ville',
+  `pseudo` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(150) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tel` varchar(14) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '00.00.00.00.00',
+  `adresse` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'adresse',
+  `cp` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '00000',
+  `ville` varchar(150) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'ville',
   `genre` int(1) NOT NULL DEFAULT 1,
   `naissance` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `nom` varchar(150) NOT NULL DEFAULT 'Do',
-  `prenom` varchar(150) NOT NULL DEFAULT 'Jhon',
-  `facebook` varchar(150) NOT NULL DEFAULT 'facebook',
-  `twister` varchar(150) NOT NULL DEFAULT 'twister',
-  `site` varchar(150) NOT NULL DEFAULT 'site',
-  `description` text DEFAULT NULL,
+  `nom` varchar(150) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Do',
+  `prenom` varchar(150) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Jhon',
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `id_avatar` int(10) NOT NULL DEFAULT 1,
   `mailing` int(1) NOT NULL DEFAULT 1,
   `activation` int(1) NOT NULL DEFAULT 0,
@@ -1144,9 +1133,9 @@ CREATE TABLE `etai_intranet_membres` (
 -- Déchargement des données de la table `etai_intranet_membres`
 --
 
-INSERT INTO `etai_intranet_membres` (`id`, `pseudo`, `password`, `email`, `tel`, `adresse`, `cp`, `ville`, `genre`, `naissance`, `nom`, `prenom`, `facebook`, `twister`, `site`, `description`, `id_avatar`, `mailing`, `activation`, `niveau`, `design`) VALUES
-(2, 'minaamrachdi', '3]|l+b????????$??4', 'Mohamed.INAAMRACHDI@infopro-digital.com', '55 314 153', 'ANTONY PARC 2 10 PLACE DU GENERAL DE GAULLE', '92160', 'ANTONY', 1, '29 April, ', 'RACHDIidd', 'MEDdddd', '', '', '', '', 1, 0, 1, 3, 1),
-(5, 'Zied-jlassi', 'òøzyGoV¥Ö;]§ªð9e|¼', 'zied.jlassi@infopro-digital.com', '00.00.00.00.00', 'adresse', '00000', 'ville', 1, '12/11/1981', 'Jlassi', 'Mohamed Zied', 'facebook', 'twister', 'site', '', 1, 1, 1, 3, 1);
+INSERT INTO `etai_intranet_membres` (`id`, `pseudo`, `password`, `email`, `tel`, `adresse`, `cp`, `ville`, `genre`, `naissance`, `nom`, `prenom`, `description`, `id_avatar`, `mailing`, `activation`, `niveau`, `design`) VALUES
+(2, 'minaamrachdi', '$2y$10$QVYLU4Hjt8zBvW14cafC6OTJ6vyaWiHOxkmYWAh.tSil5qDYEAbh6', 'Mohamed.INAAMRACHDI@infopro-digital.com', '55 314 153', 'ANTONY PARC 2 10 PLACE DU GENERAL DE GAULLE', '92160', 'ANTONY', 1, '29 April, ', 'RACHDI', 'MED', '', 1, 0, 1, 3, 1),
+(5, 'Zied-jlassi', '$2y$10$QR/GrdXbp/GsyG/MHr0y2.6hvLznBZzo2Bwkz2mCFly/6n5f/1mR6\n', 'zied.jlassi@infopro-digital.com', '00.00.00.00.00', 'adresse', '00000', 'ville', 1, '12/11/1981', 'Jlassi', 'Mohamed Zied', '', 1, 1, 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -1239,7 +1228,7 @@ CREATE TABLE `etai_intranet_secure` (
 --
 
 INSERT INTO `etai_intranet_secure` (`id`, `id_membre`, `jeton`, `ip_connexion`, `date`) VALUES
-(15, 2, 'q?ZK\n?^?:\"iz??/g', '::1', '1624290190');
+(15, 2, 'q?ZK\n?^?:\"iz??/g', '::1', '1625591668');
 
 -- --------------------------------------------------------
 
@@ -1412,7 +1401,7 @@ ALTER TABLE `etai_intranet_avatar`
 -- AUTO_INCREMENT pour la table `etai_intranet_comm`
 --
 ALTER TABLE `etai_intranet_comm`
-  MODIFY `etai_intranet_comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `etai_intranet_comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT pour la table `etai_intranet_membres`
