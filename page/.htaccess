@@ -17,7 +17,7 @@ ErrorDocument 505 http://localhost/intranet_etai/error/erreur.php?erreur=505
 
 RewriteRule ^TableadeBord$ home.php [L]
 
-RewriteRule ^Bye$ logout.php [L]
+RewriteRule ^Bye$ /logout.php [L]
 
 
 RewriteRule ^Config$ admin.php [L]
@@ -29,6 +29,7 @@ RewriteRule ^ListeGroupe$  module/admin/liste_equipe.php  [L]
 
 #COMM
 RewriteRule ^ComDG$  administrateur/communication/liste_comm_dg.php  [L]
+RewriteRule ^ComDGmodif$  administrateur/communication/modif_comm_dg.php  [L]
 
 #NIVEAU
 RewriteRule ^ListeNiveau$  module/niveau/liste_niveau.php  [L]

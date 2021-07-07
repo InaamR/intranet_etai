@@ -83,7 +83,6 @@ if (preg_match("/config/", $page)) {
                 <div class="auth-wrapper auth-v1 px-2">
                     <div class="auth-inner py-2">
                         <?php
-
                             if(!empty($_POST['connect'])) {
 
                                 if(Connexion::connexionCreate()) {
@@ -104,15 +103,14 @@ if (preg_match("/config/", $page)) {
                                                 
                                                 if(!empty($_POST['login']) || !empty($_POST['pass'])) {
                                                     extract($_POST);
-                                                    if(Connexion::verifLogin($login) == 0) {
+                                                    if(Connexion::verifLogin($login) == FALSE) {
                                                         echo '<div role="alert" aria-live="polite" aria-atomic="true" class="alert alert-danger" data-v-aa799a9e=""><!----><h4 class="alert-heading"> Attention </h4><div class="alert-body"><span>Identifiant erroné</span></div></div>';
-                                                    }
-                                                }
-    
-                                                if(!empty($_POST['login']) || !empty($_POST['pass'])) {
-                                                    extract($_POST);
-                                                    if(Connexion::verifPass($pass, $login) == 0) {
-                                                        echo '<div role="alert" aria-live="polite" aria-atomic="true" class="alert alert-danger" data-v-aa799a9e=""><!----><h4 class="alert-heading"> Attention </h4><div class="alert-body"><span>Mot de passe erroné</span></div></div>';
+                                                    }else{
+
+                                                        if(Connexion::verifPass($pass, $login) == FALSE) {
+                                                            echo '<div role="alert" aria-live="polite" aria-atomic="true" class="alert alert-danger" data-v-aa799a9e=""><!----><h4 class="alert-heading"> Attention </h4><div class="alert-body"><span>Mot de passe erroné</span></div></div>';
+                                                        }
+
                                                     }
                                                 }
 
@@ -129,9 +127,6 @@ if (preg_match("/config/", $page)) {
                                                     <div class="form-group">
                                                         <div class="d-flex justify-content-between">
                                                             <label for="login-password">Mot de passe *:</label>
-                                                            <a href="oublie.php">
-                                                                <small>Mot de passe oublié ?</small>
-                                                            </a>
                                                         </div>
                                                         <div class="input-group input-group-merge form-password-toggle">
                                                             <input type="password" class="form-control form-control-merge" id="login-password" name="pass" tabindex="2" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="login-password" />
@@ -140,35 +135,16 @@ if (preg_match("/config/", $page)) {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input class="custom-control-input" type="checkbox" id="remember-me" tabindex="3" />
-                                                            <label class="custom-control-label" for="remember-me"> Souviens-toi de moi</label>
-                                                        </div>
-                                                    </div>
                                                     <button class="btn btn-primary btn-block" tabindex="4"  value="Connexion" name="connect" type="submit">S\'identifier</button>
                                                 </form>
-
-                                                
-
-                                                <!-- <div class="divider my-2">
-                                                    <div class="divider-text">or</div>
+                                                <div class="divider">
+                                                    <div class="divider-text">Aide</div>
                                                 </div>
-
-                                                <div class="auth-footer-btn d-flex justify-content-center">
-                                                    <a href="javascript:void(0)" class="btn btn-facebook">
-                                                        <i data-feather="facebook"></i>
-                                                    </a>
-                                                    <a href="javascript:void(0)" class="btn btn-twitter white">
-                                                        <i data-feather="twitter"></i>
-                                                    </a>
-                                                    <a href="javascript:void(0)" class="btn btn-google">
-                                                        <i data-feather="mail"></i>
-                                                    </a>
-                                                    <a href="javascript:void(0)" class="btn btn-github">
-                                                        <i data-feather="github"></i>
-                                                    </a>
-                                                </div> -->
+                                                <div class="footer-btn d-inline">
+                                                    <div class="text-right">
+                                                        <a href="inscription.php" class="card-link">S\'Inscrire</a><a href="oublie.php" class="card-link">Mot de passe oublié</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- /Login v1 -->
@@ -186,17 +162,17 @@ if (preg_match("/config/", $page)) {
                                                 
                                                 if(!empty($_POST['login']) || !empty($_POST['pass'])) {
                                                     extract($_POST);
-                                                    if(Connexion::verifLogin($login) == 0) {
+                                                    if(Connexion::verifLogin($login) == FALSE) {
                                                         echo '<div role="alert" aria-live="polite" aria-atomic="true" class="alert alert-danger" data-v-aa799a9e=""><!----><h4 class="alert-heading"> Attention </h4><div class="alert-body"><span>Identifiant erroné</span></div></div>';
+                                                    }else{
+
+                                                        if(Connexion::verifPass($pass, $login) == FALSE) {
+                                                            echo '<div role="alert" aria-live="polite" aria-atomic="true" class="alert alert-danger" data-v-aa799a9e=""><!----><h4 class="alert-heading"> Attention </h4><div class="alert-body"><span>Mot de passe erroné</span></div></div>';
+                                                        }
+
                                                     }
                                                 }
-    
-                                                if(!empty($_POST['login']) || !empty($_POST['pass'])) {
-                                                    extract($_POST);
-                                                    if(Connexion::verifPass($pass, $login) == 0) {
-                                                        echo '<div role="alert" aria-live="polite" aria-atomic="true" class="alert alert-danger" data-v-aa799a9e=""><!----><h4 class="alert-heading"> Attention </h4><div class="alert-body"><span>Mot de passe erroné</span></div></div>';
-                                                    }
-                                                }
+
                                                 echo'
                                                 <h4 class="card-title mb-1">Bienvenue</h4>
                                                 <p class="card-text mb-2">Connectez-vous à votre compte s\'il vous plaît</p>
@@ -210,9 +186,6 @@ if (preg_match("/config/", $page)) {
                                                     <div class="form-group">
                                                         <div class="d-flex justify-content-between">
                                                             <label for="login-password">Mot de passe *:</label>
-                                                            <a href="oublie.php">
-                                                                <small>Mot de passe oublié ?</small>
-                                                            </a>
                                                         </div>
                                                         <div class="input-group input-group-merge form-password-toggle">
                                                             <input type="password" class="form-control form-control-merge" id="login-password" name="pass" tabindex="2" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="login-password" />
@@ -221,35 +194,16 @@ if (preg_match("/config/", $page)) {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input class="custom-control-input" type="checkbox" id="remember-me" tabindex="3" />
-                                                            <label class="custom-control-label" for="remember-me"> Souviens-toi de moi</label>
-                                                        </div>
-                                                    </div>
                                                     <button class="btn btn-primary btn-block" tabindex="4"  value="Connexion" name="connect" type="submit">S\'identifier</button>
                                                 </form>
-
-                                                
-
-                                                <!-- <div class="divider my-2">
-                                                    <div class="divider-text">or</div>
+                                                <div class="divider">
+                                                    <div class="divider-text">Aide</div>
                                                 </div>
-
-                                                <div class="auth-footer-btn d-flex justify-content-center">
-                                                    <a href="javascript:void(0)" class="btn btn-facebook">
-                                                        <i data-feather="facebook"></i>
-                                                    </a>
-                                                    <a href="javascript:void(0)" class="btn btn-twitter white">
-                                                        <i data-feather="twitter"></i>
-                                                    </a>
-                                                    <a href="javascript:void(0)" class="btn btn-google">
-                                                        <i data-feather="mail"></i>
-                                                    </a>
-                                                    <a href="javascript:void(0)" class="btn btn-github">
-                                                        <i data-feather="github"></i>
-                                                    </a>
-                                                </div> -->
+                                                <div class="footer-btn d-inline">
+                                                    <div class="text-right">
+                                                        <a href="inscription.php" class="card-link">S\'Inscrire</a><a href="oublie.php" class="card-link">Mot de passe oublié</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- /Login v1 -->

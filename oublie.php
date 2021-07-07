@@ -34,7 +34,7 @@
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER['SERVER_NAME']?>assets/css/style.css">
     <!-- END: Custom CSS-->
 
 </head>
@@ -56,23 +56,39 @@
                         <!-- Forgot Password v1 -->
                         <div class="card mb-0">
                             <div class="card-body">
-                                <a href="javascript:void(0);" class="brand-logo">
+                                <a class="brand-logo">
                                     <img src="app-assets/images/logo/Infopro-logo-216x94.png" alt="" width="50%">
                                 </a>
 
                                 <h4 class="card-title mb-1">Mot de passe oublié ?</h4>
                                 <p class="card-text mb-2">Entrez votre email et nous vous enverrons des instructions pour réinitialiser votre mot de passe</p>
 
-                                <form class="auth-forgot-password-form mt-2" action="page-auth-reset-password-v1.html" method="POST">
+                                <?php
+                                    if(!empty($_POST['envoi'])) {
+                                        extract($_POST);
+                                        echo'
+                                        <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                            <div class="alert-body">
+                                            <i data-feather="info" class="mr-50 align-middle"></i>
+                                            <span>'.Connexion::passOubli($email).'</span>
+                                            </div>
+                                        </div>
+                                        ';
+                                    }
+                                    echo '
+                                    <form action="" method="post" name="" id="">
                                     <div class="form-group">
                                         <label for="forgot-password-email" class="form-label">Email</label>
-                                        <input type="text" class="form-control" id="forgot-password-email" name="forgot-password-email" placeholder="john@example.com" aria-describedby="forgot-password-email" tabindex="1" autofocus />
+                                        <input type="email" class="form-control" id="forgot-password-email" name="email" placeholder="john@example.com" aria-describedby="forgot-password-email" tabindex="1" autofocus />
                                     </div>
-                                    <button class="btn btn-primary btn-block" tabindex="2">Envoyer le lien de réinitialisation</button>
-                                </form>
+                                    <button class="btn btn-primary btn-block" tabindex="2" name="envoi" type="submit">Envoyer le lien de réinitialisation</button>
+                                    </form>
+
+                                    ';
+                                ?>
 
                                 <p class="text-center mt-2">
-                                    <a href="https://localhost/intranet_etai/"> <i data-feather="chevron-left"></i> Retour à la connexion</a>
+                                    <a href="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/"> <i data-feather="chevron-left"></i> Retour à la connexion</a>
                                 </p>
                             </div>
                         </div>

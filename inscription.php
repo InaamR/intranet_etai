@@ -26,17 +26,16 @@ if (preg_match("/config/", $page)) {
 }
 ?>
 <!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="ltr">
-<!-- BEGIN: Head-->
-
-<head>
+<html class="loading bordered-layout" lang="en" data-layout="bordered-layout" data-textdirection="ltr">
+  <!-- BEGIN: Head-->
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Cube | ETAI-Tunisie</title>
-    <link rel="apple-touch-icon" href="app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <title>Inscription - Infopro-Digital</title>
+    <link rel="apple-touch-icon" href="app-assets/images/ico/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/vendors.min.css">
@@ -48,153 +47,125 @@ if (preg_match("/config/", $page)) {
     <link rel="stylesheet" type="text/css" href="app-assets/css/colors.css">
     <link rel="stylesheet" type="text/css" href="app-assets/css/components.css">
     <link rel="stylesheet" type="text/css" href="app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/themes/bordered-layout.css">
     <link rel="stylesheet" type="text/css" href="app-assets/css/themes/semi-dark-layout.css">
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/authentication.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/forms/validation/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/page-auth.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- END: Custom CSS-->
-	<style>
-    body {
-        margin:0;
-        padding:0;
-        <?php
-        $numero = rand(1, 10);
-        echo 'background: linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)),
-            
-            url("images/home/' .
-            $numero .
-            '.jpg")
 
-            no-repeat center fixed
-          ;';
-        ?>
-        -webkit-background-size: cover;
-        background-size: cover;
-
-    }
-    </style>
-</head>
+  </head>
 <!-- END: Head-->
 
 <!-- BEGIN: Body-->
 
-<body class="vertical-layout vertical-menu-modern 1-column  navbar-floating footer-static bg-full-screen-image  menu-collapsed blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
+<body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
     <!-- BEGIN: Content-->
-    <div class="app-content content">
-        <div class="content-overlay"></div>
-        <div class="header-navbar-shadow"></div>
-        <div class="content-wrapper">
-            <div class="content-header row">
-            </div>
-            <div class="content-body">
-                <section class="row flexbox-container">
-                    <div class="col-xl-8 col-11 d-flex justify-content-center">
-                        <div class="col-lg-6 card rounded-1 mb-0">
-                            <div class="row m-0">                                
-                                <div class="col-lg-12 col-12 p-0">
-                                    <div class="card rounded-0 mb-0 px-2">
-                                        <div class="card-header pb-1">
-                                            <div class="card-title">
-                                            <img src="app-assets/img/CUBE-liv.png" alt="" title=""  />
-                                            </div>
-                                        </div>
-                                        <p class="px-2">Bienvenue,<br> veuillez vous inscrire.</p>
+    <div class="app-content content ">
+      <div class="content-overlay"></div>
+      <div class="header-navbar-shadow"></div>
+      <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body"><div class="auth-wrapper auth-v1 px-2">
+    <div class="auth-inner py-2">
+    <!-- Register v1 -->
+    <div class="card mb-0">
+        <div class="card-body">
+            <a href="index.php" class="brand-logo">
+                <img src="app-assets/images/logo/Infopro-logo-216x94.png" alt="" width="60%">
+            </a>
+
+        <h4 class="card-title mb-1">Inscription</h4>
+        <p class="card-text mb-2">Rendez la gestion de votre application simple et amusante !</p>
 
 
-										<?php
-										echo '<div class="card-content">';
+        <?php
 
-										if(!empty($_POST['inscription'])) {
+            if(!empty($_POST['inscription'])) {
 
-											extract($_POST);
+                extract($_POST);
 
-											echo
-                                                '<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-                                                    <i class="feather icon-info mr-1 align-middle"></i>
-                                                    <span>'.Inscription::inscrire($identifiant, $email, $passeUn, $passeDe).'</span>
-                                                </div>';
-										}
-
-
-										echo '<div class="card-body pt-1">
-												<form action="" method="post" name="" id="" novalidate>
-                                                    
-                                                        
-                                                        <div class="form-group">
-                                                            <label for="user-name"><b>Choisir un identifiant *:</b></label>   
-                                                            <div class="controls">
-                                                            
-                                                                <input type="text" name="identifiant" class="form-control" id="user-name" data-validation-required-message="Le champ est obligatoire et doit contenir au moins 3 caractères." minlength="3" placeholder="Entrez au minimum 3 caractères" data-validation-regex-regex="^[-a-zA-Z_\d]+$" data-validation-regex-message="Doit entrer un caractère, un nombre, un tiret ou Uderscore" required>
-                                                            </div>
-                                                        </div>
-														                                                     
-                                                    
-                                                        <div class="form-group">
-                                                        <label for="user-name"><b>Choisir une adresse EMAIL *:</b></label>   
-                                                        <div class="controls">
-
-														<input type="email" name="email" class="form-control" id="user-email" placeholder="Veulliez saisir votre adresse mail Pro" data-validation-required-message="Ce champ est obligatoire" required>
-														
-                                                        </div>
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                        <label for="user-name"><b>Saisir un Mot de Passe (Min 3 Caractéres) *:</b></label>   
-                                                        <div class="controls">
-
-                                                        <input type="password"  name="passeUn" class="form-control" id="user-password" required data-validation-required-message="Ce champ est obligatoire"  data-validation-required-message="Le champ min doit contenir au moins 3 caractères." minlength="3">
-														
-                                                        </div>
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                        <label for="user-name"><b>Confirmer le Mot de passe *:</b></label>   
-                                                        <div class="controls">
-
-                                                        <input type="password"  name="passeDe" class="form-control" id="user-password" required data-validation-match-match="passeUn" data-validation-required-message="Le mot de passe de confirmation doit correspondre au mot de passe">
-														
-                                                        </div>
-                                                        </div>
-
-													    <button name="inscription" type="submit" class="btn btn-primary float-right btn-inline" value="Valider Inscription">Valider Inscription</button>
-                                                        <button type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">Effacer</button>			
-
-												</form>
-											</div>
-										</div>
-										<div class="login-footer p-1">
-											<div class="divider">
-												<div class="divider-text">Aide</div>
-											</div>
-											<div class="footer-btn d-inline">
-											<div class="text-right"><a href="index.php" class="card-link">Revenir à la page de connexion</a></div>
-											
-
-											</div>
-										</div>';
-										?>
-
-
-									</div>
-                                </div>
-                            </div>
+                echo'
+                    <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                        <div class="alert-body">
+                        <i data-feather="info" class="mr-50 align-middle"></i>
+                        <span>'.Inscription::inscrire($identifiant, $email, $passeUn, $passeDe).'</span>
                         </div>
                     </div>
-                </section>
+                    ';
+            }
 
-            </div>
+
+            echo'
+                <form action="" method="post" name="" id="" novalidate>
+                    
+                        
+                        <div class="form-group">
+                            <label for="user-name"><b>Choisir un identifiant *:</b></label>   
+                            <div class="controls">
+                            
+                                <input type="text" name="identifiant" class="form-control" id="user-name" data-validation-required-message="Le champ est obligatoire et doit contenir au moins 3 caractères." minlength="3" placeholder="Entrez au minimum 3 caractères" data-validation-regex-regex="^[-a-zA-Z_\d]+$" data-validation-regex-message="Doit entrer un caractère, un nombre, un tiret ou Uderscore" required>
+                            </div>
+                        </div>
+                                                                                
+                    
+                        <div class="form-group">
+                        <label for="user-name"><b>Choisir une adresse EMAIL *:</b></label>   
+                        <div class="controls">
+
+                        <input type="email" name="email" class="form-control" id="user-email" placeholder="Veulliez saisir votre adresse mail Pro" data-validation-required-message="Ce champ est obligatoire" required>
+                        
+                        </div>
+                        </div>
+
+
+                        <div class="form-group">
+                        <label for="user-name"><b>Saisir un Mot de Passe (Min 3 Caractéres) *:</b></label>   
+                        <div class="controls">
+
+                        <input type="password"  name="passeUn" class="form-control" id="user-password" required data-validation-required-message="Ce champ est obligatoire"  data-validation-required-message="Le champ min doit contenir au moins 3 caractères." minlength="3">
+                        
+                        </div>
+                        </div>
+
+
+                        <div class="form-group">
+                        <label for="user-name"><b>Confirmer le Mot de passe *:</b></label>   
+                        <div class="controls">
+
+                        <input type="password" name="passeDe" class="form-control" id="user-password" required data-validation-match-match="passeUn" data-validation-required-message="Le mot de passe de confirmation doit correspondre au mot de passe">
+                        
+                        </div>
+                        </div>
+
+                        <button name="inscription" type="submit" class="btn btn-primary float-right btn-inline" value="Valider Inscription">Valider Inscription</button>
+                        <button type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">Effacer</button>			
+
+                </form>
+
+            ';
+        ?>
+		<p class="text-center mt-2">
+            <span>Vous avez déjà un compte ?</span><br>
+            <a href="index.php">
+                <span>Connectez-vous à la place</span>
+            </a>
+        </p>
+      </div>
+    </div>
+    <!-- /Register v1 -->
+  </div>
+</div>
+
         </div>
+      </div>
     </div>
     <!-- END: Content-->
 
@@ -204,20 +175,25 @@ if (preg_match("/config/", $page)) {
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="app-assets/vendors/js/forms/validation/jqBootstrapValidation.js"></script>
+    <script src="app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
-    <script src="app-assets/js/core/app-menu.js"></script>
-    <script src="app-assets/js/core/app.js"></script>
-    <script src="app-assets/js/scripts/components.js"></script>
+    <script src="app-assets/js/core/app-menu.min.js"></script>
+    <script src="app-assets/js/core/app.min.js"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="app-assets/js/scripts/forms/validation/form-validation.js"></script>
+    <script src="app-assets/js/scripts/pages/page-auth-register.min.js"></script>
     <!-- END: Page JS-->
 
-</body>
-<!-- END: Body-->
-
+    <script>
+      $(window).on('load',  function(){
+        if (feather) {
+          feather.replace({ width: 14, height: 14 });
+        }
+      })
+    </script>
+  </body>
+  <!-- END: Body-->
 </html>

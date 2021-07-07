@@ -13,7 +13,7 @@
   var editor = '#blog-editor-container .editor';
   var blogFeatureImage = $('#blog-feature-image');
   var blogImageText = document.getElementById('blog-image-text');
-  var blogImageInput = $('#blogCustomFile');
+  var blogImageInput = $('#ckfinder-input-1');
 
   // Basic Select2 select
   select.each(function () {
@@ -30,7 +30,7 @@
 
   // Snow Editor
 
-  var Font = Quill.import('formats/font');
+  /*var Font = Quill.import('formats/font');
   Font.whitelist = ['sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'];
   Quill.register(Font, true);
 
@@ -100,7 +100,7 @@
       ]
     },
     theme: 'snow'
-  });
+  });*/
 
   // Change featured image
   if (blogImageInput.length) {

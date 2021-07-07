@@ -12,6 +12,8 @@
   "homepage": "https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/",
   "main": "gulpfile.js",
   "dependencies": {
+    "@ckeditor/ckeditor5-image": "^28.0.0",
+    "@ckeditor/ckeditor5-link": "^28.0.0",
     "async": "^3.1.0",
     "bootstrap": "4.6.0",
     "gulp-cli": "^2.2.0",
