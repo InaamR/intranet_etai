@@ -87,6 +87,9 @@ if ($job != '') {
                             <a href="#" data-id="' .
                             $communication['etai_intranet_comm_id'] .
                             '" style="font-size: 0.9rem !important;" class="btn btn-danger btn-sm waves-effect waves-float waves-light delete-record">Supprimer</a>
+                            <a href="#" data-id="' .
+                            $communication['etai_intranet_comm_id'] .
+                            '" style="font-size: 0.9rem !important;" class="btn btn-success btn-sm waves-effect waves-float waves-light delete-record">Liste des lecteurs</a>
                             
                             ';
 
@@ -191,26 +194,15 @@ if ($job != '') {
             $result = 'error';
             $message = 'Échec id';
         } else {
-            try {
-                $query_select_add = Bdd::connectBdd()->prepare("SELECT * FROM user_niveau_methode WHERE niveau_id = :id");
-                $query_select_add->bindParam(":id", $id, PDO::PARAM_INT);
-                $query_select_add->execute();
-
-                while ($traitement_edit = $query_select_add->fetch()) {
-                    $mysql_data[] = [
-                        "nom_niveau" => $traitement_edit['niveau_name'],
-                    ];
-                }
-
+            
+                $query_select_add = Bdd::connectBdd()->prepare("SELECT * FROM etai_intranet_comm WHERE etai_intranet_comm_id = :etai_intranet_comm_id");
+                $query_select_add->bindParam(":etai_intranet_comm_id", $id, PDO::PARAM_INT);
+                $query_select_add->execute(); 
                 $query_select_add->closeCursor();
 
                 $result = 'success';
                 $message = 'Succès de requête';
-            } catch (PDOException $x) {
-                die("Secured");
-                $result = 'error';
-                $message = 'Échec de requête';
-            }
+           
             $query_del = null;
             $bdd = null;
         }
