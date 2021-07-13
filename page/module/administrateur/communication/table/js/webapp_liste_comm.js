@@ -7,8 +7,8 @@ $(function () {
 
   $(document).ready(function(){
   var dt_basic_table = $('.datatables-basic'),
-    dt_date_table = $('.dt-date'),
-    assetPath = '../app-assets/';
+      dt_date_table = $('.dt-date'),
+      assetPath = '../app-assets/';
   
   var form_comm = $('#form_comm');
 
@@ -154,17 +154,7 @@ $(function () {
               $(node).closest('.dt-buttons').removeClass('btn-group').addClass('d-inline-flex');
             }, 50);
           }
-        }/*,
-        {
-          text: feather.icons['plus'].toSvg({ class: 'mr-50 font-small-4' }) + 'Ecrire un article',
-          className: 'create-new btn btn-primary',
-          attr: {
-            'href': 'http://www.google.fr',
-          },
-          init: function (api, node, config) {
-            $(node).removeClass('btn-secondary');
-          }
-        }*/
+        }
       ],
       responsive: {
         details: {
@@ -320,62 +310,98 @@ $(function () {
 		})
   }); 
 
-  $(document).on('submit', '#jquery-val-form.add', function(){
+  $(document).on('submit', '.add', function(e){
 	  			
+    e.preventDefault();
+
       var form_data = $('#jquery-val-form').serialize();
+
+      var onSuccess = function (data) {
+        console.log('Success');
+        window.location.assign("liste_comm.php");
+    
+      };
+      var onError = function (jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR);
+          console.log(textStatus);
+          console.log(errorThrown);
+          alert("Probléme de mise à jour de la base de donnée");
+      
+      };
+      
+      var onBeforeSend = function () {
+          console.log("Loading");
+          $.blockUI({
+            message: '<div class="spinner-border text-white" role="status"></div>',
+            timeout: 1000,
+            css: {
+              backgroundColor: 'transparent',
+              border: '0'
+            },
+            overlayCSS: {
+              opacity: 0.5
+            }
+          });
+          
+      };
 	  
       var request   = $.ajax({
         url:          'table/php/data_liste_comm.php?job=add_comm',
-        cache:        false,
         data:         form_data,
-        dataType:     'json',
-        contentType:  'application/json; charset=utf-8',
-        type:         'get',
-        success: function(data, textStatus) {
-          window.location.replace("liste_comm.php");      
-        },
-        error : function(resultat, statut, erreur){
-          Swal.fire({
-            title: 'Annulée',
-            text: "Une erreur s'est produite lors de l'enregistrement",
-            type: 'error',
-            confirmButtonClass: 'btn btn-success',
-          })
-        }
-      });
+        type:         'post',
+        async: false,
+        beforeSend: onBeforeSend,
+        error: onError,
+        success: onSuccess
+      });	  
+      
   });
 
-  $(document).on('submit', '#jquery-val-form.edit', function(e){
+  $(document).on('submit', '.edit', function(e){
 
-    var id        = $('#jquery-val-form').attr('data-id');
-    var form_data = $('#jquery-val-form').serialize();
+		e.preventDefault();
 
-    var request   = $.ajax({
-    url:          'table/php/data_liste_comm.php?job=comm_edit&id=' + id,
-    cache:        true,
-    data:         form_data,
-    dataType:     'html',
-    contentType:  'application/json; charset=utf-8',
-    type:         'get',
-    success: function(data, textStatus) {
-        window.location.replace("liste_comm.php"); 
-  
-     
-    },
-    error : function(resultat, statut, erreur){
-      Swal.fire({
-        title: 'Annulée',
-        text: "Une erreur s'est produite lors de l'enregistrement",
-        type: 'error',
-        confirmButtonClass: 'btn btn-success',
-      })
-    },
-    complete : function(resultat, statut){
-      window.location.replace("liste_comm.php"); 
-    }
-    });
-  
-});
+      var id        = $('#jquery-val-form').attr('data-id');
+      var form_data = $('#jquery-val-form').serialize();
+
+      var onSuccess = function (data) {
+        console.log('Success');
+        window.location.assign("liste_comm.php");
+    
+      };
+      var onError = function (jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR);
+          console.log(textStatus);
+          console.log(errorThrown);
+          alert("Probléme de mise à jour de la base de donnée");
+      
+      };
+      
+      var onBeforeSend = function () {
+          console.log("Loading");          
+          $.blockUI({
+            message: '<div class="spinner-border text-white" role="status"></div>',
+            timeout: 1000,
+            css: {
+              backgroundColor: 'transparent',
+              border: '0'
+            },
+            overlayCSS: {
+              opacity: 0.5
+            }
+          });
+      };
+		  var request   = $.ajax({
+        url:          'table/php/data_liste_comm.php?job=comm_edit&id=' + id,
+        data:         form_data,
+        type:         'post',
+        async: false,
+        beforeSend: onBeforeSend,
+        error: onError,
+        success: onSuccess
+      });
+		
+	});
 
 
 

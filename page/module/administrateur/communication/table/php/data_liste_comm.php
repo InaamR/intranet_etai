@@ -82,16 +82,18 @@ if ($job != '') {
             $functions = '
 
                             
-                            <a href="modif_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 0.9rem !important;" class="btn btn-info btn-sm waves-effect waves-float waves-light">Modifier</a>
-                            <a href="prev_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 0.9rem !important;" class="btn btn-dark btn-sm waves-effect waves-float waves-light">Preview</a>
-                            <a href="#" data-id="' .
-                            $communication['etai_intranet_comm_id'] .
-                            '" style="font-size: 0.9rem !important;" class="btn btn-danger btn-sm waves-effect waves-float waves-light delete-record">Supprimer</a>
-                            <a href="#" data-id="' .
-                            $communication['etai_intranet_comm_id'] .
-                            '" style="font-size: 0.9rem !important;" class="btn btn-success btn-sm waves-effect waves-float waves-light delete-record">Liste des lecteurs</a>
-                            
-                            ';
+            <a href="modif_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 0.9rem !important;" class="btn btn-info btn-sm waves-effect waves-float waves-light"><i class="bi bi-pencil-square"></i></a>
+            <a href="prev_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 0.9rem !important;" class="btn btn-dark btn-sm waves-effect waves-float waves-light"><i class="bi bi-arrows-fullscreen"></i></a>
+            <a href="#" data-id="' .
+            $communication['etai_intranet_comm_id'] .
+            '" style="font-size: 0.9rem !important;" class="btn btn-danger btn-sm waves-effect waves-float waves-light delete-record"><i class="bi bi-trash"></i>
+            </a>
+            <a href="#" data-id="' .
+            $communication['etai_intranet_comm_id'] .
+            '" style="font-size: 0.9rem !important;" class="btn btn-success btn-sm waves-effect waves-float waves-light delete-record"><i class="bi bi-person-lines-fill"></i>
+            </a>
+            
+            ';
 
 
             $date = date_create($communication['etai_intranet_comm_date']);
@@ -122,7 +124,7 @@ if ($job != '') {
             switch($communication['etai_intranet_comm_statut'])
             {
                 case '1':
-                    $statut = '<div class="badge badge-light-warning">En attente de confirmation</div>';
+                    $statut = '<div class="badge badge-light-warning">En attente</div>';
                 break;
                 case '2':
                     $statut = '<div class="badge badge-light-success">Valider</div>';
@@ -136,12 +138,13 @@ if ($job != '') {
                 default:
                     $statut = '<div class="badge badge-light-info">Inactif</div>';
             }
+            $stitre = $communication['etai_intranet_comm_sous_titre'];
 
             $mysql_data[] = [
                 "responsive_id" => "",
                 "id" => $id,
                 "full_name" => $name_user,
-                "post" => $titre,
+                "post" => $stitre,
                 "titre" => $titre,
                 "cat" => $cat,
                 "email" => $email,
@@ -167,14 +170,14 @@ if ($job != '') {
             $query = Bdd::connectBdd()->prepare("INSERT INTO etai_intranet_comm (`etai_intranet_comm_titre`, `etai_intranet_comm_sous_titre`, `etai_intranet_comm_date`, `etai_intranet_comm_desc`, `etai_intranet_comm_img`, `etai_intranet_comm_statut`, `etai_intranet_comm_cat`, `etai_intranet_comm_email_user`, `etai_intranet_comm_user`)
 			 VALUES (:comm_titre, :comm_sous_titre, now(), :article, :img, :statut, :cat, :email, :user)");
 
-            $query->bindParam(":comm_titre", $_GET['titre'], PDO::PARAM_STR);
-            $query->bindParam(":comm_sous_titre", $_GET['stitre'], PDO::PARAM_STR);
-            $query->bindParam(":article", $_GET['article'], PDO::PARAM_STR);
-            $query->bindParam(":img", $_GET['img'], PDO::PARAM_STR);
-            $query->bindParam(":statut", $_GET['statut'], PDO::PARAM_INT);
-            $query->bindParam(":cat", $_GET['cat'], PDO::PARAM_INT);
-            $query->bindParam(":email", $_GET['email'], PDO::PARAM_STR);
-            $query->bindParam(":user", $_GET['user'], PDO::PARAM_STR);
+            $query->bindParam(":comm_titre", $_POST['titre'], PDO::PARAM_STR);
+            $query->bindParam(":comm_sous_titre", $_POST['stitre'], PDO::PARAM_STR);
+            $query->bindParam(":article", $_POST['article'], PDO::PARAM_STR);
+            $query->bindParam(":img", $_POST['img'], PDO::PARAM_STR);
+            $query->bindParam(":statut", $_POST['statut'], PDO::PARAM_INT);
+            $query->bindParam(":cat", $_POST['cat'], PDO::PARAM_INT);
+            $query->bindParam(":email", $_POST['email'], PDO::PARAM_STR);
+            $query->bindParam(":user", $_POST['user'], PDO::PARAM_STR);
 
             $query->execute();
             $query->closeCursor();
@@ -213,14 +216,14 @@ if ($job != '') {
         } else {
             $query = Bdd::connectBdd()->prepare("UPDATE etai_intranet_comm SET etai_intranet_comm_user = :etai_intranet_comm_user, etai_intranet_comm_email_user = :etai_intranet_comm_email_user, etai_intranet_comm_date = NOW(), etai_intranet_comm_cat = :etai_intranet_comm_cat, etai_intranet_comm_titre = :etai_intranet_comm_titre, etai_intranet_comm_sous_titre = :etai_intranet_comm_sous_titre, etai_intranet_comm_desc = :etai_intranet_comm_desc, etai_intranet_comm_img = :etai_intranet_comm_img, etai_intranet_comm_statut = :etai_intranet_comm_statut  WHERE etai_intranet_comm_id = :etai_intranet_comm_id");
             $query->bindParam(":etai_intranet_comm_id", $id, PDO::PARAM_INT);
-            $query->bindParam(":etai_intranet_comm_user", $_GET['user'], PDO::PARAM_STR);
-            $query->bindParam(":etai_intranet_comm_email_user", $_GET['email'], PDO::PARAM_STR);
-            $query->bindParam(":etai_intranet_comm_cat", $_GET['cat'], PDO::PARAM_INT);
-            $query->bindParam(":etai_intranet_comm_titre", $_GET['titre'], PDO::PARAM_STR);
-            $query->bindParam(":etai_intranet_comm_sous_titre", $_GET['stitre'], PDO::PARAM_STR);
-            $query->bindParam(":etai_intranet_comm_desc", $_GET['article'], PDO::PARAM_STR);
-            $query->bindParam(":etai_intranet_comm_img", $_GET['img'], PDO::PARAM_STR);
-            $query->bindParam(":etai_intranet_comm_statut", $_GET['statut'], PDO::PARAM_INT);
+            $query->bindParam(":etai_intranet_comm_user", $_POST['user'], PDO::PARAM_STR);
+            $query->bindParam(":etai_intranet_comm_email_user", $_POST['email'], PDO::PARAM_STR);
+            $query->bindParam(":etai_intranet_comm_cat", $_POST['cat'], PDO::PARAM_INT);
+            $query->bindParam(":etai_intranet_comm_titre", $_POST['titre'], PDO::PARAM_STR);
+            $query->bindParam(":etai_intranet_comm_sous_titre", $_POST['stitre'], PDO::PARAM_STR);
+            $query->bindParam(":etai_intranet_comm_desc", $_POST['article'], PDO::PARAM_STR);
+            $query->bindParam(":etai_intranet_comm_img", $_POST['img'], PDO::PARAM_STR);
+            $query->bindParam(":etai_intranet_comm_statut", $_POST['statut'], PDO::PARAM_INT);
             $query->execute();
             $query->closeCursor();
             $result = 'success';
