@@ -81,16 +81,17 @@ if ($job != '') {
 
             $functions = '
 
-                            
-            <a href="modif_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 0.9rem !important;" class="btn btn-info btn-sm waves-effect waves-float waves-light"><i class="bi bi-pencil-square"></i></a>
-            <a href="prev_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 0.9rem !important;" class="btn btn-dark btn-sm waves-effect waves-float waves-light"><i class="bi bi-arrows-fullscreen"></i></a>
-            <a href="#" data-id="' .
-            $communication['etai_intranet_comm_id'] .
-            '" style="font-size: 0.9rem !important;" class="btn btn-danger btn-sm waves-effect waves-float waves-light delete-record"><i class="bi bi-trash"></i>
+            <a href="modif_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light mr-25 mb-25 p-0">
+                <i class="bi bi-pencil-square"></i>
             </a>
-            <a href="#" data-id="' .
-            $communication['etai_intranet_comm_id'] .
-            '" style="font-size: 0.9rem !important;" class="btn btn-success btn-sm waves-effect waves-float waves-light delete-record"><i class="bi bi-person-lines-fill"></i>
+            <a href="prev_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light mr-25 mb-25 p-0">
+                <i class="bi bi-arrows-fullscreen"></i>
+            </a>
+            <a href="#" data-id="' .$communication['etai_intranet_comm_id'].'" style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light delete-record mr-25 mb-25 p-0">
+                <i class="bi bi-trash"></i>
+            </a>
+            <a href="#" data-id="' .$communication['etai_intranet_comm_id'].'" style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light delete-record mr-25 mb-25 p-0">
+                <i class="bi bi-person-lines-fill"></i>
             </a>
             
             ';
