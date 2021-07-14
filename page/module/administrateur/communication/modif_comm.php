@@ -190,7 +190,7 @@ $PDO_query_comm_unique->closeCursor();
                 <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
                     <div class="form-group breadcrumb-right">                   
                         <a class="btn-icon btn btn-success btn-round btn-sm waves-effect waves-float waves-light" href="liste_comm.php">Revenir à la liste</a>
-                        <a class="btn-icon btn btn-dark btn-round btn-sm waves-effect waves-float waves-light" href="prev_comm.php?id=<?php echo $_GET["id"]?>" target="_blank">Prewiew</a>
+                        <a class="btn-icon btn btn-dark btn-round btn-sm waves-effect waves-float waves-light" href="prev_comm.php?id=<?php echo $_GET["id"]?>" target="_blank">Preview</a>
                     </div>
                 </div>
             </div>
@@ -358,14 +358,14 @@ $PDO_query_comm_unique->closeCursor();
                                                                     case '1':
                                                                         if($communication['etai_intranet_comm_statut'] == 1){ 
                                                                             echo '
-                                                                            <option value="1" selected>En attente de confirmation</option>
+                                                                            <option value="1" selected>En attente</option>
                                                                             <option value="2">Valider</option>
                                                                             <option value="3">Archiver</option>
                                                                             <option value="4">Annuler</option>
                                                                             ';
                                                                         }else{ 
                                                                                 echo '
-                                                                                <option value="1">En attente de confirmation</option>
+                                                                                <option value="1">En attente</option>
                                                                                 <option value="2">Valider</option>
                                                                                 <option value="3">Archiver</option>
                                                                                 <option value="4">Annuler</option>
@@ -376,14 +376,14 @@ $PDO_query_comm_unique->closeCursor();
                                                                     case '2':
                                                                         if($communication['etai_intranet_comm_statut'] == 2){ 
                                                                             echo '
-                                                                            <option value="1">En attente de confirmation</option>
+                                                                            <option value="1">En attente</option>
                                                                             <option value="2" selected>Valider</option>
                                                                             <option value="3">Archiver</option>
                                                                             <option value="4">Annuler</option>
                                                                             ';
                                                                         }else{ 
                                                                                 echo '
-                                                                                <option value="1">En attente de confirmation</option>
+                                                                                <option value="1">En attente</option>
                                                                                 <option value="2">Valider</option>
                                                                                 <option value="3">Archiver</option>
                                                                                 <option value="4">Annuler</option>
@@ -394,14 +394,14 @@ $PDO_query_comm_unique->closeCursor();
                                                                     case '3':
                                                                         if($communication['etai_intranet_comm_statut'] == 3){ 
                                                                             echo '
-                                                                            <option value="1">En attente de confirmation</option>
+                                                                            <option value="1">En attente</option>
                                                                             <option value="2">Valider</option>
                                                                             <option value="3" selected>Archiver</option>
                                                                             <option value="4">Annuler</option>
                                                                             ';
                                                                         }else{ 
                                                                                 echo '
-                                                                                <option value="1">En attente de confirmation</option>
+                                                                                <option value="1">En attente</option>
                                                                                 <option value="2">Valider</option>
                                                                                 <option value="3">Archiver</option>
                                                                                 <option value="4">Annuler</option>
@@ -412,14 +412,14 @@ $PDO_query_comm_unique->closeCursor();
                                                                     case '4':
                                                                         if($communication['etai_intranet_comm_statut'] == 4){ 
                                                                             echo '
-                                                                            <option value="1">En attente de confirmation</option>
+                                                                            <option value="1">En attente</option>
                                                                             <option value="2">Valider</option>
                                                                             <option value="3">Archiver</option>
                                                                             <option value="4" selected>Annuler</option>
                                                                             ';
                                                                         }else{ 
                                                                                 echo '
-                                                                                <option value="1">En attente de confirmation</option>
+                                                                                <option value="1">En attente</option>
                                                                                 <option value="2">Valider</option>
                                                                                 <option value="3">Archiver</option>
                                                                                 <option value="4">Annuler</option>
@@ -430,7 +430,7 @@ $PDO_query_comm_unique->closeCursor();
                                                             }else{
 
                                                                 echo '
-                                                                <option value="1">En attente de confirmation</option>
+                                                                <option value="1">En attente</option>
                                                                 <option value="2">Valider</option>
                                                                 <option value="3">Archiver</option>
                                                                 <option value="4">Annuler</option>
@@ -468,11 +468,11 @@ $PDO_query_comm_unique->closeCursor();
                                                         <?php
                                                         if(!empty($id_comm))
                                                         {
-                                                            echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';
+                                                            echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" alt="Blog Featured Image" />';
                                                         }
                                                         else
                                                         {
-                                                            echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';
+                                                            echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" alt="Blog Featured Image" />';
                                                         }
                                                         ?>
 
@@ -619,73 +619,21 @@ $PDO_query_comm_unique->closeCursor();
 
     <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm.js"></script>
 
-    <script src="ckeditor/ckeditor.js"></script>
+    <script src="ckeditor/js/sf.js"></script>
+    <script src="ckeditor/js/tree-a.js"></script>
+    <script src="https://cdn.ckeditor.com/4.12.1/standard-all/ckeditor.js"></script>
     <script src="ckfinder/ckfinder.js"></script>
 
 <script>
         
-        ClassicEditor
-        .create( document.querySelector( '#editor' ), {
-
-
-            image: {
-            // Configure the available styles.
-                styles: [
-                    'alignLeft', 'alignCenter', 'alignRight'
-                ],
-
-            // Configure the available image resize options.
-                resizeOptions: [
-                    {
-                        name: 'resizeImage:original',
-                        label: 'Original',
-                        value: null
-                    },
-                    {
-                        name: 'resizeImage:50',
-                        label: '50%',
-                        value: '50'
-                    },
-                    {
-                        name: 'resizeImage:75',
-                        label: '75%',
-                        value: '75'
-                    }
-                ],
-
-            // You need to configure the image toolbar, too, so it shows the new style
-            // buttons as well as the resize buttons.
-                toolbar: [
-                    'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
-                    '|',
-                    'resizeImage',
-                    '|',
-                    'imageTextAlternative'
-                ]
-            },
-            ckfinder: {
-                uploadUrl: 'http://localhost/intranet_etai/page/module/administrateur/communication/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-            },
-            toolbar: {
-                items: [ 'ckfinder', 'imageUpload', '|', 'heading', '|',
-                'alignment', '|',
-                'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
-                'link', '|',
-                'bulletedList', 'numberedList', 'todoList',
-                '|', // break point
-                'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
-                'code', 'codeBlock', '|',
-                'insertTable', '|',
-                'outdent', 'indent', '|',
-                'blockQuote', '|',
-                'undo', 'redo' ],
-                viewportTopOffset: 30,
-                shouldNotGroupWhenFull: true
-            }
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
+        CKEDITOR.disableAutoInline = true;
+		CKEDITOR.addCss( 'img {max-width:100%; height: auto;}' );
+		var editor = CKEDITOR.replace( 'editor', {
+			extraPlugins: 'uploadimage,image2',
+			removePlugins: 'image',
+			height:250
+		} );
+		CKFinder.setupCKEditor( editor );
  
  
         $(window).on('load', function () {
