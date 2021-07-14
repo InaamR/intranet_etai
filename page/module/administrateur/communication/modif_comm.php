@@ -86,7 +86,7 @@ $PDO_query_comm_unique->closeCursor();
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- END: Custom CSS-->
 </head>
 <!-- END: Head-->
@@ -174,23 +174,23 @@ $PDO_query_comm_unique->closeCursor();
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
             <div class="content-header row">
-                <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="content-header-left col-md-9 col-9 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
                             <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
                             <div class="breadcrumb-wrapper">
-                                <ol class="breadcrumb">
+                                <ol class="breadcrumb d-md-flex d-none">
                                     <li class="breadcrumb-item"><a href="liste_comm.php">Communications Générales</a></li>
-                                    <li class="breadcrumb-item active">Gestion des communications générales</li>
+                                    <li class="breadcrumb-item active">Gestion des comm</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                    <div class="form-group breadcrumb-right">                   
-                        <a class="btn-icon btn btn-success btn-round btn-sm waves-effect waves-float waves-light" href="liste_comm.php">Revenir à la liste</a>
-                        <a class="btn-icon btn btn-dark btn-round btn-sm waves-effect waves-float waves-light" href="prev_comm.php?id=<?php echo $_GET["id"]?>" target="_blank">Preview</a>
+                <div class="content-header-right text-md-right col-md-3 col-3">
+                    <div class="form-group breadcrumb-right float-right">                   
+                        <a style="font-size: 1.8rem !important;" class="btn waves-effect waves-float waves-light p-0 mr-25" href="liste_comm.php"><i class="bi bi-reply"></i></a>
+                        <a style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light p-0 mr-25" href="prev_comm.php?id=<?php echo $_GET["id"]?>" target="_blank"><i class="bi bi-arrows-fullscreen"></i></a>
                     </div>
                 </div>
             </div>
@@ -274,12 +274,12 @@ $PDO_query_comm_unique->closeCursor();
                                                                             <option value="5">CCE</option>
                                                                             ';
                                                                         }else{ 
-                                                                                echo '
-                                                                                <option value="1">Direction générale</option>
-                                                                                <option value="2">RH</option>
-                                                                                <option value="3">Services généraux</option>
-                                                                                <option value="5">CCE</option>
-                                                                                <option value="" selected>Selectionnez une catégorie ...</option>';
+                                                                            echo '
+                                                                            <option value="1">Direction générale</option>
+                                                                            <option value="2">RH</option>
+                                                                            <option value="3">Services généraux</option>
+                                                                            <option value="5">CCE</option>
+                                                                            <option value="" selected>Selectionnez une catégorie ...</option>';
                                                                         }
                                                                     break; 
 
@@ -292,12 +292,12 @@ $PDO_query_comm_unique->closeCursor();
                                                                             <option value="5">CCE</option>
                                                                             ';
                                                                         }else{ 
-                                                                                echo '
-                                                                                <option value="1">Direction générale</option>
-                                                                                <option value="2">RH</option>
-                                                                                <option value="3">Services généraux</option>
-                                                                                <option value="5">CCE</option>
-                                                                                <option value="" selected>Selectionnez une catégorie ...</option>';
+                                                                            echo '
+                                                                            <option value="1">Direction générale</option>
+                                                                            <option value="2">RH</option>
+                                                                            <option value="3">Services généraux</option>
+                                                                            <option value="5">CCE</option>
+                                                                            <option value="" selected>Selectionnez une catégorie ...</option>';
                                                                         }
                                                                     break;
                                                                     
@@ -310,12 +310,12 @@ $PDO_query_comm_unique->closeCursor();
                                                                             <option value="5" selected>CCE</option>
                                                                             ';
                                                                         }else{ 
-                                                                                echo '
-                                                                                <option value="1">Direction générale</option>
-                                                                                <option value="2">RH</option>
-                                                                                <option value="3">Services généraux</option>
-                                                                                <option value="5">CCE</option>
-                                                                                <option value="" selected>Selectionnez une catégorie ...</option>';
+                                                                            echo '
+                                                                            <option value="1">Direction générale</option>
+                                                                            <option value="2">RH</option>
+                                                                            <option value="3">Services généraux</option>
+                                                                            <option value="5">CCE</option>
+                                                                            <option value="" selected>Selectionnez une catégorie ...</option>';
                                                                         }
                                                                     break; 
                                                                 } 
@@ -323,12 +323,12 @@ $PDO_query_comm_unique->closeCursor();
 
                                                                 echo '
                                                                 <option value="1">Direction générale</option>
-                                                                                <option value="2">RH</option>
-                                                                                <option value="3">Services généraux</option>
-                                                                                <option value="5">CCE</option>
+                                                                <option value="2">RH</option>
+                                                                <option value="3">Services généraux</option>
+                                                                <option value="5">CCE</option>
                                                                 <option value="" selected>Selectionnez une catégorie ...</option>';
 
-                                                            }                                                  
+                                                            }
                                                         ?> 
                                                     </select>
                                                 </div>
@@ -382,12 +382,12 @@ $PDO_query_comm_unique->closeCursor();
                                                                             <option value="4">Annuler</option>
                                                                             ';
                                                                         }else{ 
-                                                                                echo '
-                                                                                <option value="1">En attente</option>
-                                                                                <option value="2">Valider</option>
-                                                                                <option value="3">Archiver</option>
-                                                                                <option value="4">Annuler</option>
-                                                                                <option value="" selected>Selectionnez un statut ...</option>';
+                                                                            echo '
+                                                                            <option value="1">En attente</option>
+                                                                            <option value="2">Valider</option>
+                                                                            <option value="3">Archiver</option>
+                                                                            <option value="4">Annuler</option>
+                                                                            <option value="" selected>Selectionnez un statut ...</option>';
                                                                         }
                                                                     break; 
 
@@ -400,12 +400,12 @@ $PDO_query_comm_unique->closeCursor();
                                                                             <option value="4">Annuler</option>
                                                                             ';
                                                                         }else{ 
-                                                                                echo '
-                                                                                <option value="1">En attente</option>
-                                                                                <option value="2">Valider</option>
-                                                                                <option value="3">Archiver</option>
-                                                                                <option value="4">Annuler</option>
-                                                                                <option value="" selected>Selectionnez un statut ...</option>';
+                                                                            echo '
+                                                                            <option value="1">En attente</option>
+                                                                            <option value="2">Valider</option>
+                                                                            <option value="3">Archiver</option>
+                                                                            <option value="4">Annuler</option>
+                                                                            <option value="" selected>Selectionnez un statut ...</option>';
                                                                         }
                                                                     break;
                                                                     
@@ -418,12 +418,12 @@ $PDO_query_comm_unique->closeCursor();
                                                                             <option value="4" selected>Annuler</option>
                                                                             ';
                                                                         }else{ 
-                                                                                echo '
-                                                                                <option value="1">En attente</option>
-                                                                                <option value="2">Valider</option>
-                                                                                <option value="3">Archiver</option>
-                                                                                <option value="4">Annuler</option>
-                                                                                <option value="" selected>Selectionnez un statut ...</option>';
+                                                                            echo '
+                                                                            <option value="1">En attente</option>
+                                                                            <option value="2">Valider</option>
+                                                                            <option value="3">Archiver</option>
+                                                                            <option value="4">Annuler</option>
+                                                                            <option value="" selected>Selectionnez un statut ...</option>';
                                                                         }
                                                                     break; 
                                                                 } 
@@ -436,7 +436,7 @@ $PDO_query_comm_unique->closeCursor();
                                                                 <option value="4">Annuler</option>
                                                                 <option value="" selected>Selectionnez un statut ...</option>';
 
-                                                            }                                                  
+                                                            }
                                                         ?>
                                                     </select>
                                                 </div>
@@ -495,9 +495,9 @@ $PDO_query_comm_unique->closeCursor();
                                                             </p>
 
                                                             <div class="d-inline-block col-12 ">
-                                                                    <div class="custom-file">
+                                                                    <div class="custom-file d-md-flex">
 
-                                                                        <div class="col-md-4 col-6">
+                                                                        <div class="col-md-4 col-12">
                                                                             <div class="form-group">
                                                                             <input id="ckfinder-input-1" type="text" class="form-control" name="img"  value="<?php 
                                                                                 if(!empty($id_comm)){
@@ -507,18 +507,17 @@ $PDO_query_comm_unique->closeCursor();
                                                                                     if(!isset($communication['etai_intranet_comm_img'])){
                                                                                         echo 'required';
                                                                                     }
-                                                                                    ?>> 
+                                                                                    ?>>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-4 col-6">
+                                                                        <div class="col-md-4 col-12">
                                                                             <div class="form-group">
-                                                                            <a id="ckfinder-popup-1" class="btn btn-dark waves-effect waves-float waves-light">
-                                                                                <i data-feather="upload" class="mr-25"></i>
+                                                                            <a id="ckfinder-popup-1" class="btn btn-dark waves-effect waves-float waves-light text-nowrap">
+                                                                                <!-- <i data-feather="upload" class="mr-25"></i> -->
                                                                                 <span>Choisir une image</span>
                                                                             </a> 
                                                                             </div>
-                                                                        </div>                                       
-                                                                        
+                                                                        </div>
 
                                                                     </div>
                                                             </div>
