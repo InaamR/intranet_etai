@@ -573,74 +573,10 @@ $PDO_query_comm_unique->closeCursor();
     <script src="../../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <!-- END: Page JS-->
 
-    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm.js"></script>
-
-    <script src="ckeditor/ckeditor.js"></script>
-    <script src="ckfinder/ckfinder.js"></script>
 
 <script>
         
-        ClassicEditor
-        .create( document.querySelector( '#editor' ), {
-
-            image: {
-            // Configure the available styles.
-                styles: [
-                    'alignLeft', 'alignCenter', 'alignRight'
-                ],
-
-            // Configure the available image resize options.
-                resizeOptions: [
-                    {
-                        name: 'resizeImage:original',
-                        label: 'Original',
-                        value: null
-                    },
-                    {
-                        name: 'resizeImage:50',
-                        label: '50%',
-                        value: '50'
-                    },
-                    {
-                        name: 'resizeImage:75',
-                        label: '75%',
-                        value: '75'
-                    }
-                ],
-
-            // You need to configure the image toolbar, too, so it shows the new style
-            // buttons as well as the resize buttons.
-                toolbar: [
-                    'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
-                    '|',
-                    'resizeImage',
-                    '|',
-                    'imageTextAlternative'
-                ]
-            },
-            ckfinder: {
-                uploadUrl: 'http://localhost/intranet_etai/page/module/administrateur/communication/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-            },
-            toolbar: {
-                items: [ 'ckfinder', 'imageUpload', '|', 'heading', '|',
-                'alignment', '|',
-                'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
-                'link', '|',
-                'bulletedList', 'numberedList', 'todoList',
-                '|', // break point
-                'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
-                'code', 'codeBlock', '|',
-                'insertTable', '|',
-                'outdent', 'indent', '|',
-                'blockQuote', '|',
-                'undo', 'redo' ],
-                viewportTopOffset: 30,
-                shouldNotGroupWhenFull: true
-            }
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
+        
 
         $(window).on('load', function () {
             if (feather) {
@@ -650,31 +586,7 @@ $PDO_query_comm_unique->closeCursor();
                 });
             }
         });
-        button1 = document.getElementById( 'ckfinder-popup-1' );
-        button1.onclick = function() {
-            selectFileWithCKFinder( 'ckfinder-input-1' );
-        };
-
-        function selectFileWithCKFinder( elementId ) {
-            CKFinder.modal( {
-                chooseFiles: true,
-                language: 'fr',
-                width: 800,
-                height: 600,
-                onInit: function( finder ) {
-                    finder.on( 'files:choose', function( evt ) {
-                        var file = evt.data.files.first();
-                        var output = document.getElementById( elementId );
-                        output.value = file.getUrl();
-                    } );
-
-                    finder.on( 'file:choose:resizedImage', function( evt ) {
-                        var output = document.getElementById( elementId );
-                        output.value = evt.data.resizedUrl;
-                    } );
-                }
-            } );
-        }
+        
 
     </script>
 
