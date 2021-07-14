@@ -518,24 +518,19 @@ $PDO_query_comm_unique->closeCursor();
                                                                             </a> 
                                                                             </div>
                                                                         </div>
-
                                                                     </div>
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                     
                                                 </div>
                                             </div>
-
                                             <div class="col-12 mt-50">
                                                 <button type="submit" class="btn btn-primary mr-1">Enregistrement</button>
-                                                <button type="reset" class="btn btn-outline-secondary">Annuler les champs</button>
+                                                <button type="reset" class="btn btn-outline-secondary">vider les champs</button>
                                             </div>
-
                                         </div>
                                     </form>
-                                    
                                     <!--/ Form -->
                                 </div>
                             </div>
