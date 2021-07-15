@@ -245,7 +245,7 @@ $(function () {
   });
 
   // Delete Record
-  $(document).on('click', '.delete-record', function (e) {
+  $(document).on('click', '#delete-record', function (e) {
     Swal.fire({
 		  title: 'Êtes-vous sûr ?',
 		  text: "Vous ne pourrez pas annuler cela !",
@@ -260,8 +260,8 @@ $(function () {
 		}).then(function (result) {
 		  if (result.value) {
 							e.preventDefault();
-							var id      = $(".delete-record").data('id');
-							var name      = $(".delete-record").data('name');
+							var id      = $("#delete-record").data('id');
+							var name      = $("#delete-record").data('name');
 							var request = $.ajax({
 							url:          'table/php/data_liste_comm.php?job=del_com&id=' + id,
 							cache:        false,

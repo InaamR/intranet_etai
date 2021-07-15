@@ -49,20 +49,6 @@ if (isset($_GET['job'])) {
             }
         }
 
-        if (isset($_GET['st'])) {
-            $st = $_GET['st'];
-            if (!is_numeric($st)) {
-                $st = '';
-            }
-        }
-
-        if (isset($_GET['mdp'])) {
-            $mdp = $_GET['mdp'];
-            if (!is_numeric($mdp)) {
-                $mdp = '';
-            }
-        }
-
     } else {
         $job = '';
     }
@@ -87,10 +73,10 @@ if ($job != '') {
             <a href="prev_comm.php?id='.$communication['etai_intranet_comm_id'].'" style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light mr-25 mb-25 p-0">
                 <i class="bi bi-arrows-fullscreen"></i>
             </a>
-            <a href="#" data-id="' .$communication['etai_intranet_comm_id'].'" style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light delete-record mr-25 mb-25 p-0">
+            <a href="#" id="delete-record" data-id="' .$communication['etai_intranet_comm_id'].'" data-name="' .$communication['etai_intranet_comm_titre'].'" style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light mr-25 mb-25 p-0">
                 <i class="bi bi-trash"></i>
             </a>
-            <a href="#" data-id="' .$communication['etai_intranet_comm_id'].'" style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light delete-record mr-25 mb-25 p-0">
+            <a href="#" data-id="' .$communication['etai_intranet_comm_id'].'" style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light mr-25 mb-25 p-0">
                 <i class="bi bi-person-lines-fill"></i>
             </a>
             
@@ -199,16 +185,14 @@ if ($job != '') {
             $message = 'Échec id';
         } else {
             
-                $query_select_add = Bdd::connectBdd()->prepare("SELECT * FROM etai_intranet_comm WHERE etai_intranet_comm_id = :etai_intranet_comm_id");
-                $query_select_add->bindParam(":etai_intranet_comm_id", $id, PDO::PARAM_INT);
-                $query_select_add->execute(); 
-                $query_select_add->closeCursor();
+                $query_select_del = Bdd::connectBdd()->prepare("DELETE FROM `etai_intranet_comm` WHERE etai_intranet_comm_id = :etai_intranet_comm_id");
+                $query_select_del->bindParam(":etai_intranet_comm_id", $id, PDO::PARAM_INT);
+                $query_select_del->execute(); 
+                $query_select_del->closeCursor();
 
                 $result = 'success';
                 $message = 'Succès de requête';
            
-            $query_del = null;
-            $bdd = null;
         }
     } elseif ($job == 'comm_edit') {
         if ($id == '') {
