@@ -190,7 +190,7 @@ $PDO_query_comm_unique->closeCursor();
                 </div>
                 <div class="content-header-right text-md-right col-3 ">
                     <div class="form-group breadcrumb-right">
-                        <a style="font-size: 1.8rem !important;" class="btn waves-effect waves-float waves-light" href="liste_comm.php"><i class="bi bi-reply"></i></a>
+                        <a style="font-size: 0.9rem !important;" class="btn-sm btn-gradient-success waves-effect waves-float waves-light text-nowrap mr-25" href="liste_comm.php"><i class="bi bi-reply" style="font-size: 1rem !important;"></i> Retour</a>
                     </div>
                 </div>
             </div>
@@ -199,21 +199,13 @@ $PDO_query_comm_unique->closeCursor();
         <!-- Begin : main content -->
         <div class="content-body">
             <section id="card-images">
-                <h5 class="mt-3 mb-2">Images</h5>
+                <h5 class="mt-3 mb-2">Café / Resto</h5>
                 <div class="row">
                     <div class="col-md-4 col-xl-3">
-                        <div class="card mb-3">
+                        <div class="card">
                             <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-title">CHAHIA</h4>
-                                <!-- <p class="card-text">
-                                    <ul class="card-info pl-1">
-                                        <li>Adresse :</li>
-                                        <li>Tel :</li>
-                                        <li>Localisation :</li>
-                                        <li>Site Web :</li>
-                                    </ul>
-                                </p> -->
                                 <p class="card-text">
                                     <small class="text-muted">Last updated 3 mins ago</small>
                                 </p>
@@ -221,18 +213,10 @@ $PDO_query_comm_unique->closeCursor();
                         </div>
                     </div>
                     <div class="col-md-4 col-xl-3">
-                        <div class="card mb-3">
+                        <div class="card">
                             <img class="card-img-top" src="../../../app-assets/images/slider/luzina.png" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-title">L'UZ.INA</h4>
-                                <!-- <p class="card-text">
-                                    <ul class="card-info pl-1">
-                                        <li>Adresse :</li>
-                                        <li>Tel :</li>
-                                        <li>Localisation :</li>
-                                        <li>Site Web :</li>
-                                    </ul>
-                                </p> -->
                                 <p class="card-text">
                                     <small class="text-muted">Last updated 3 mins ago</small>
                                 </p>
@@ -240,18 +224,10 @@ $PDO_query_comm_unique->closeCursor();
                         </div>
                     </div>
                     <div class="col-md-4 col-xl-3">
-                        <div class="card mb-3">
+                        <div class="card">
                             <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-title">CHAHIA</h4>
-                                <!-- <p class="card-text">
-                                    <ul class="card-info pl-1">
-                                        <li>Adresse : Lorem ipsum dolor sit amet consectetur.</li>
-                                        <li>Tel :</li>
-                                        <li>Localisation :</li>
-                                        <li>Site Web :</li>
-                                    </ul>
-                                </p> -->
                                 <p class="card-text">
                                     <small class="text-muted">Last updated 3 mins ago</small>
                                 </p>
@@ -259,18 +235,60 @@ $PDO_query_comm_unique->closeCursor();
                         </div>
                     </div>
                     <div class="col-md-4 col-xl-3">
-                        <div class="card mb-3">
+                        <div class="card">
                             <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-title">CHAHIA</h4>
-                                <!-- <p class="card-text">
-                                    <ul class="card-info pl-1">
-                                        <li>Adresse :</li>
-                                        <li>Tel :</li>
-                                        <li>Localisation :</li>
-                                        <li>Site Web :</li>
-                                    </ul>
-                                </p> -->
+                                <p class="card-text">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+            <section id="card-images">
+                <h5 class="mt-3 mb-2">Café / Resto</h5>
+                <div class="row">
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card">
+                            <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">CHAHIA</h4>
+                                <p class="card-text">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card">
+                            <img class="card-img-top" src="../../../app-assets/images/slider/luzina.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">L'UZ.INA</h4>
+                                <p class="card-text">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card">
+                            <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">CHAHIA</h4>
+                                <p class="card-text">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card">
+                            <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">CHAHIA</h4>
                                 <p class="card-text">
                                     <small class="text-muted">Last updated 3 mins ago</small>
                                 </p>
