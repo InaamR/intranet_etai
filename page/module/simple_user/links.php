@@ -18,8 +18,8 @@ if (preg_match("/config/", $page)) {
     echo $page;
 } else {
     // On vérifie que la page est bien sur le serveur
-    if (file_exists("../../../../config/" . $page) && $page != 'index.php') {
-        include "../../../../config/" . $page;
+    if (file_exists("../../../config/" . $page) && $page != 'index.php') {
+        include "../../../config/" . $page;
     } else {
         echo "Page inexistante !";
     }
@@ -52,41 +52,41 @@ $PDO_query_comm_unique->closeCursor();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
     <title><?php if(!empty($_GET["id"])){echo'Communication | Modification - Infopro-Digital';}else{echo'Communication | Ajout - Infopro-Digital';} ?></title>
-    <link rel="apple-touch-icon" href="../../../../app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../../../app-assets/images/ico/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
         rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/forms/select/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/select/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/themes/semi-dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/pages/ui-feather.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/ui-feather.css">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/forms/form-quill-editor.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/pages/page-blog.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/forms/form-validation.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/forms/pickers/form-flat-pickr.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
-    <link rel="stylesheet" type="text/css" href="../../../../app-assets/css/pages/page-blog.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-quill-editor.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/page-blog.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/pickers/form-flat-pickr.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/page-blog.min.css">
     <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">    
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- END: Custom CSS-->
 </head>
@@ -121,8 +121,8 @@ $PDO_query_comm_unique->closeCursor();
 	else {
 	
 		// On vérifie que la page est bien sur le serveur
-		if (file_exists("../../../include/".$page) && $page != 'index.php') {
-		   include("../../../include/".$page); 
+		if (file_exists("../../include/".$page) && $page != 'index.php') {
+		   include("../../include/".$page); 
 		}
 	
 		else {
@@ -157,8 +157,8 @@ $PDO_query_comm_unique->closeCursor();
 	else {
 	
 		// On vérifie que la page est bien sur le serveur
-		if (file_exists("../../../include/".$page) && $page != 'index.php') {
-		   include("../../../include/".$page); 
+		if (file_exists("../../include/".$page) && $page != 'index.php') {
+		   include("../../include/".$page); 
 		}
 	
 		else {
@@ -204,12 +204,12 @@ $PDO_query_comm_unique->closeCursor();
                             <!-- Blog -->
                             <div class="col-12">
                                 <div class="card">
-                                    <img src="../../../../app-assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Blog Detail Pic" />
+                                    <img src="../../../app-assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Blog Detail Pic" />
                                     <div class="card-body">
                                         <h4 class="card-title">The Best Features Coming to iOS and Web design</h4>
                                         <div class="media">
                                             <div class="avatar mr-50">
-                                                <img src="../../../../app-assets/images/portrait/small/man.png" alt="Avatar" width="24" height="24" />
+                                                <img src="../../../app-assets/images/portrait/small/man.png" alt="Avatar" width="24" height="24" />
                                             </div>
                                             <div class="media-body">
                                                 <small class="text-muted mr-25">by</small>
@@ -262,7 +262,7 @@ $PDO_query_comm_unique->closeCursor();
                                         </ul>
                                         <div class="media">
                                             <div class="avatar mr-2">
-                                                <img src="../../../../app-assets/images/portrait/small/man.png" width="60" height="60" alt="Avatar" />
+                                                <img src="../../../app-assets/images/portrait/small/man.png" width="60" height="60" alt="Avatar" />
                                             </div>
                                             <div class="media-body">
                                                 <h6 class="font-weight-bolder">Willie Clark</h6>
@@ -387,7 +387,7 @@ $PDO_query_comm_unique->closeCursor();
                             <div class="mt-75">
                                 <div class="media mb-2">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-22.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../app-assets/images/banner/banner-22.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -398,7 +398,7 @@ $PDO_query_comm_unique->closeCursor();
                                 </div>
                                 <div class="media mb-2">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-27.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../app-assets/images/banner/banner-27.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -409,7 +409,7 @@ $PDO_query_comm_unique->closeCursor();
                                 </div>
                                 <div class="media mb-2">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-39.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../app-assets/images/banner/banner-39.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -420,7 +420,7 @@ $PDO_query_comm_unique->closeCursor();
                                 </div>
                                 <div class="media">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-35.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../app-assets/images/banner/banner-35.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -536,8 +536,8 @@ $PDO_query_comm_unique->closeCursor();
 	else {
 	
 		// On vérifie que la page est bien sur le serveur
-		if (file_exists("../../../include/".$page) && $page != 'index.php') {
-		   include("../../../include/".$page); 
+		if (file_exists("../../include/".$page) && $page != 'index.php') {
+		   include("../../include/".$page); 
 		}
 	
 		else {
@@ -549,28 +549,28 @@ $PDO_query_comm_unique->closeCursor();
     <!-- END: Footer-->
 
     <!-- BEGIN: Vendor JS-->
-    <script src="../../../../app-assets/vendors/js/vendors.min.js"></script>
+    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="../../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
     
-    <script src="../../../../app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+    <script src="../../../app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
-    <script src="../../../../app-assets/js/core/app-menu.js"></script>
-    <script src="../../../../app-assets/js/core/app.js"></script>
-    <script src="../../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-    <script src="../../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
+    <script src="../../../app-assets/js/core/app-menu.js"></script>
+    <script src="../../../app-assets/js/core/app.js"></script>
+    <script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="../../../../app-assets/js/scripts/pages/page-blog-edit.js"></script>
-    <script src="../../../../app-assets/js/scripts/forms/form-validation.js"></script>
-    <script src="../../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
-    <script src="../../../../app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
-    <script src="../../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="../../../app-assets/js/scripts/pages/page-blog-edit.js"></script>
+    <script src="../../../app-assets/js/scripts/forms/form-validation.js"></script>
+    <script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+    <script src="../../../app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
+    <script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <!-- END: Page JS-->
 
 
