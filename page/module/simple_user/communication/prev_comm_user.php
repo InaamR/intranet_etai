@@ -204,12 +204,12 @@ $PDO_query_comm_unique->closeCursor();
                             <!-- Blog -->
                             <div class="col-12">
                                 <div class="card">
-                                    <img src="../../../app-assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Blog Detail Pic" />
+                                    <img src="../../../../app-assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Blog Detail Pic" />
                                     <div class="card-body">
                                         <h4 class="card-title">The Best Features Coming to iOS and Web design</h4>
                                         <div class="media">
                                             <div class="avatar mr-50">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" width="24" height="24" />
+                                                <img src="../../../../app-assets/images/portrait/small/man.png" alt="Avatar" width="24" height="24" />
                                             </div>
                                             <div class="media-body">
                                                 <small class="text-muted mr-25">by</small>
@@ -262,7 +262,7 @@ $PDO_query_comm_unique->closeCursor();
                                         </ul>
                                         <div class="media">
                                             <div class="avatar mr-2">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" width="60" height="60" alt="Avatar" />
+                                                <img src="../../../../app-assets/images/portrait/small/man.png" width="60" height="60" alt="Avatar" />
                                             </div>
                                             <div class="media-body">
                                                 <h6 class="font-weight-bolder">Willie Clark</h6>
@@ -387,7 +387,7 @@ $PDO_query_comm_unique->closeCursor();
                             <div class="mt-75">
                                 <div class="media mb-2">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../app-assets/images/banner/banner-22.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-22.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -398,7 +398,7 @@ $PDO_query_comm_unique->closeCursor();
                                 </div>
                                 <div class="media mb-2">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../app-assets/images/banner/banner-27.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-27.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -409,7 +409,7 @@ $PDO_query_comm_unique->closeCursor();
                                 </div>
                                 <div class="media mb-2">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../app-assets/images/banner/banner-39.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-39.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -420,7 +420,7 @@ $PDO_query_comm_unique->closeCursor();
                                 </div>
                                 <div class="media">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../app-assets/images/banner/banner-35.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-35.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">

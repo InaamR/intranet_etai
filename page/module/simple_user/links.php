@@ -204,12 +204,12 @@ $PDO_query_comm_unique->closeCursor();
                             <!-- Blog -->
                             <div class="col-12">
                                 <div class="card">
-                                    <img src="../../../app-assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Blog Detail Pic" />
+                                    <img src="../../../../app-assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Blog Detail Pic" />
                                     <div class="card-body">
                                         <h4 class="card-title">The Best Features Coming to iOS and Web design</h4>
                                         <div class="media">
                                             <div class="avatar mr-50">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" width="24" height="24" />
+                                                <img src="../../../../app-assets/images/portrait/small/man.png" alt="Avatar" width="24" height="24" />
                                             </div>
                                             <div class="media-body">
                                                 <small class="text-muted mr-25">by</small>
@@ -262,7 +262,7 @@ $PDO_query_comm_unique->closeCursor();
                                         </ul>
                                         <div class="media">
                                             <div class="avatar mr-2">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" width="60" height="60" alt="Avatar" />
+                                                <img src="../../../../app-assets/images/portrait/small/man.png" width="60" height="60" alt="Avatar" />
                                             </div>
                                             <div class="media-body">
                                                 <h6 class="font-weight-bolder">Willie Clark</h6>
@@ -283,9 +283,7 @@ $PDO_query_comm_unique->closeCursor();
                                                         <div class="text-body align-middle">19.1K</div>
                                                     </a>
                                                 </div>
-                                                
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -389,7 +387,7 @@ $PDO_query_comm_unique->closeCursor();
                             <div class="mt-75">
                                 <div class="media mb-2">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../app-assets/images/banner/banner-22.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-22.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -400,7 +398,7 @@ $PDO_query_comm_unique->closeCursor();
                                 </div>
                                 <div class="media mb-2">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../app-assets/images/banner/banner-27.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-27.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -411,7 +409,7 @@ $PDO_query_comm_unique->closeCursor();
                                 </div>
                                 <div class="media mb-2">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../app-assets/images/banner/banner-39.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-39.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -422,7 +420,7 @@ $PDO_query_comm_unique->closeCursor();
                                 </div>
                                 <div class="media">
                                     <a href="page-blog-detail.html" class="mr-2">
-                                        <img class="rounded" src="../../../app-assets/images/banner/banner-35.jpg" width="100" height="70" alt="Recent Post Pic" />
+                                        <img class="rounded" src="../../../../app-assets/images/banner/banner-35.jpg" width="100" height="70" alt="Recent Post Pic" />
                                     </a>
                                     <div class="media-body">
                                         <h6 class="blog-recent-post-title">
@@ -448,7 +446,7 @@ $PDO_query_comm_unique->closeCursor();
                                         </div>
                                     </a>
                                     <a href="javascript:void(0);">
-                                        <div class="blog-category-title text-body">Fashion</div>
+                                        <div class="blog-category-title text-body">Dir. Générale</div>
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-start align-items-center mb-75">
@@ -460,7 +458,7 @@ $PDO_query_comm_unique->closeCursor();
                                         </div>
                                     </a>
                                     <a href="javascript:void(0);">
-                                        <div class="blog-category-title text-body">Food</div>
+                                        <div class="blog-category-title text-body">Dir Systémes Info</div>
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-start align-items-center mb-75">
@@ -472,7 +470,7 @@ $PDO_query_comm_unique->closeCursor();
                                         </div>
                                     </a>
                                     <a href="javascript:void(0);">
-                                        <div class="blog-category-title text-body">Gaming</div>
+                                        <div class="blog-category-title text-body">Ressources Humaines</div>
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-start align-items-center mb-75">
@@ -484,7 +482,7 @@ $PDO_query_comm_unique->closeCursor();
                                         </div>
                                     </a>
                                     <a href="javascript:void(0);">
-                                        <div class="blog-category-title text-body">Quote</div>
+                                        <div class="blog-category-title text-body">CCE</div>
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-start align-items-center">
@@ -575,74 +573,10 @@ $PDO_query_comm_unique->closeCursor();
     <script src="../../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <!-- END: Page JS-->
 
-    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm.js"></script>
-
-    <script src="ckeditor/ckeditor.js"></script>
-    <script src="ckfinder/ckfinder.js"></script>
 
 <script>
         
-        ClassicEditor
-        .create( document.querySelector( '#editor' ), {
-
-            image: {
-            // Configure the available styles.
-                styles: [
-                    'alignLeft', 'alignCenter', 'alignRight'
-                ],
-
-            // Configure the available image resize options.
-                resizeOptions: [
-                    {
-                        name: 'resizeImage:original',
-                        label: 'Original',
-                        value: null
-                    },
-                    {
-                        name: 'resizeImage:50',
-                        label: '50%',
-                        value: '50'
-                    },
-                    {
-                        name: 'resizeImage:75',
-                        label: '75%',
-                        value: '75'
-                    }
-                ],
-
-            // You need to configure the image toolbar, too, so it shows the new style
-            // buttons as well as the resize buttons.
-                toolbar: [
-                    'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
-                    '|',
-                    'resizeImage',
-                    '|',
-                    'imageTextAlternative'
-                ]
-            },
-            ckfinder: {
-                uploadUrl: 'http://localhost/intranet_etai/page/module/administrateur/communication/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-            },
-            toolbar: {
-                items: [ 'ckfinder', 'imageUpload', '|', 'heading', '|',
-                'alignment', '|',
-                'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
-                'link', '|',
-                'bulletedList', 'numberedList', 'todoList',
-                '|', // break point
-                'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
-                'code', 'codeBlock', '|',
-                'insertTable', '|',
-                'outdent', 'indent', '|',
-                'blockQuote', '|',
-                'undo', 'redo' ],
-                viewportTopOffset: 30,
-                shouldNotGroupWhenFull: true
-            }
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
+        
 
         $(window).on('load', function () {
             if (feather) {
@@ -652,31 +586,7 @@ $PDO_query_comm_unique->closeCursor();
                 });
             }
         });
-        button1 = document.getElementById( 'ckfinder-popup-1' );
-        button1.onclick = function() {
-            selectFileWithCKFinder( 'ckfinder-input-1' );
-        };
-
-        function selectFileWithCKFinder( elementId ) {
-            CKFinder.modal( {
-                chooseFiles: true,
-                language: 'fr',
-                width: 800,
-                height: 600,
-                onInit: function( finder ) {
-                    finder.on( 'files:choose', function( evt ) {
-                        var file = evt.data.files.first();
-                        var output = document.getElementById( elementId );
-                        output.value = file.getUrl();
-                    } );
-
-                    finder.on( 'file:choose:resizedImage', function( evt ) {
-                        var output = document.getElementById( elementId );
-                        output.value = evt.data.resizedUrl;
-                    } );
-                }
-            } );
-        }
+        
 
     </script>
 
