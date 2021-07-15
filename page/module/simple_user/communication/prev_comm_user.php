@@ -190,7 +190,7 @@ $PDO_query_comm_unique->closeCursor();
                 </div>
                 <div class="content-header-right text-md-right col-3 ">
                     <div class="form-group breadcrumb-right">
-                        <a style="font-size: 1.8rem !important;" class="btn waves-effect waves-float waves-light" href="liste_comm.php"><i class="bi bi-reply"></i></a>
+                        <a style="font-size: 1.8rem !important;" class="btn waves-effect waves-float waves-light" data-toggle="tooltip" data-placement="left" title="Retour" href="liste_comm.php"><i class="bi bi-reply"></i></a>
                     </div>
                 </div>
             </div>
