@@ -129,15 +129,15 @@
                     <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Map interne</span></a>
                     </li>
                 </ul>
-            </li>  
-            <li class=" navigation-header"><span data-i18n="Configuration">Configuration</span><i data-feather="more-horizontal"></i></li>          
+            </li> 
+            <li class=" navigation-header"><span data-i18n="">Administration</span><i data-feather="more-horizontal"></i></li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fas fa-user-cog" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Admin">Admin</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" title="Gestion du personnel" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/admin/listeMembre.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="G.Personnel">G.Personnel</span></a>
+                    <li><a class="d-flex align-items-center" title="Gestion du personnel" href="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/admin/listeMembre.php"><i class="far fa-window-minimize"></i><span class="menu-item text-truncate" data-i18n="G.Personnel">G.Personnel</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" title="Gestion de l'application" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Gestion de l'application">Gestion de l'application</span></a>
+                    <li><a class="d-flex align-items-center" title="Type d'activation" href="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/admin/activation.php"><i class="far fa-window-minimize"></i><span class="menu-item text-truncate" data-i18n="Type d'activation">Type d'activation</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" title="Gestion des modules" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Gestion des modules">Gestion des modules</span></a>
+                    <li><a class="d-flex align-items-center" title="Liste des connexions" href="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/admin/listeJeton.php"><i class="far fa-window-minimize"></i><span class="menu-item text-truncate" data-i18n="Liste des connexions">Liste des connexions</span></a>
                     </li>
                 </ul>
             </li>
