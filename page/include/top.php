@@ -197,9 +197,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
-                    <a class="dropdown-item" href="page-profile.html"><i class="mr-50" data-feather="user"></i>Profile</a>
-                    <a class="dropdown-item" href="app-email.html"><i class="mr-50" data-feather="mail"></i> Inbox</a>
-                    <a class="dropdown-item" href="app-chat.html"><i class="mr-50" data-feather="message-square"></i> Chats</a>
+                    <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME'];?>/intranet_etai/page/module/administrateur/admin/profil.php"><i class="mr-50" data-feather="user"></i>Profile</a>
 
                     <div class="dropdown-divider"></div>
 
