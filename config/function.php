@@ -98,7 +98,7 @@ class Cryptage {
 ###########################################################################################
 
 // La classe captcha
-class Captcha {
+class _Captcha {
 	
 	// Fonction de creation d'un captcha
 	// $a => chiffre entre 1 et 5
@@ -117,7 +117,7 @@ class Captcha {
 	// Creation d'une session contenant le resultat du captcha
 	// Retourne la phrase du captcha
 	public function captcha() {
-		list($resultat, $phrase) = Captcha::captchaCreate();
+		list($resultat, $phrase) = _Captcha::captchaCreate();
 		$_SESSION['captcha'] = $resultat;
 		return $phrase;
 	}
@@ -709,22 +709,7 @@ class ProtectEspace {
 	}
 	// Liste des jeton de connexion du membre
 	public static function listeJeton($id) {
-		$liste = '';
-		$resultat = Bdd::connectBdd()->prepare(SELECT.ALL.JETON.JETONMEMBRE);
-		$resultat -> bindParam(':id', $id, PDO::PARAM_INT, 11);
-		$resultat -> execute();
-		while($jeton = $resultat -> fetch(PDO::FETCH_ASSOC)) {
-			$liste .= '<tr>
-					<td align="center">Le '.date('d/m/Y', $jeton['date']).' &agrave; '.date('H:i:s', $jeton['date']).'</td>
-					<td align="center">'.$jeton['ip_connexion'].'</td>
-					<td align="center">
-					<form method="post" action="">
-					<input type="hidden" value="'.$jeton['id'].'" name="id_jeton">
-					<input type="submit" value="Supprimer" name="supprime_connexion" class="input" />
-					</form>
-					</td>
-				</tr>';
-		}
+		
 		return $liste;
 	}
 	// effacer un jeton de connexion
@@ -801,10 +786,10 @@ class Membre {
 		$resultat -> execute();
 		$donnee = $resultat -> fetch(PDO::FETCH_ASSOC);
 		if($donnee[$info] === '1') {
-			return 'Cacher';
+			return 'Cacher le détail';
 		}
 		else {
-			return 'Rendre Visible';
+			return 'Rendre Visible le détail';
 		}
 	}
 	// Mise a jour du profil du membre
@@ -835,7 +820,7 @@ class Membre {
 				$verifPass -> bindParam(':id', $id, PDO::PARAM_INT, 11);
 				$verifPass -> execute();
 				$dataPass = $verifPass -> fetch(PDO::FETCH_ASSOC);
-				if($dataPass['password'] === Cryptage::crypter($passActuel)) {
+				if(password_verify($passActuel, $dataPass['password'])) {
 					$newPass = Cryptage::crypter($newPassUn);
 					$majPass = Bdd::connectBdd()->prepare(UPDATE.MEMBREZ.MAJPASS.ID);
 					$majPass -> bindParam(':newPass', $newPass);
@@ -1355,20 +1340,26 @@ class Admin {
 		$lien = URLSITE.'/administrateur/admin/';
 		return $lien;
 	}
-	public static function menucomm() {
-		$lien = URLSITE.'/administrateur/communication/';
+	public static function menuequipe() {
+		$lien = URLSITE.'/administrateur/equipe/';
 		return $lien;
 	}
 	public static function menunavigation() {
 		$lien = URLSITE.'/administrateur/navigation/';
 		return $lien;
 	}
-	public static function menusocle() {
-		$lien = URLSITE.'/administrateur/socle/';
+
+	public static function menudevis() {
+		$lien = URLSITE.'/administrateur/devis/';
 		return $lien;
 	}
-	public static function menuchapitre() {
-		$lien = URLSITE.'/administrateur/chapitre/';
+
+	public static function menubranding() {
+		$lien = URLSITE.'/administrateur/branding/';
+		return $lien;
+	}
+	public static function menuproduit() {
+		$lien = URLSITE.'/administrateur/produit/';
 		return $lien;
 	}
 	public static function menusouschapitre() {
