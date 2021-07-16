@@ -50,6 +50,7 @@ if (preg_match("/config/", $page)) {
     <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/css/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/css/extensions/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/css/forms/select/select2.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -83,7 +84,7 @@ if (preg_match("/config/", $page)) {
 <!-- END: Head-->
 <!-- BEGIN: Body-->
 
-<body class="vertical-layout vertical-menu-modern 2-columns email-application navbar-floating footer-static" data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
+<body class="vertical-layout vertical-menu-modern 2-columns navbar-floating footer-static" data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 
 
     <!-- BEGIN: Header-->
@@ -161,94 +162,130 @@ if (preg_match("/config/", $page)) {
     <!-- END: Main Menu-->
 
     <!-- BEGIN: Content-->
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
             <div class="content-header row">
-                <div class="content-header-left col-md-912 col-12 mb-2">
+                <div class="content-header-left col-md-6 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
+                            <h2 class="content-header-title float-left mb-0">Profile</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">Administration</li>
-                                    <li class="breadcrumb-item active">Gestion du Personnel</li>
+                                    <li class="breadcrumb-item">Messagerie</li>
+                                    <li class="breadcrumb-item active">Boite de récéption</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="content-header-right text-md-right col-md-6 col-12 d-md-block d-none">
+                    <div class="form-group breadcrumb-right">
+
+                        <a href="message_new.php"  class="btn-icon btn btn-success btn-sm">&nbsp;Nouveau message&nbsp;</a>
+                        <a href="messageAll.php"  class="btn-icon btn btn-info btn-sm">&nbsp;Nouveau a tous&nbsp;</a>
+                        <a href="message_envoye.php"  class="btn-icon btn btn-dark btn-sm">&nbsp;Messages Envoy&eacute;s&nbsp;</a>
+
+                    </div>
+                </div>
+
             </div>
 
-            <div class="content-body">
-    			<!-- Column selectors with Export Options and print table -->
-                <section id="data-list-view" class="data-list-view-header">
-                    <div class="row">
-    <!-- END: Content-->
-                    <?php 
+            <div class="content-body">      
 
-                    echo '<div id="principal">
-                    <div id="titre_principal">Messages Re&ccedil;us</div>
-                    <table width="100%">
-                    <tr>
-                    <td align="center" colspan="4">
-                    <a href="message_new.php" class="input">&nbsp;Nouveau message&nbsp;</a>
-                    <a href="messageAll.php" class="input">&nbsp;Nouveau a tous&nbsp;</a>
-                    <a href="message_envoye.php" class="input">&nbsp;Messages Envoy&eacute;s&nbsp;</a>
-                    <a href="messagerie.php" class="input">&nbsp;Messages Re&ccedil;us&nbsp;</a>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td align="center" colspan="4">
-                    <img src="'.URLSITE.'/design/image/Non_Lu.png" width="24" height="24" align="absmiddle"> Nouveaux messages
-                    <img src="'.URLSITE.'/design/image/Lu.png" width="24" height="24" align="absmiddle"> Anciens messages
-                    </td>
-                    </tr>
-                    <tr>
-                    <td width="30px"></td>
-                    <td align="center" class="titre_form" width="250px">Date</td>
-                    <td align="center" class="titre_form" width="150px">Expediteur</td>
-                    <td align="center" class="titre_form">Message</td>
-                    </tr>
-                    '.Message::liste($_SESSION['id']).'
-                    </table>
-                    </div>';
-                    ?>
+                <div class="row">                        
                     <div class="col-12">
-                            <!-- Basic table -->
-                            <section id="basic-datatable">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="card">
-                                            <table class="datatables-basic table" id="datatable">
-                                                <thead>
-                                                    <tr>
-                                                        <th></th>
-                                                        <th></th>
-                                                        <th>id</th>
-                                                        <th>Nom et prénom</th>
-                                                        <th>Niveau des membres</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
-                                        </div>
-                                    </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <table class="datatables-basic table" id="datatable">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th>id</th>
+                                                <th>Nom et prénom</th>
+                                                <th>Etat</th>                                                        
+                                                <th>Date de récéption</th>
+                                                <th>Titre du message</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
                                 </div>
-
-                            </section>
-                            <!--/ Basic table -->
-                        </div>   
+                            </div>
+                        </div>
                     </div>
-                </section>
+                </div>
+
+                <!-- Modal to add new record -->
+                <div class="modal modal-slide-in fade" id="modals-slide-in">
+                    <div class="modal-dialog sidebar-sm">
+                    <?php
+                    /*if(!empty($_POST['envoie_message'])) {
+                        extract($_POST);
+                        echo '<tr><td colspan="2">';
+                        echo Message::messageEnvoi($_SESSION['id'], $destinataire, $titre, $message);
+                        echo '</tr></td>';
+                    }*/
+                    ?>
+                    <form class="add-new-record modal-content pt-0" id="form_message" data-id="">
+                        
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+
+                        <div class="modal-header mb-1">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Nouveau Message</h5>
+
+                        </div>
+
+                        <div class="modal-body flex-grow-1">
+                        <div class="form-group">
+                            <label class="form-label" for="basic-icon-default-fullname">Selectionner Destinataire *:</label>
+                            <?php
+                                if(!empty($_GET['id'])) {
+                                    echo '<input type="hidden" value="'.$_GET['id'].'" name="destinataire"/>
+                                    <input type="text" value="'.Membre::info($_GET['id'], 'pseudo').'"  class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="John Doe" aria-label="John Doe" required/>';
+                                }else {
+                                    echo '<select name="destinataire"  class="select2 form-control form-control-lg" required>
+                                    <option value="">Choisir un destinataire</option>
+                                    '.Message::choixDestinataire($_SESSION['id']).'
+                                    </select>';
+                                } 
+                            ?>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="basic-icon-default-post">Titre du Message *:</label>
+                            <input
+                            type="text"
+                            name="titre" size="50"
+                            id="basic-icon-default-post"
+                            class="form-control dt-post"
+                            placeholder="Titre du Message"
+                            aria-label="Titre du Message"
+                            required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="basic-icon-default-email">Message *:</label>
+                            <textarea class="form-control" name="message" cols="60" rows="10" required></textarea>
+                            <small class="form-text text-muted"> You can use letters, numbers & periods </small>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary data-submit mr-1" name="envoie_message">Envoyer le Message</button>
+                        <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+
+
             </div>
             
         </div>
     </div>
-
-<!-- END: Content-->
+    <!-- END: Content-->
 
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
@@ -316,7 +353,7 @@ if (preg_match("/config/", $page)) {
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script charset="utf-8"  src="<?php echo Admin::menuadmin();?>table/js/webapp_liste_membre.js"></script>
+    <script charset="utf-8"  src="<?php echo Admin::menuadmin();?>table/js/webapp_liste_message.js"></script>
 
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/js/extensions/polyfill.min.js"></script>
@@ -326,6 +363,8 @@ if (preg_match("/config/", $page)) {
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/ui/ui-feather.js"></script>
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
+    <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/forms/form-select2.min.js"></script>
     <!-- END: Page JS-->
     
     <script>

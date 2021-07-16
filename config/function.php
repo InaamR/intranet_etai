@@ -907,30 +907,7 @@ class Message {
 	// Sinon
 	// 		retourne vous n'avez aucun message
 	public static function liste($id) {
-		$liste = '';
-		$resultat = Bdd::connectBdd()->prepare(SELECT.ALL.MESSAGE.MESSAGELISTE);
-		$resultat -> bindParam(':id', $id, PDO::PARAM_INT, 11);
-		$resultat -> execute();
-		while($donnee = $resultat -> fetch(PDO::FETCH_ASSOC)) {
-			if($donnee['lu'] === '1') {
-				$image = '<img src="'.URLSITE.'/design/image/Lu.png" width="24" height="24" align="absmiddle">';
-			}
-			else {
-				$image = '<img src="'.URLSITE.'/design/image/Non_Lu.png" width="24" height="24" align="absmiddle">';
-			}
-			$liste .= '<tr>
-			<td>'.$image.'</td>
-			<td align="center">Le '.date('d/m/Y', $donnee['timestamp']).' &agrave; '.date('H:i:s', $donnee['timestamp']).'</td>
-			<td align="center"><a href="profil_membre.php?id='.$donnee['id_expediteur'].'">'.Membre::info($donnee['id_expediteur'], 'pseudo').'</a></td>
-			<td align="center"><a href="message.php?id='.$donnee['id'].'">'.$donnee['titre'].'</a></td>
-			</tr>';
-		}
-		if(!empty($liste)) {
-			return $liste;
-		}
-		else {
-			return '<tr><td align="center" colspan="4">Vous n\'avez aucun message</td></tr>';
-		}
+		
 	}
 	// Affiche le message recut
 	public static function info($id, $info) {
