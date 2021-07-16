@@ -55,9 +55,9 @@ switch(Membre::info($_GET['id'], 'niveau')) {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <title>Profil : <?php echo Membre::info($_GET['id'], 'nom'); ?> <?php echo Membre::info($_GET['id'], 'prenom'); ?> | Expert Gaming</title>
-    <link rel="apple-touch-icon" href="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/favicon.png">
+    <title>Profil : <?php echo Membre::info($_GET['id'], 'nom'); ?> <?php echo Membre::info($_GET['id'], 'prenom'); ?> |  <?php echo $PARAM_nom_site; ?></title>
+    <link rel="apple-touch-icon" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
         rel="stylesheet">
 
@@ -187,7 +187,7 @@ switch(Membre::info($_GET['id'], 'niveau')) {
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
             <div class="content-header row">
-                <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="content-header-left col-md-12 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
                             <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
@@ -201,13 +201,8 @@ switch(Membre::info($_GET['id'], 'niveau')) {
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                    <div class="form-group breadcrumb-right">
-                        <a class="btn-icon btn btn-success btn-round btn-sm" href="#">Ajouter un nouveau membre</a>
-                    </div>
-                </div>
             </div>
-			<div class="content-body">
+			  <div class="content-body">
           <!-- users edit start -->
           <section class="app-user-edit">
             <div class="card">
@@ -223,7 +218,7 @@ switch(Membre::info($_GET['id'], 'niveau')) {
                       role="tab"
                       aria-selected="true"
                     >
-                      <i data-feather="user"></i><span class="d-none d-sm-block">Details du compte</span>
+                    <i data-feather='user'></i><span class="d-none d-sm-block">Details du compte</span>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -275,7 +270,7 @@ switch(Membre::info($_GET['id'], 'niveau')) {
                               value="<?php echo Membre::info($_GET['id'], 'pseudo'); ?>"
                               name="pseudo"
                               id="pseudo"
-							  readonly
+							                readonly
                             />
                           </div>
                         </div>
@@ -289,7 +284,7 @@ switch(Membre::info($_GET['id'], 'niveau')) {
                               value="<?php echo Membre::info($_GET['id'], 'nom'); ?> <?php echo Membre::info($_GET['id'], 'prenom'); ?>"
                               name="prenom"
                               id="prenom"
-							  readonly
+							                readonly
                             />
                           </div>
                         </div>
@@ -303,7 +298,7 @@ switch(Membre::info($_GET['id'], 'niveau')) {
                               value="<?php echo Membre::info($_GET['id'], 'email'); ?>"
                               name="email"
                               id="email"
-							  readonly
+							                readonly
                             />
                           </div>
                         </div>                        
@@ -312,43 +307,43 @@ switch(Membre::info($_GET['id'], 'niveau')) {
                           <div class="form-group">
                             <label for="niveau">Niveau :</label>
                             <select class="form-control" id="niveau" readonly>
-								<?php
-										switch(Membre::info($_GET['id'], 'niveau')) {
-											case 1 :
-											echo '<option>Membre</option>';											
-											break;
-											case 2 :
-											echo '<option>Modérateur</option>';											
-											break;
-											case 3 :
-											echo '<option>Administrateur</option>';
-											break;
-										}
+                            <?php
+                                switch(Membre::info($_GET['id'], 'niveau')) {
+                                  case 1 :
+                                  echo '<option>Membre</option>';											
+                                  break;
+                                  case 2 :
+                                  echo '<option>Modérateur</option>';											
+                                  break;
+                                  case 3 :
+                                  echo '<option>Administrateur</option>';
+                                  break;
+                                }
 
-								?>
+                            ?>
                             </select>
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="activation">Company</label>
+                            <label for="activation">Activation :</label>
                             <input
                               type="text"
                               class="form-control"
                               value="<?php
-										switch(Membre::info($_GET['id'], 'activation')) {
-											case 1 :
-											echo 'Compte Activé';											
-											break;
-											case 0 :
-											echo 'Compte Inactif';											
-											break;
-										}
+                                switch(Membre::info($_GET['id'], 'activation')) {
+                                  case 1 :
+                                  echo 'Compte Activé';											
+                                  break;
+                                  case 0 :
+                                  echo 'Compte Inactif';											
+                                  break;
+                                }
 
-									?>"
+                              ?>"
                               placeholder="Company name"
                               id="activation"
-							  readonly
+							                readonly
                             />
                           </div>
                         </div>
@@ -699,17 +694,12 @@ switch(Membre::info($_GET['id'], 'niveau')) {
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/ui/ui-feather.js"></script>
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
-	<script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/pages/app-user-edit.min.js"></script>
+	  <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/pages/app-user-edit.min.js"></script>
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/components/components-navs.min.js"></script>
-    <!-- END: Page JS-->
-    
-	<script src="../ckfinder/ckfinder.js"></script>
+    <!-- END: Page JS-->    
 
     <script>
-		button1 = document.getElementById( 'ckfinder-popup-1' );
-        button1.onclick = function() {
-            selectFileWithCKFinder( 'ckfinder-input-1' );
-        };
+		
         $(window).on('load', function () {
             if (feather) {
                 feather.replace({
@@ -729,25 +719,6 @@ switch(Membre::info($_GET['id'], 'niveau')) {
                 }
             });
         })
-		function selectFileWithCKFinder( elementId ) {
-            CKFinder.modal( {
-                chooseFiles: true,
-                width: 1000,
-                height: 800,
-                onInit: function( finder ) {
-                    finder.on( 'files:choose', function( evt ) {
-                        var file = evt.data.files.first();
-                        var output = document.getElementById( elementId );
-                        output.value = file.getUrl();
-                    } );
-
-                    finder.on( 'file:choose:resizedImage', function( evt ) {
-                        var output = document.getElementById( elementId );
-                        output.value = evt.data.resizedUrl;
-                    } );
-                }
-            } );
-        }
     </script>
 
     <script src="https://kit.fontawesome.com/7791373c6a.js" crossorigin="anonymous"></script>>

@@ -198,6 +198,7 @@
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
                     <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME'];?>/intranet_etai/page/module/administrateur/admin/profil.php"><i class="mr-50" data-feather="user"></i>Profile</a>
+                    <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME'];?>/intranet_etai/page/module/administrateur/admin/messagerie.php"><i class="mr-50" data-feather="mail"></i> Messagerie</a>
 
                     <div class="dropdown-divider"></div>
 

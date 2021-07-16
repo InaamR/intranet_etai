@@ -26,6 +26,7 @@
 		  { data: 'niveau' },
 		  { data: 'Actions' }
 		],
+		stateSave: true,
 		columnDefs: [
 		  {
 			// For Responsive

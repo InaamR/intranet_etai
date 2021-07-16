@@ -482,11 +482,11 @@ class Connexion {
 				
 				case 2 :
 				Activation::activationMail($login);
-				$redirect = redirection(URLSITE.'/activationMail.php');
+				$redirect = redirection(URLSITE.'/administrateur/admin/activationMail.php');
 				break;	
 				
 				case 3 :
-				$redirect = redirection(URLSITE.'/activationAdmin.php');
+				$redirect = redirection(URLSITE.'/administrateur/admin/activationAdmin.php');
 				break;	
 			}
 		}

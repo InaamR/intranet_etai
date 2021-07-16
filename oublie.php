@@ -1,3 +1,30 @@
+<?php
+$connect = 'config.php';
+
+if (empty($page)) {
+    $page = "function";
+    // On limite l'inclusion aux fichiers.php en ajoutant dynamiquement l'extension
+    // On supprime également d'éventuels espaces
+    $page = trim($page . ".php");
+}
+
+// On évite les caractères qui permettent de naviguer dans les répertoires
+$page = str_replace("../", "protect", $page);
+$page = str_replace(";", "protect", $page);
+$page = str_replace("%", "protect", $page);
+
+// On interdit l'inclusion de dossiers protégés par htaccess
+if (preg_match("/config/", $page)) {
+    echo $page;
+} else {
+    // On vérifie que la page est bien sur le serveur
+    if (file_exists("config/" . $page) && $page != 'index.php') {
+        include "config/" . $page;
+    } else {
+        echo "Page inexistante !";
+    }
+}
+?>
 <!DOCTYPE html>
 <html class="loading bordered-layout" lang="en" data-layout="bordered-layout" data-textdirection="ltr">
 <!-- BEGIN: Head-->
@@ -6,12 +33,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>Mot de passe oublié - Infopro-Digital</title>
-    <link rel="apple-touch-icon" href="app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico">
+    <title>Mot de passe oublié - <?php echo $PARAM_nom_site; ?></title>
+    <link rel="apple-touch-icon" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
