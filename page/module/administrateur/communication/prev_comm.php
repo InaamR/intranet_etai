@@ -87,7 +87,7 @@ $PDO_query_comm_unique->closeCursor();
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- END: Custom CSS-->
 </head>
 <!-- END: Head-->
@@ -189,8 +189,8 @@ $PDO_query_comm_unique->closeCursor();
                     </div>
                 </div>
                 <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                    <div class="form-group breadcrumb-right">                   
-                        <a class="btn-icon btn btn-success btn-round btn-sm waves-effect waves-float waves-light" href="liste_comm.php">Revenir à la liste</a>
+                    <div class="form-group breadcrumb-right">
+                    <a style="font-size: 0.9rem !important;" class="btn-sm btn-gradient-success waves-effect waves-float waves-light text-nowrap mr-25" href="liste_comm.php"><i class="bi bi-reply" style="font-size: 1rem !important;"></i> Retour</a>
                     </div>
                 </div>
             </div>

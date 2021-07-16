@@ -174,23 +174,25 @@ $PDO_query_comm_unique->closeCursor();
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
             <div class="content-header row">
-                <div class="content-header-left col-md-9 col-9 mb-2">
+                <div class="content-header-left col-md-8 col-8 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
                             <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb d-md-flex d-none">
-                                    <li class="breadcrumb-item"><a href="liste_comm.php">Communications Générales</a></li>
+                                    <li class="breadcrumb-item">
+                                        <a href="liste_comm.php">Communications Générales</a>
+                                    </li>
                                     <li class="breadcrumb-item active">Gestion des comm</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-right col-md-3 col-3">
-                    <div class="form-group breadcrumb-right float-right">                   
-                        <a style="font-size: 1.8rem !important;" class="btn waves-effect waves-float waves-light p-0 mr-25" href="liste_comm.php"><i class="bi bi-reply"></i></a>
-                        <a style="font-size: 1.5rem !important;" class="btn waves-effect waves-float waves-light p-0 mr-25" href="prev_comm.php?id=<?php echo $_GET["id"]?>" target="_blank"><i class="bi bi-arrows-fullscreen"></i></a>
+                <div class="content-header-right text-md-right col-md-4 col-4">
+                    <div class="form-group breadcrumb-right float-right d-flex">
+                        <a style="font-size: 0.9rem !important;" class="btn-sm btn-gradient-success waves-effect waves-float waves-light text-nowrap w-50 mr-25" href="liste_comm.php"><i class="bi bi-reply" style="font-size: 1rem !important;"></i> Retour</a>
+                        <a style="font-size: 0.9rem !important;" class="btn-sm btn-gradient-secondary waves-effect waves-float waves-light text-nowrap w-50 mr-25" href="prev_comm.php?id=<?php echo $_GET["id"]?>" target="_blank"><i class="bi bi-arrows-fullscreen" style="font-size: 1rem !important;"></i> Preview</a>
                     </div>
                 </div>
             </div>
@@ -212,7 +214,7 @@ $PDO_query_comm_unique->closeCursor();
                                             <p class="card-text"><?php echo $date = date("d-m-Y");?></p>
                                         </div>
                                     </div>
-
+                                    
                                     <!-- Form -->
                                     <form method="post" id="jquery-val-form" class="<?php if(!empty($id_comm)){echo 'edit';}else{echo 'add';} ?>" data-id="<?php echo $id_comm; ?>">
                                                             

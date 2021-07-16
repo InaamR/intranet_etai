@@ -36,11 +36,11 @@
                 </a>
             </li>
             <li class=" navigation-header"><span data-i18n="Section Direction">Section Direction</span><i data-feather="more-horizontal"></i></li>
-            
+
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="#">
-                    <i class="far fa-comments" aria-hidden="true"></i>
-                    <span class="menu-title text-truncate" data-i18n="Com. Générale" id="communication">Com. Générale</span>
+                    <i class="fas fa-rss" aria-hidden="true"></i>
+                    <span class="menu-title text-truncate" data-i18n="Com. Générale" id="communication">Comm. Générale</span>
                 </a>
                 <ul class="menu-content">
                     <li>
@@ -54,7 +54,7 @@
                             <i data-feather="circle"></i>
                             <span class="menu-item text-truncate" data-i18n="Archive">Archive</span>
                         </a>
-                    </li>                    
+                    </li>
                 </ul>
             </li>
 
@@ -92,16 +92,13 @@
                     <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Sondage</span></a>
                     </li>
                 </ul>
-            </li>            
-
-            <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i class="fas fa-link" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Liens Utiles">Liens Utiles</span></a>
             </li>
 
             <li class=" navigation-header"><span data-i18n="DSI">DSI</span><i data-feather="more-horizontal"></i></li>
 
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="#">
-                    <i class="far fa-comments" aria-hidden="true"></i>
+                    <i class="fas fa-laptop"></i>
                     <span class="menu-title text-truncate" data-i18n="Pages" id="Dir. des Systèmes d'information">Dir. Systèmes info</span>
                 </a>
                 <ul class="menu-content">
