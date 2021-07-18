@@ -393,6 +393,63 @@
 			
 		
 	});
+
+	$(document).on('submit', '#form_message_repondre', function(e){
+		e.preventDefault();
+		
+					  
+		  var form_data = $('#form_message_repondre').serialize();
+		  var onSuccess = function (data) {
+			console.log('Success');
+			
+			$("#modals-slide-in-repondre").removeClass("show");
+
+			$(".modal-backdrop").removeClass("show");
+
+			var table = dt_basic_table.DataTable();
+			table.ajax.reload(function(){
+				Swal.fire({
+					title: "BRAVO !",
+					text: "Votre message est bien envoyé !",
+					type: "success",
+					confirmButtonClass: 'btn btn-primary',
+					buttonsStyling: false,
+				});
+			}, true);
+		
+		  };
+		  var onError = function (jqXHR, textStatus, errorThrown) {
+			  console.log(jqXHR);
+			  console.log(textStatus);
+			  console.log(errorThrown);
+			  alert("Probléme de mise à jour de la base de donnée");
+		  
+		  };
+		  
+		  var onBeforeSend = function () {
+			  console.log("Loading");          
+			  $.blockUI({
+				message: '<div class="spinner-border text-white" role="status"></div>',
+				timeout: 1000,
+				css: {
+				  backgroundColor: 'transparent',
+				  border: '0'
+				},
+				overlayCSS: {
+				  opacity: 0.5
+				}
+			  });
+		  };
+		  var request   = $.ajax({
+			url:          'table/php/data_liste_message.php?job=add_message',
+			data:         form_data,
+			type:         'post',
+			async: false,
+			beforeSend: onBeforeSend,
+			error: onError,
+			success: onSuccess
+		  });
+	});
 	 
   });
   });  

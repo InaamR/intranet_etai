@@ -207,7 +207,7 @@ if (preg_match("/config/", $page)) {
                                                 <th>Expéditeur</th>
                                                 <th>Destinataire</th>   
                                                 <th>État</th>                                                     
-                                                <th>Date de récéption</th>
+                                                <th>Date d'envoi</th>
                                                 <th>Titre du message</th>
                                                 <th>Action</th>
                                             </tr>

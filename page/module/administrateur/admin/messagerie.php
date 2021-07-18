@@ -352,7 +352,8 @@ if (preg_match("/config/", $page)) {
                             <label class="form-label" for="basic-icon-default-exp">Expéditeur *:</label>
                             <input
                             type="text"
-                            name="titre" size="50"
+                            name="titre" 
+                            size="50"
                             id="basic-icon-default-exp"
                             class="form-control dt-post"
                             placeholder="Titre du Message"
