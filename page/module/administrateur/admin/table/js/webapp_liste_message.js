@@ -376,7 +376,7 @@
 		request.done(function(output){
 		  if (output.result == 'success'){ 
 			  
-			$('#exampleModalLabel').text("Message réçu :");
+			$('#exampleModalLabel-2').text("Message réçu :");
 		
 			$('#form_message_lecture #btn_envoie_message_single_repondre').text('Répondre');	
 			$('#form_message_lecture #btn_envoie_message_single_effacer').text('Effacer');	
@@ -384,7 +384,7 @@
 			
 			$('#form_message_lecture #basic-icon-default-exp').val(output.data[0].nom_exp);	
 			$('#form_message_lecture #basic-icon-default-post-read').val(output.data[0].nom_titre);
-			$('#form_message_lecture #editor_2').text(output.data[0].nom_txt);	
+			$('#form_message_lecture #editor_2').val(output.data[0].nom_txt);	
 	
 			
 		  } else {

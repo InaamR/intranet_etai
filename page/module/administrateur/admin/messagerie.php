@@ -316,7 +316,7 @@ if (preg_match("/config/", $page)) {
                         <div class="form-group">
                             <label class="form-label" for="basic-icon-default-email">Message *:</label>
                             <textarea class="form-control" name="message" cols="60" rows="10" id="editor" required></textarea>
-                            <small class="form-text text-muted"> You can use letters, numbers & periods </small>
+                            <small class="form-text text-muted"> Vous pouvez utiliser des lettres, des chiffres et des points </small>
                         </div>
                         
                         <button type="submit" class="btn btn-primary data-submit mr-1" name="envoie_message">Envoyer le Message</button>
@@ -343,7 +343,7 @@ if (preg_match("/config/", $page)) {
 
                         <div class="modal-header mb-1">
 
-                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <h5 class="modal-title" id="exampleModalLabel-2"></h5>
 
                         </div>
 
@@ -377,11 +377,12 @@ if (preg_match("/config/", $page)) {
                             <label class="form-label" for="basic-icon-default-email">Message *:</label>
                             <textarea class="form-control" name="message" cols="60" rows="10" id="editor_2" readonly></textarea>
                             
-                            <small class="form-text text-muted"> You can use letters, numbers & periods </small>
+                            <small class="form-text text-muted"> Vous pouvez utiliser des lettres, des chiffres et des points </small>
                         </div>
                         
                         <button type="submit" class="btn btn-primary data-submit mr-1" name="envoie_message" id="btn_envoie_message_single_repondre"></button>
                         <button type="reset" class="btn btn-dark" data-dismiss="modal" id="btn_envoie_message_single_effacer"></button>
+                        
                         </div>
                     </form>
                     </div>
@@ -473,6 +474,7 @@ if (preg_match("/config/", $page)) {
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/forms/form-select2.min.js"></script>
     <!-- END: Page JS-->
+
     <script src="ckeditor/js/sf.js"></script>
     <script src="ckeditor/js/tree-a.js"></script>
     <script src="https://cdn.ckeditor.com/4.12.1/standard-all/ckeditor.js"></script>
@@ -490,14 +492,8 @@ if (preg_match("/config/", $page)) {
 			removePlugins: 'image',
 			height:250
 		} );
-        var editor_1 = CKEDITOR.replace( 'editor_2', {
-			extraPlugins: 'uploadimage,image2',
-			removePlugins: 'image',
-			height:250
-		} );
 		CKFinder.setupCKEditor( editor );
         CKFinder.setupCKEditor( editor_1 );
-        CKFinder.setupCKEditor( editor_2 );
         $(window).on('load', function () {
             if (feather) {
                 feather.replace({

@@ -74,8 +74,8 @@ if ($job != '') {
             
 			$liste = '
                     
-            <button type="button" class="btn btn-primary btn-sm waves-effect waves-float waves-light" id="id_lire" data-id="'.$donnee['id'].'" data-toggle="modal" data-target="#modals-slide-in-2" >Lire le message</button>
-            <a class="btn btn-info btn-sm waves-effect waves-float waves-light" href="profil_membre.php?id='.$donnee['id_expediteur'].'"  role="button" target="_blank">Voir le profile</a>
+            <a class="btn btn-primary btn-sm waves-effect waves-float waves-light" href="message.php?id='.$donnee['id'].'">Lire le message</a>
+            <a class="btn btn-info btn-sm waves-effect waves-float waves-light" href="profil_membre.php?id='.$donnee['id_expediteur'].'">Voir le profile</a>
             
             ';    
            
@@ -84,7 +84,7 @@ if ($job != '') {
             $full_name = Membre::info($donnee['id_expediteur'], 'nom').' '.Membre::info($donnee['id_expediteur'], 'prenom');
             $mysql_data[] = [
 				"responsive_id" => "",
-				"id" => $donnee['id_expediteur'],
+				"id" => $donnee['id'],
                 "etat" => $etat,
 				"full_name" => $full_name,
 				"date" => $date,
