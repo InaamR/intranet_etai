@@ -1,6 +1,8 @@
-<?php session_start();
+<?php
 
+session_start();
 
+$page = "";
 if (empty($page)) {
     $page = "function";
     // On limite l'inclusion aux fichiers.php en ajoutant dynamiquement l'extension
@@ -18,13 +20,12 @@ if (preg_match("/config/", $page)) {
     echo $page;
 } else {
     // On vérifie que la page est bien sur le serveur
-    if (file_exists("../../../config/" . $page) && $page != 'index.php') {
-        include "../../../config/" . $page;
+    if (file_exists("../../../../config/" . $page) && $page != 'index.php') {
+        include "../../../../config/" . $page;
     } else {
         echo "Page inexistante !";
     }
 }
-include('menu.php');
 Message::lu($_GET['id']);
 if(!empty($_POST['delete'])) {
 	Message::efface($_POST['id']);
@@ -57,5 +58,4 @@ echo '<div id="principal">
 </tr>
 </table>
 </div>';
-include('footer.php');
 ?>

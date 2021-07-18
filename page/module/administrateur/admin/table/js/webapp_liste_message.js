@@ -6,8 +6,8 @@
 	'use strict';
 	$(document).ready(function(){
 	var dt_basic_table = $('.datatables-basic'),
-	  dt_date_table = $('.dt-date'),
-	  assetPath = '../app-assets/';
+	  	dt_date_table = $('.dt-date'),
+	  	assetPath = '../app-assets/';
 	
 	var form_comm = $('#form_comm');
   
@@ -140,7 +140,19 @@
 			className: 'create-new btn btn-primary ml-1',
 			attr: {
 			  'data-toggle': 'modal',
-			  'data-target': '#modals-slide-in'
+			  'data-target': '#modals-slide-in',
+			  'id': 'message_solo'
+			},
+			init: function (api, node, config) {
+			  $(node).removeClass('btn-secondary');
+			}
+		  },
+		  {
+			text: feather.icons['plus'].toSvg({ class: 'mr-50 font-small-4' }) + 'Envoyer un message à tous le monde',
+			className: 'create-new btn btn-success ml-1',
+			attr: {
+			  'data-toggle': 'modal',
+			  'data-target': '#modals-slide-in-1'
 			},
 			init: function (api, node, config) {
 			  $(node).removeClass('btn-secondary');
@@ -207,15 +219,31 @@
 
 	var form_company = $('#form_message');
 	// hide new sidebar starts //	
-  
+	// add new sidebar starts //	
+	$(document).on('click', '#message_solo', function(e){
+
+		e.preventDefault();
+			
+		$('#exampleModalLabel').text("Nouveau message :");
+		
+		$('#form_message #btn_envoie_message_single').text('Envoyer le Message');	
+		$('#form_message #btn_envoie_message_single_annule').text('Annuler');	
+		
+		
+		$('#form_message #basic-icon-default-post').val('');
+		
+		 
+		 
+	});  
+
+
 	$(".hide-data-sidebar, .cancel-data-btn, .overlay-bg").on("click", function() {
 		$(".add-new-data").removeClass("show")
 		$(".overlay-bg").removeClass("show")
 		$("#data-name, #data-price").val("")
 		$("#data-category, #data-status").prop("selectedIndex", 0)
 	})
-	  
-	// hide new sidebar starts //
+	
 	$(document).on('submit', '#form_message', function(e){
 		e.preventDefault();
 		
@@ -271,6 +299,99 @@
 			error: onError,
 			success: onSuccess
 		  });
+	});
+	
+	$(document).on('submit', '#form_message_all', function(e){
+		e.preventDefault();
+		
+					  
+		  var form_data = $('#form_message_all').serialize();
+		  var onSuccess = function (data) {
+			console.log('Success');
+			
+			$("#modals-slide-in-1").removeClass("show");
+
+			$(".modal-backdrop").removeClass("show");
+
+			var table = dt_basic_table.DataTable();
+			table.ajax.reload(function(){
+				Swal.fire({
+					title: "BRAVO !",
+					text: "Votre message est bien envoyé à tous le monde!",
+					type: "success",
+					confirmButtonClass: 'btn btn-primary',
+					buttonsStyling: false,
+				});
+			}, true);
+		
+		  };
+		  var onError = function (jqXHR, textStatus, errorThrown) {
+			  console.log(jqXHR);
+			  console.log(textStatus);
+			  console.log(errorThrown);
+			  alert("Probléme de mise à jour de la base de donnée");
+		  
+		  };
+		  
+		  var onBeforeSend = function () {
+			  console.log("Loading");          
+			  $.blockUI({
+				message: '<div class="spinner-border text-white" role="status"></div>',
+				timeout: 1000,
+				css: {
+				  backgroundColor: 'transparent',
+				  border: '0'
+				},
+				overlayCSS: {
+				  opacity: 0.5
+				}
+			  });
+		  };
+		  var request   = $.ajax({
+			url:          'table/php/data_liste_message.php?job=add_message_all',
+			data:         form_data,
+			type:         'post',
+			async: false,
+			beforeSend: onBeforeSend,
+			error: onError,
+			success: onSuccess
+		  });
+	});
+
+	$(document).on('click', '#id_lire', function(e){
+		
+		e.preventDefault();
+
+		var id      = $(this).data('id');	
+
+		var request = $.ajax({
+			url:          'table/php/data_liste_message.php?job=get_message_lecture',
+			cache:        false,
+			data:         'id=' + id,
+			dataType:     'json',
+			contentType:  'application/json; charset=utf-8',
+			type:         'get'
+		});
+		
+		request.done(function(output){
+		  if (output.result == 'success'){ 
+			  
+			$('#exampleModalLabel').text("Message réçu :");
+		
+			$('#form_message_lecture #btn_envoie_message_single_repondre').text('Répondre');	
+			$('#form_message_lecture #btn_envoie_message_single_effacer').text('Effacer');	
+			
+			
+			$('#form_message_lecture #basic-icon-default-exp').val(output.data[0].nom_exp);	
+			$('#form_message_lecture #basic-icon-default-post-read').val(output.data[0].nom_titre);
+			$('#form_message_lecture #editor_2').text(output.data[0].nom_txt);	
+	
+			
+		  } else {
+		  }
+		});		
+			
+		
 	});
 	 
   });

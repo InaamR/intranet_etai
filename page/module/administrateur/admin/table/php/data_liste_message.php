@@ -34,10 +34,10 @@ $id = '';
 if (isset($_GET['job'])) {
     $job = $_GET['job'];
 
-    if ($job == 'get_liste_message' || $job == 'add_message' || $job == 'edit_marque' || $job == 'del_marque') {
+    if ($job == 'get_liste_message' || $job == 'add_message' || $job == 'add_message_all' || $job == 'get_message_lecture' || $job == 'del_marque') {
 
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
+        if (isset($_POST['id'])) {
+            $id = $_POST['id'];
             if (!is_numeric($id)) {
                 $id = '';
             }
@@ -62,22 +62,26 @@ if ($job != '') {
 		while($donnee = $resultat -> fetch(PDO::FETCH_ASSOC)) {
 
 			if($donnee['lu'] === '1') {
-				$etat = 'Message LU';
+				$etat = '<div class="badge badge-success">
+                            <span>Message Lu</span>
+                        </div>';
 			}
 			else {
-				$etat = 'Message Non LU';
+				$etat = '<div class="badge badge-warning">
+                            <span>Message non Lu</span>
+                        </div>';
 			}
-
-			$liste .= '
+            
+			$liste = '
                     
-                    <a class="btn btn-primary btn-sm waves-effect waves-float waves-light" href="message.php?id='.$donnee['id'].'">Lire le message</a>
-					<a class="btn btn-info btn-sm waves-effect waves-float waves-light" href="profil_membre.php?id='.$donnee['id_expediteur'].'"  role="button" target="_blank">Voir le profile</a>
+            <button type="button" class="btn btn-primary btn-sm waves-effect waves-float waves-light" id="id_lire" data-id="'.$donnee['id'].'" data-toggle="modal" data-target="#modals-slide-in-2" >Lire le message</button>
+            <a class="btn btn-info btn-sm waves-effect waves-float waves-light" href="profil_membre.php?id='.$donnee['id_expediteur'].'"  role="button" target="_blank">Voir le profile</a>
             
             ';    
            
 
             $date = date('d/m/Y', $donnee['timestamp']);
-            $full_name = Membre::info($donnee['id_expediteur'], 'pseudo');
+            $full_name = Membre::info($donnee['id_expediteur'], 'nom').' '.Membre::info($donnee['id_expediteur'], 'prenom');
             $mysql_data[] = [
 				"responsive_id" => "",
 				"id" => $donnee['id_expediteur'],
@@ -96,22 +100,60 @@ if ($job != '') {
 
         try {
 
-            if(Message::interdit($_POST['message'])) {
-                $message = nl2br(filter_var($_POST['message'], FILTER_SANITIZE_STRING));
-                $titre = filter_var($_POST['titre'], FILTER_SANITIZE_STRING);
+            /*if(Message::interdit($_POST['message'])) {*/
+                $message = $_POST['message'];
+                $titre = $_POST['titre'];
                 $date = time();
                 $resultat = Bdd::connectBdd()->prepare(INSERT.MESSAGEZ.MESSAGEINSERT);
                 $resultat -> bindParam(':id_exp', $_SESSION['id'], PDO::PARAM_INT, 11);
                 $resultat -> bindParam(':id_dest', $_POST['destinataire'], PDO::PARAM_INT, 11);
                 $resultat -> bindParam(':titre', $_POST['titre'], PDO::PARAM_STR);
                 $resultat -> bindParam(':date', $date, PDO::PARAM_STR);
-                $resultat -> bindParam(':message', $_POST['message'], PDO::PARAM_STR);
+                $resultat -> bindParam(':message', $message, PDO::PARAM_STR);
                 $resultat -> execute();
 
-            }
-            else {
+            /*}
+            else {*/
                $stop = 'Votre message ou votre titre contient du language SMS ou des mots interdits, veuillez recommencer.<br />';
-            }
+            /*}*/
+
+            $result = 'success';
+            $message = 'Message envoyé';
+
+            
+        } catch (PDOException $x) {
+            die("Secured");
+            $result = $stop;
+            $message = 'Échec de requête';
+        }
+
+    }elseif ($job == 'add_message_all') {
+
+        try {
+
+            /*if(Message::interdit($_POST['message'])) {*/
+                $id = '2';
+                $all = Bdd::connectBdd()->prepare(SELECT.ALL.MEMBRE.NOID);
+                $all -> bindParam(':id', $id, PDO::PARAM_INT, 11);
+                $all -> execute();
+                $message = nl2br(filter_var($_POST['message'], FILTER_SANITIZE_STRING));
+                $titre = filter_var($_POST['titre'], FILTER_SANITIZE_STRING);
+                $date = time();
+                $id_exp = '2';
+                while($tous = $all -> fetch(PDO::FETCH_ASSOC)) {
+                    $destinataire = $tous['id'];
+                    $resultat = Bdd::connectBdd()->prepare(INSERT.MESSAGEZ.MESSAGEINSERT);
+                    $resultat -> bindParam(':id_exp', $id_exp, PDO::PARAM_INT, 11);
+                    $resultat -> bindParam(':id_dest', $destinataire, PDO::PARAM_INT, 11);
+                    $resultat -> bindParam(':titre', $titre);
+                    $resultat -> bindParam(':date', $date);
+                    $resultat -> bindParam(':message', $message);
+                    $resultat -> execute();
+                }
+            /*}
+            else {*/
+               $stop = 'Votre message ou votre titre contient du language SMS ou des mots interdits, veuillez recommencer.<br />';
+            /*}*/
 
             $result = 'success';
             $message = 'Message envoyé';
@@ -171,6 +213,30 @@ if ($job != '') {
 
             $result = 'success';
             $message = 'Succès de requête';
+        }
+    }elseif ($job == 'get_message_lecture') {
+
+        if ($_GET['id'] == '') {
+            $result = 'error';
+            $message = 'Échec id';
+        } else {
+
+            try {
+                
+                $mysql_data[] = [
+                    "nom_exp" => Membre::info(Message::info($_GET['id'], 'id_expediteur'), 'pseudo'),
+                    "nom_titre" => Message::info($_GET['id'], 'titre'),
+                    "nom_txt" => Message::info($_GET['id'], 'message')
+                ];
+                $result = 'success';
+                $message = 'Succès de requête';
+
+            }catch (PDOException $x) {
+                die("Secured");
+                $result = 'error';
+                $message = 'Échec de requête';
+            }
+
         }
     }
 }

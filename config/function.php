@@ -884,12 +884,66 @@ class Message {
 		$resultat -> bindParam(':id', $id, PDO::PARAM_INT, 11);
 		$resultat -> execute();
 		if($resultat -> rowCount() === 0) {
-			return 'Vous n\'avez aucun nouveau message';
+			return '0';
 		}
 		else {
-			return 'Vous avez '.$resultat -> rowCount().' nouveau(x) message(s).';
+			return $resultat -> rowCount();
 		}
 	}
+
+	public static function nouveauNbnotif($id) {
+		$liste = '';
+		$resultat = Bdd::connectBdd()->prepare(SELECT.ALL.MESSAGE.NBNEW);
+		$resultat -> bindParam(':id', $id, PDO::PARAM_INT, 11);
+		$resultat -> execute();
+		if($resultat -> rowCount() === 0) {
+			$liste .='
+			<a class="d-flex" href="javascript:void(0)">
+				<div class="media d-flex align-items-start">
+
+					<div class="media-left">
+						<div class="avatar">
+							<img src="http://'.$_SERVER['SERVER_NAME'].'/intranet_etai/app-assets/images/portrait/small/man.png" alt="avatar" width="32" height="32">
+						</div>
+					</div>
+
+					<div class="media-body">
+						<p class="media-heading"><span class="font-weight-bolder">Notification Systéme</span></p>
+						<small class="notification-text">Vous n\'avez aucun nouveau message</small>
+					</div>
+				</div>
+			</a>';
+			return $liste;
+		}
+		else {
+			while($donnee = $resultat -> fetch(PDO::FETCH_ASSOC)) {
+				
+				$exp = Membre::info($donnee['id_expediteur'], 'nom').' '.Membre::info($donnee['id_expediteur'], 'prenom');
+				$liste .='
+				<a class="d-flex" href="javascript:void(0)">
+					<div class="media d-flex align-items-start">
+
+						<div class="media-left">
+							<div class="avatar">
+								<img src="http://'.$_SERVER['SERVER_NAME'].'/intranet_etai/app-assets/images/portrait/small/man.png" alt="avatar" width="32" height="32">
+							</div>
+						</div>
+
+						<div class="media-body">
+							<p class="media-heading"><span class="font-weight-bolder">'.$exp.'</span></p>
+							<small class="notification-text">'.$donnee['titre'].'</small>
+						</div>
+					</div>
+				</a>
+				';
+			}
+			return $liste;
+		}
+	}
+
+	
+
+
 	// liste des messages du membre
 	// liste a vide
 	// recherche des messages adresses au membre connecte et non efface par le membre

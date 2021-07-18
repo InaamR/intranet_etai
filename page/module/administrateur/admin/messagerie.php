@@ -183,9 +183,7 @@ if (preg_match("/config/", $page)) {
                 <div class="content-header-right text-md-right col-md-6 col-12 d-md-block d-none">
                     <div class="form-group breadcrumb-right">
 
-                        <a href="message_new.php"  class="btn-icon btn btn-success btn-sm">&nbsp;Nouveau message&nbsp;</a>
-                        <a href="messageAll.php"  class="btn-icon btn btn-info btn-sm">&nbsp;Nouveau a tous&nbsp;</a>
-                        <a href="message_envoye.php"  class="btn-icon btn btn-dark btn-sm">&nbsp;Messages Envoy&eacute;s&nbsp;</a>
+                        <a href="messagerie_send.php"  class="btn-icon btn btn-dark btn-sm">&nbsp;Messages Envoy&eacute;s&nbsp;</a>
 
                     </div>
                 </div>
@@ -221,7 +219,7 @@ if (preg_match("/config/", $page)) {
 
                 <!-- Modal to add new record -->
                 <div class="modal modal-slide-in fade" id="modals-slide-in">
-                    <div class="modal-dialog sidebar-sm">
+                    <div class="modal-dialog sidebar-lg">
                     <?php
                     /*if(!empty($_POST['envoie_message'])) {
                         extract($_POST);
@@ -236,7 +234,7 @@ if (preg_match("/config/", $page)) {
 
                         <div class="modal-header mb-1">
 
-                        <h5 class="modal-title" id="exampleModalLabel">Nouveau Message</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
 
                         </div>
 
@@ -269,12 +267,121 @@ if (preg_match("/config/", $page)) {
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="basic-icon-default-email">Message *:</label>
-                            <textarea class="form-control" name="message" cols="60" rows="10" required></textarea>
+                            <textarea class="form-control" name="message" cols="60" rows="10" id="editor_1" required></textarea>
+                            <small class="form-text text-muted"> Vous pouvez utiliser des lettres, des chiffres et des points </small>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary data-submit mr-1" name="envoie_message" id="btn_envoie_message_single"></button>
+                        <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal" id="btn_envoie_message_single_annule"></button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+
+                <!-- Modal to add new record -->
+                <div class="modal modal-slide-in fade" id="modals-slide-in-1">
+                    <div class="modal-dialog sidebar-lg">
+                    <?php
+                    /*if(!empty($_POST['envoie_message'])) {
+                        extract($_POST);
+                        echo '<tr><td colspan="2">';
+                        echo Message::messageEnvoi($_SESSION['id'], $destinataire, $titre, $message);
+                        echo '</tr></td>';
+                    }*/
+                    ?>
+                    <form class="add-new-record modal-content pt-0" id="form_message_all" data-id="">
+                        
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+
+                        <div class="modal-header mb-1">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Nouveau Message général</h5>
+
+                        </div>
+
+                        <div class="modal-body flex-grow-1">
+
+                        <div class="form-group">
+                            <label class="form-label" for="basic-icon-default-post">Titre du Message *:</label>
+                            <input
+                            type="text"
+                            name="titre" size="50"
+                            id="basic-icon-default-post"
+                            class="form-control dt-post"
+                            placeholder="Titre du Message"
+                            aria-label="Titre du Message"
+                            required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="basic-icon-default-email">Message *:</label>
+                            <textarea class="form-control" name="message" cols="60" rows="10" id="editor" required></textarea>
                             <small class="form-text text-muted"> You can use letters, numbers & periods </small>
                         </div>
                         
                         <button type="submit" class="btn btn-primary data-submit mr-1" name="envoie_message">Envoyer le Message</button>
                         <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+
+                <!-- Modal to add new record -->
+                <div class="modal modal-slide-in fade" id="modals-slide-in-2">
+                    <div class="modal-dialog sidebar-lg">
+                    <?php
+                    /*if(!empty($_POST['envoie_message'])) {
+                        extract($_POST);
+                        echo '<tr><td colspan="2">';
+                        echo Message::messageEnvoi($_SESSION['id'], $destinataire, $titre, $message);
+                        echo '</tr></td>';
+                    }*/
+                    ?>
+                    <form class="add-new-record modal-content pt-0" id="form_message_lecture" data-id="">
+                        
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+
+                        <div class="modal-header mb-1">
+
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+
+                        </div>
+
+                        <div class="modal-body flex-grow-1">
+                        <div class="form-group">
+                            <label class="form-label" for="basic-icon-default-exp">Expéditeur *:</label>
+                            <input
+                            type="text"
+                            name="titre" size="50"
+                            id="basic-icon-default-exp"
+                            class="form-control dt-post"
+                            placeholder="Titre du Message"
+                            aria-label="Titre du Message"
+                            readonly
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="basic-icon-default-post-read">Titre du Message *:</label>
+                            <input
+                            type="text"
+                            name="titre" size="50"
+                            id="basic-icon-default-post-read"
+                            class="form-control dt-post"
+                            placeholder="Titre du Message"
+                            aria-label="Titre du Message"
+                            readonly
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="basic-icon-default-email">Message *:</label>
+                            <textarea class="form-control" name="message" cols="60" rows="10" id="editor_2" readonly></textarea>
+                            
+                            <small class="form-text text-muted"> You can use letters, numbers & periods </small>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary data-submit mr-1" name="envoie_message" id="btn_envoie_message_single_repondre"></button>
+                        <button type="reset" class="btn btn-dark" data-dismiss="modal" id="btn_envoie_message_single_effacer"></button>
                         </div>
                     </form>
                     </div>
@@ -366,8 +473,31 @@ if (preg_match("/config/", $page)) {
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
     <script src="https://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/js/scripts/forms/form-select2.min.js"></script>
     <!-- END: Page JS-->
-    
+    <script src="ckeditor/js/sf.js"></script>
+    <script src="ckeditor/js/tree-a.js"></script>
+    <script src="https://cdn.ckeditor.com/4.12.1/standard-all/ckeditor.js"></script>
+    <script src="ckfinder/ckfinder.js"></script>
     <script>
+        CKEDITOR.disableAutoInline = true;
+		CKEDITOR.addCss( 'img {max-width:100%; height: auto;}' );
+		var editor = CKEDITOR.replace( 'editor', {
+			extraPlugins: 'uploadimage,image2',
+			removePlugins: 'image',
+			height:250
+		} );
+        var editor_1 = CKEDITOR.replace( 'editor_1', {
+			extraPlugins: 'uploadimage,image2',
+			removePlugins: 'image',
+			height:250
+		} );
+        var editor_1 = CKEDITOR.replace( 'editor_2', {
+			extraPlugins: 'uploadimage,image2',
+			removePlugins: 'image',
+			height:250
+		} );
+		CKFinder.setupCKEditor( editor );
+        CKFinder.setupCKEditor( editor_1 );
+        CKFinder.setupCKEditor( editor_2 );
         $(window).on('load', function () {
             if (feather) {
                 feather.replace({

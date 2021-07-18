@@ -1,9 +1,9 @@
 <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow">
     <div class="navbar-container d-flex content align-items-center">
 
-    <ul class="nav navbar-nav d-xl-none">
-            <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon" data-feather="menu"></i></a></li>
-          </ul>
+            <ul class="nav navbar-nav d-xl-none">
+                <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon" data-feather="menu"></i></a></li>
+            </ul>
 
         <ul class="nav navbar-nav align-items-center ml-auto">
 
@@ -47,7 +47,7 @@
             <li class="nav-item dropdown dropdown-notification mr-25">
                 <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown">
                     <i class="ficon" data-feather="bell"></i>
-                    <span class="badge badge-pill badge-danger badge-up">5</span>
+                    <span class="badge badge-pill badge-danger badge-up"><?php echo Message::nouveauNb($_SESSION['id']);?></span>
                 </a>
 
                 <!-- menu notifications list -->
@@ -55,116 +55,16 @@
                     <li class="dropdown-menu-header">
                         <div class="dropdown-header d-flex">
                             <h4 class="notification-title mb-0 mr-auto">Notifications</h4>
-                            <div class="badge badge-pill badge-light-primary">6 New</div>
+                            <div class="badge badge-pill badge-light-primary"><?php echo Message::nouveauNb($_SESSION['id']);?> Nouveaux</div>
                         </div>
                     </li>
-
+                    
                     <li class="scrollable-container media-list">
-                        <a class="d-flex" href="javascript:void(0)">
-                            <div class="media d-flex align-items-start">
-
-                                <div class="media-left">
-                                    <div class="avatar">
-                                        <img src="http://<?php echo $_SERVER['SERVER_NAME'];?>/intranet_etai/app-assets/images/portrait/small/man.png" alt="avatar" width="32" height="32">
-                                    </div>
-                                </div>
-
-                                <div class="media-body">
-                                    <p class="media-heading"><span class="font-weight-bolder">Congratulation Sam 🎉</span>winner!</p>
-                                    <small class="notification-text"> Won the monthly best seller badge.</small>
-                                </div>
-                            </div>
-                        </a>
-                        
-                        <a class="d-flex" href="javascript:void(0)">
-                            <div class="media d-flex align-items-start">
-                                <div class="media-left">
-                                    <div class="avatar">
-                                        <img src="http://<?php echo $_SERVER['SERVER_NAME'];?>/intranet_etai/app-assets/images/portrait/small/man.png" alt="avatar" width="32" height="32">
-                                    </div>
-                                </div>
-
-                                <div class="media-body">
-                                    <p class="media-heading"><span class="font-weight-bolder">New message</span>&nbsp;received</p>
-                                    <small class="notification-text"> You have 10 unread messages</small>
-                                </div>
-                            </div>
-                        </a>
-                        
-                        <a class="d-flex" href="javascript:void(0)">
-                            <div class="media d-flex align-items-start">
-                                <div class="media-left">
-                                    <div class="avatar bg-light-danger">
-                                        <div class="avatar-content">MD</div>
-                                    </div>
-                                </div>
-
-                                <div class="media-body">
-                                    <p class="media-heading"><span class="font-weight-bolder">Revised Order 👋</span>&nbsp;checkout</p>
-                                    <small class="notification-text"> MD Inc. order updated</small>
-                                </div>
-                            </div>
-                        </a>
-
-                        <div class="media d-flex align-items-center">
-                            <h6 class="font-weight-bolder mr-auto mb-0">System Notifications</h6>
-
-                            <div class="custom-control custom-control-primary custom-switch">
-                                <input class="custom-control-input" id="systemNotification" type="checkbox"checked="">
-                                <label class="custom-control-label" for="systemNotification"></label>
-                            </div>
-
-                        </div>
-                        <a class="d-flex" href="javascript:void(0)">
-                            <div class="media d-flex align-items-start">
-                                <div class="media-left">
-                                    <div class="avatar bg-light-danger">
-                                        <div class="avatar-content"><i class="avatar-icon" data-feather="x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="media-body">
-                                    <p class="media-heading"><span class="font-weight-bolder">Serverdown</span>&nbsp;registered</p>
-                                    <small class="notification-text"> USA Server is down due to hight CPU usage</small>
-                                </div>
-                            </div>
-                        </a>
-                        
-                        <a class="d-flex" href="javascript:void(0)">
-                            <div class="media d-flex align-items-start">
-                                <div class="media-left">
-                                    <div class="avatar bg-light-success">
-                                        <div class="avatar-content"><i class="avatar-icon" data-feather="check"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <p class="media-heading"><span class="font-weight-bolder">Sales report</span>&nbsp;generated</p>
-                                    <small class="notification-text"> Last month sales report generated</small>
-                                </div>
-                            </div>
-                        </a>
-                        
-                        <a class="d-flex" href="javascript:void(0)">
-                            <div class="media d-flex align-items-start">
-                                <div class="media-left">
-                                    <div class="avatar bg-light-warning">
-                                        <div class="avatar-content"><i class="avatar-icon" data-feather="alert-triangle"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <p class="media-heading">
-                                        <span class="font-weight-bolder">High memory</span>&nbsp;usage</p>
-                                        <small class="notification-text"> BLR Server using high memory</small>
-                                </div>
-                            </div>
-                        </a>
+                        <?php echo Message::nouveauNbnotif($_SESSION['id']);?>                                               
                     </li>
 
                     <li class="dropdown-menu-footer"><a class="btn btn-primary btn-block"
-                            href="javascript:void(0)">Voir toutes les notifications</a></li>
+                            href="http://<?php echo $_SERVER['SERVER_NAME'];?>/intranet_etai/page/module/administrateur/admin/messagerie.php">Voir toutes les messages</a></li>
                 </ul>
                 <!--End menu notifications list -->
 
