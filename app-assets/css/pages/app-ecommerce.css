@@ -15,7 +15,7 @@
 
 .ecommerce-application .sidebar-shop .filter-title {
   margin-bottom: 1rem;
-  margin-top: 2.5rem; }
+  }
 
 .ecommerce-application .sidebar-shop .price-range li:not(:last-child),
 .ecommerce-application .sidebar-shop .categories-list li:not(:last-child) {
@@ -152,7 +152,7 @@
 
 .ecommerce-application .grid-view:not(.wishlist-items),
 .ecommerce-application .list-view:not(.wishlist-items) {
-  margin-top: 2rem; }
+  margin-top: 0.9rem; }
 
 .ecommerce-application .grid-view {
   display: grid;
@@ -179,7 +179,8 @@
 .ecommerce-application .grid-view .ecommerce-card .shipping,
 .ecommerce-application .grid-view .ecommerce-card .item-company,
 .ecommerce-application .grid-view .ecommerce-card .item-options .item-price {
-  display: none; }
+  display: inline-flex;
+}
 
 .ecommerce-application .grid-view .ecommerce-card .item-options {
   display: flex;
@@ -212,7 +213,7 @@
 .ecommerce-application .list-view .ecommerce-card {
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr; }
+  grid-template-columns: 1fr 2fr; }
 
 .ecommerce-application .list-view .ecommerce-card .item-img {
   display: flex;

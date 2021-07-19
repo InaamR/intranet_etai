@@ -635,7 +635,7 @@ input:focus ~ .bg-light {
   box-shadow: none; }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):focus {
-  background-color: rgba(115, 103, 240, 0.2);
+  background-color: rgba(110, 107, 123, 20%);
   color: #e64c53; }
 
 .btn-outline-primary.dropdown-toggle::after {

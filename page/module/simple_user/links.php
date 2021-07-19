@@ -201,8 +201,8 @@ $PDO_query_comm_unique->closeCursor();
             <section id="card-images">
                 <h5 class="mt-3 mb-2">Café / Resto</h5>
                 <div class="row">
-                    <div class="col-md-4 col-xl-3">
-                        <div class="card">
+                    <div class="col-md-4 col-xl-3" >
+                        <div class="card cursor-pointer" data-toggle="modal" data-target="#large">
                             <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-title">CHAHIA</h4>
@@ -211,87 +211,34 @@ $PDO_query_comm_unique->closeCursor();
                                 </p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-xl-3">
-                        <div class="card">
-                            <img class="card-img-top" src="../../../app-assets/images/slider/luzina.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">L'UZ.INA</h4>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xl-3">
-                        <div class="card">
-                            <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">CHAHIA</h4>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xl-3">
-                        <div class="card">
-                            <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">CHAHIA</h4>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </section>
-            <section id="card-images">
-                <h5 class="mt-3 mb-2">Café / Resto</h5>
-                <div class="row">
-                    <div class="col-md-4 col-xl-3">
-                        <div class="card">
-                            <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">CHAHIA</h4>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xl-3">
-                        <div class="card">
-                            <img class="card-img-top" src="../../../app-assets/images/slider/luzina.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">L'UZ.INA</h4>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xl-3">
-                        <div class="card">
-                            <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">CHAHIA</h4>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xl-3">
-                        <div class="card">
-                            <img class="card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">CHAHIA</h4>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </p>
+
+                         <!-- Modal -->
+                         <div class="modal fade text-left" id="large" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel17">CHAHIA</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="card">
+                                            <div class="row g-0">
+                                                <div class="col-md-5">
+                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.5147448422413!2d10.20740321563424!3d36.85409607236298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xda0e4e259f33a9b!2sChahia!5e0!3m2!1sfr!2stn!4v1626437619515!5m2!1sfr!2stn" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                                </div>
+                                                <div class="col-md-6">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
