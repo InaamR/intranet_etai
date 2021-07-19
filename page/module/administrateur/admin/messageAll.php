@@ -1,6 +1,6 @@
 <?php session_start();
 
-
+$page = "";
 if (empty($page)) {
     $page = "function";
     // On limite l'inclusion aux fichiers.php en ajoutant dynamiquement l'extension
@@ -18,13 +18,12 @@ if (preg_match("/config/", $page)) {
     echo $page;
 } else {
     // On vérifie que la page est bien sur le serveur
-    if (file_exists("../../../config/" . $page) && $page != 'index.php') {
-        include "../../../config/" . $page;
+    if (file_exists("../../../../config/" . $page) && $page != 'index.php') {
+        include "../../../../config/" . $page;
     } else {
         echo "Page inexistante !";
     }
 }
-include('menu.php');
 echo '<div id="principal">
 <div id="titre_principal">Nouveau Message a Tous les Membres</div>
 <br />
@@ -60,5 +59,4 @@ echo '
 </table>
 </form>
 </div>';
-include('footer.php');
 ?>

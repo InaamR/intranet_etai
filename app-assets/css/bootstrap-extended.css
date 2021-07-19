@@ -1760,7 +1760,7 @@ input[type='number']::-webkit-outer-spin-button {
   color: #5e5873; }
 
 .nav-pills .nav-link.active {
-  border-color: #7367f0;
+  border-color: #e64c53;
   box-shadow: 0 4px 18px -4px rgba(115, 103, 240, 0.65); }
 
 .nav-pills .nav-link.disabled {
@@ -1774,7 +1774,7 @@ input[type='number']::-webkit-outer-spin-button {
   color: #fff; }
 
 .nav-pills.dropdown.show .dropdown-item.active:hover {
-  color: #7367f0; }
+  color: #e64c53; }
 
 .nav-pills.nav-justified {
   width: 100%; }
@@ -2488,7 +2488,7 @@ ul.list-inline.list-inline-pipe > li + li:before {
 
 @media (min-width: 576px) {
   .modal-slide-in .modal-dialog.sidebar-lg {
-    width: 30rem; } }
+    width: 50rem; } }
 
 .modal-slide-in .close {
   top: 0.4rem;

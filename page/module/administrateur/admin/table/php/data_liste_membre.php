@@ -70,14 +70,14 @@ if ($job != '') {
 
 				$niveau = '<div class="btn btn-icon btn-sm btn-danger">Banni</div>';
 				$action = '<input type="hidden" value="'.$donnee['id'].'" name="id">
-							<button type="submit" class="btn btn-icon btn-sm btn-warning" name="debannir" value="D&eacute;bannir">D&eacute;bannir</button>
-							<button type="submit" class="btn btn-icon btn-sm btn-danger" name="supprim" value="Supprimer">Supprimer</button>';
+							<button type="submit" class="btn btn-icon btn-sm btn-warning" name="debannir" value="D&eacute;bannir">D&eacute;bannir</button>';
+							/*<button type="submit" class="btn btn-icon btn-sm btn-danger" name="supprim" value="Supprimer">Supprimer</button>*/
 
 			}elseif($donnee['activation'] === '0') {
 
 				$niveau = '<div class="btn btn-icon btn-sm btn-info">Nouvel(le) inscrit(e)</div>';
 				$action = '<input type="hidden" value="'.$donnee['id'].'" name="id">
-							<button type="submit" class="btn btn-icon btn-sm btn-danger" name="bannir" value="Bannir"  data-toggle="modal" data-target="#inlineForm">Bannir</button>';
+							<button type="submit" class="btn btn-icon btn-sm btn-danger" name="inscription" value="Valider l\'inscription"  data-toggle="modal" data-target="#inlineForm">Valider l\'inscription</button>';
 
 			}else{
 

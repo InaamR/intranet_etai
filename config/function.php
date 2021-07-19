@@ -482,11 +482,11 @@ class Connexion {
 				
 				case 2 :
 				Activation::activationMail($login);
-				$redirect = redirection(URLSITE.'/activationMail.php');
+				$redirect = redirection(URLSITE.'/administrateur/admin/activationMail.php');
 				break;	
 				
 				case 3 :
-				$redirect = redirection(URLSITE.'/activationAdmin.php');
+				$redirect = redirection(URLSITE.'/administrateur/admin/activationAdmin.php');
 				break;	
 			}
 		}
@@ -884,12 +884,66 @@ class Message {
 		$resultat -> bindParam(':id', $id, PDO::PARAM_INT, 11);
 		$resultat -> execute();
 		if($resultat -> rowCount() === 0) {
-			return 'Vous n\'avez aucun nouveau message';
+			return '0';
 		}
 		else {
-			return 'Vous avez '.$resultat -> rowCount().' nouveau(x) message(s).';
+			return $resultat -> rowCount();
 		}
 	}
+
+	public static function nouveauNbnotif($id) {
+		$liste = '';
+		$resultat = Bdd::connectBdd()->prepare(SELECT.ALL.MESSAGE.NBNEW);
+		$resultat -> bindParam(':id', $id, PDO::PARAM_INT, 11);
+		$resultat -> execute();
+		if($resultat -> rowCount() === 0) {
+			$liste .='
+			<a class="d-flex" href="javascript:void(0)">
+				<div class="media d-flex align-items-start">
+
+					<div class="media-left">
+						<div class="avatar">
+							<img src="http://'.$_SERVER['SERVER_NAME'].'/intranet_etai/app-assets/images/portrait/small/man.png" alt="avatar" width="32" height="32">
+						</div>
+					</div>
+
+					<div class="media-body">
+						<p class="media-heading"><span class="font-weight-bolder">Notification Systéme</span></p>
+						<small class="notification-text">Vous n\'avez aucun nouveau message</small>
+					</div>
+				</div>
+			</a>';
+			return $liste;
+		}
+		else {
+			while($donnee = $resultat -> fetch(PDO::FETCH_ASSOC)) {
+				
+				$exp = Membre::info($donnee['id_expediteur'], 'nom').' '.Membre::info($donnee['id_expediteur'], 'prenom');
+				$liste .='
+				<a class="d-flex" href="javascript:void(0)">
+					<div class="media d-flex align-items-start">
+
+						<div class="media-left">
+							<div class="avatar">
+								<img src="http://'.$_SERVER['SERVER_NAME'].'/intranet_etai/app-assets/images/portrait/small/man.png" alt="avatar" width="32" height="32">
+							</div>
+						</div>
+
+						<div class="media-body">
+							<p class="media-heading"><span class="font-weight-bolder">'.$exp.'</span></p>
+							<small class="notification-text">'.$donnee['titre'].'</small>
+						</div>
+					</div>
+				</a>
+				';
+			}
+			return $liste;
+		}
+	}
+
+	
+
+
 	// liste des messages du membre
 	// liste a vide
 	// recherche des messages adresses au membre connecte et non efface par le membre
@@ -907,30 +961,7 @@ class Message {
 	// Sinon
 	// 		retourne vous n'avez aucun message
 	public static function liste($id) {
-		$liste = '';
-		$resultat = Bdd::connectBdd()->prepare(SELECT.ALL.MESSAGE.MESSAGELISTE);
-		$resultat -> bindParam(':id', $id, PDO::PARAM_INT, 11);
-		$resultat -> execute();
-		while($donnee = $resultat -> fetch(PDO::FETCH_ASSOC)) {
-			if($donnee['lu'] === '1') {
-				$image = '<img src="'.URLSITE.'/design/image/Lu.png" width="24" height="24" align="absmiddle">';
-			}
-			else {
-				$image = '<img src="'.URLSITE.'/design/image/Non_Lu.png" width="24" height="24" align="absmiddle">';
-			}
-			$liste .= '<tr>
-			<td>'.$image.'</td>
-			<td align="center">Le '.date('d/m/Y', $donnee['timestamp']).' &agrave; '.date('H:i:s', $donnee['timestamp']).'</td>
-			<td align="center"><a href="profil_membre.php?id='.$donnee['id_expediteur'].'">'.Membre::info($donnee['id_expediteur'], 'pseudo').'</a></td>
-			<td align="center"><a href="message.php?id='.$donnee['id'].'">'.$donnee['titre'].'</a></td>
-			</tr>';
-		}
-		if(!empty($liste)) {
-			return $liste;
-		}
-		else {
-			return '<tr><td align="center" colspan="4">Vous n\'avez aucun message</td></tr>';
-		}
+		
 	}
 	// Affiche le message recut
 	public static function info($id, $info) {
