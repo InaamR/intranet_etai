@@ -1,5 +1,5 @@
 <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
-
+    
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto">
@@ -43,13 +43,29 @@
                     <span class="menu-title text-truncate" data-i18n="Com. Générale" id="communication">Comm. Générale</span>
                 </a>
                 <ul class="menu-content">
-                    <li>
+                        <?php
+                        
+                        if($file == 'liste_comm.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
                         <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/communication/liste_comm.php">
                             <i data-feather="circle"></i>
                             <span class="menu-item text-truncate" data-i18n="Gestion des Communications">Gestion Comm.</span>
                         </a>
                     </li> 
-                    <li>
+                        <?php
+                        
+                        if($file == 'liste_comm_archive.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
                         <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/communication/liste_comm_archive.php">
                             <i data-feather="circle"></i>
                             <span class="menu-item text-truncate" data-i18n="Archive">Archive</span>
