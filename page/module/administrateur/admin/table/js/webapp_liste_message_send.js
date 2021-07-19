@@ -145,7 +145,7 @@
 			}
 		  },
 		  {
-			text: feather.icons['plus'].toSvg({ class: 'mr-50 font-small-4' }) + 'Envoyer un message à tous le monde',
+			text: feather.icons['plus'].toSvg({ class: 'mr-50 font-small-4' }) + 'Nouveau message général',
 			className: 'create-new btn btn-success ml-1',
 			attr: {
 			  'data-toggle': 'modal',

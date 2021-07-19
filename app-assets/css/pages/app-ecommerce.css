@@ -179,7 +179,8 @@
 .ecommerce-application .grid-view .ecommerce-card .shipping,
 .ecommerce-application .grid-view .ecommerce-card .item-company,
 .ecommerce-application .grid-view .ecommerce-card .item-options .item-price {
-  display: none; }
+  display: inline-flex;
+}
 
 .ecommerce-application .grid-view .ecommerce-card .item-options {
   display: flex;
@@ -212,7 +213,7 @@
 .ecommerce-application .list-view .ecommerce-card {
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr; }
+  grid-template-columns: 1fr 2fr; }
 
 .ecommerce-application .list-view .ecommerce-card .item-img {
   display: flex;
