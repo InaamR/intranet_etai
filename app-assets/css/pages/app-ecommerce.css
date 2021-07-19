@@ -15,7 +15,7 @@
 
 .ecommerce-application .sidebar-shop .filter-title {
   margin-bottom: 1rem;
-  margin-top: 2.5rem; }
+  }
 
 .ecommerce-application .sidebar-shop .price-range li:not(:last-child),
 .ecommerce-application .sidebar-shop .categories-list li:not(:last-child) {
@@ -152,7 +152,7 @@
 
 .ecommerce-application .grid-view:not(.wishlist-items),
 .ecommerce-application .list-view:not(.wishlist-items) {
-  margin-top: 2rem; }
+  margin-top: 0.9rem; }
 
 .ecommerce-application .grid-view {
   display: grid;
