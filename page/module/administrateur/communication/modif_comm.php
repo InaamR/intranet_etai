@@ -617,7 +617,7 @@ $PDO_query_comm_unique->closeCursor();
 
     <script src="ckeditor/js/sf.js"></script>
     <script src="ckeditor/js/tree-a.js"></script>
-    <script src="https://cdn.ckeditor.com/4.12.1/standard-all/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.12.1/full-all/ckeditor.js"></script>
     <script src="ckfinder/ckfinder.js"></script>
 
 <script>

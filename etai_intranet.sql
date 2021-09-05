@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 13 juil. 2021 à 16:54
+-- Généré le : mar. 17 août 2021 à 14:14
 -- Version du serveur : 10.4.19-MariaDB
 -- Version de PHP : 7.4.20
 
@@ -1099,7 +1099,21 @@ CREATE TABLE `etai_intranet_comm` (
 --
 
 INSERT INTO `etai_intranet_comm` (`etai_intranet_comm_id`, `etai_intranet_comm_user`, `etai_intranet_comm_email_user`, `etai_intranet_comm_date`, `etai_intranet_comm_cat`, `etai_intranet_comm_titre`, `etai_intranet_comm_sous_titre`, `etai_intranet_comm_desc`, `etai_intranet_comm_img`, `etai_intranet_comm_statut`) VALUES
-(1, 'RACHDI MED', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-07-13', 2, 'Communication interne : Lancement d\'une plateforme de formation IPD', 'Plateforme de formation en ligne ipd', '<p>Cher manager,</p>\r\n\r\n<p>Nous avons le plaisir de lancer dans les prochains jours une plateforme de formation en ligne pour les collaborateurs du groupe Infopro Digital.</p>\r\n\r\n<p>En tant que relai et r&eacute;f&eacute;rent aupr&egrave;s de vos &eacute;quipes, nous vous proposons de d&eacute;couvrir, en avant-premi&egrave;re, la plateforme en participant &agrave; un atelier (20 min environ), o&ugrave; nous exposerons les objectifs et r&eacute;pondrons &agrave; vos questions. Cette pr&eacute;sentation, en amont du lancement, sera &eacute;galement l&rsquo;occasion de vous conseiller pour motiver et engager les membres de votre &eacute;quipe &agrave; se former et proposer &agrave; nos experts de cr&eacute;er du contenu sur la plateforme.</p>\r\n\r\n<p>Les ateliers se d&eacute;rouleront en visio via teams sur les cr&eacute;neaux suivants :</p>\r\n\r\n<ul>\r\n	<li><a href=\"https://redirection.interne.infopro-digital.com/lnk/AUwAADSJQrEAAciSuY4AAI4mg_8AAABZQ_QAm9TeAAwsRwBg7YSGUV9G-AfNSBKcykiW_ma3KgAMCy8/1/XBVLI5r4Gk-0ku_aSbXMXg/aHR0cHM6Ly9pbmZvcHJvZGlnaXRhbDM2NS1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qdWxpYV90b3VybmV0X2luZm9wcm8tZGlnaXRhbF9jb20vRVdKTDZIUEtkaDlLaUhUNS1WaTBxQllCT1BUUDZsYzVFM29PRTVtbkRqY0tydz9lPUUwakpwNg\" target=\"_blank\">Jeudi 15 Juillet &agrave; 12h00</a></li>\r\n	<li><a href=\"https://redirection.interne.infopro-digital.com/lnk/AUwAADSJQrEAAciSuY4AAI4mg_8AAABZQ_QAm9TeAAwsRwBg7YSGUV9G-AfNSBKcykiW_ma3KgAMCy8/2/3suxx_Md6051D8XA_kF2ZQ/aHR0cHM6Ly9pbmZvcHJvZGlnaXRhbDM2NS1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qdWxpYV90b3VybmV0X2luZm9wcm8tZGlnaXRhbF9jb20vRWRsbHctWmxWUXhLb3M0b2RHNmFlMDRCekZkU3lNbENoTi0xaFdkNFdOdkRsUT9lPThQQ29FVg\" target=\"_blank\">Jeudi 15 Juillet &agrave; 17h30</a></li>\r\n	<li><a href=\"https://redirection.interne.infopro-digital.com/lnk/AUwAADSJQrEAAciSuY4AAI4mg_8AAABZQ_QAm9TeAAwsRwBg7YSGUV9G-AfNSBKcykiW_ma3KgAMCy8/3/0u-gxUg2R9w2pA9Nbv-9lw/aHR0cHM6Ly9pbmZvcHJvZGlnaXRhbDM2NS1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qdWxpYV90b3VybmV0X2luZm9wcm8tZGlnaXRhbF9jb20vRWFvS2Y2ZllUNWxJZ19yLXZteU9LTkVCMWhtdVZHbXR0SHNnbEh3Z0tPbDA3Zz9lPWZsZ29ySQ\" target=\"_blank\">Vendredi 16 Juillet &agrave; 9h00</a></li>\r\n	<li><a href=\"https://redirection.interne.infopro-digital.com/lnk/AUwAADSJQrEAAciSuY4AAI4mg_8AAABZQ_QAm9TeAAwsRwBg7YSGUV9G-AfNSBKcykiW_ma3KgAMCy8/4/MrAvsaRjlQCSsMDxE0vVDA/aHR0cHM6Ly9pbmZvcHJvZGlnaXRhbDM2NS1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qdWxpYV90b3VybmV0X2luZm9wcm8tZGlnaXRhbF9jb20vRWMyT3BBZjI4R1JMbXViV2ZuRGZjb01Cd0llVmhQNVVEeGF0cjFRZG9ZVmtidz9lPXc1NTI4bA\" target=\"_blank\">Vendredi 16 Juillet &agrave; 13h30</a></li>\r\n</ul>\r\n\r\n<p>Cliquez sur le cr&eacute;neau qui vous int&eacute;resse pour le t&eacute;l&eacute;charger et l&#39;ajouter &agrave; votre agenda.</p>\r\n\r\n<p><a href=\"/ckfinder/userfiles/files/RH/livret_ipd.pdf\" target=\"_blank\">Livret d&#39;acceuil</a></p>\r\n\r\n<hr />\r\n<p><img alt=\"\" height=\"56\" src=\"/ckfinder/userfiles/images/RH/Image1.png\" style=\"float:left\" width=\"120\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Cordialement,</p>\r\n\r\n<p>La Direction des Ressources Humaines</p>\r\n', '/ckfinder/userfiles/images/RH/rh.png', 1);
+(3, 'RACHDI MED', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-07-28', 1, 'Communication interne : Lancement d\'une plateforme de formation', 'Plateforme de formation en ligne', '<p>TEST</p>\r\n', '/ckfinder/userfiles/images/RH/rh.png', 3),
+(4, 'RACHDI MED', 'Mohamed.INAAMRACHDI@infopro-digital.com', '2021-07-28', 1, 'Communication interne : Lancement d\'une plateforme de formation', 'Communication Générale', '<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">Bonjour &agrave; toutes et &agrave; tous,</span></span></p>\r\n\r\n<p><strong><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">Je tiens &agrave; souhaiter A&iuml;d Mabrouk &agrave; chacun et chacune d&rsquo;entre vous &agrave; travers ce mail&nbsp;et que vous puissiez profiter de ce moment le mieux possible vu les circonstances. Effectivement, encore cette ann&eacute;e, cette f&ecirc;te familiale ne sera pas un A&iuml;d comme les autres.</span></span></strong></p>\r\n\r\n<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">Mon plus grand souhait est que la sortie de crise sanitaire arrive le plus vite possible pour que la s&eacute;r&eacute;nit&eacute; puisse &ecirc;tre retrouv&eacute;e.</span></span></p>\r\n\r\n<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">Toutes les mesures en vigueur dans l&rsquo;entreprise&nbsp;: port du masque obligatoire en permanence, respect absolu des gestes barri&egrave;res, planning de l&rsquo;occupation du r&eacute;fectoire, t&eacute;l&eacute;travail, distanciation et &eacute;loignement des postes de travail pour ceux qui sont sur site vont rester en vigueur jusqu&rsquo;au vendredi 13 ao&ucirc;t inclus. Les d&eacute;cisions concernant la p&eacute;riode apr&egrave;s cette date d&eacute;pendront de l&rsquo;&eacute;volution de la situation sanitaire et vous seront communiqu&eacute;es &agrave; travers vos managers. </span></span></p>\r\n\r\n<p><u><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\">Continuez &agrave; prendre soin de vous et de vos proches&nbsp;!</span></span></u></p>\r\n\r\n<p><a href=\"/ckfinder/userfiles/files/DG/livret_ipd.pdf\">T&eacute;l&eacute;charger notre livret</a></p>\r\n\r\n<p><span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><strong><span style=\"font-size:10.0pt\"><span style=\"color:#44546a\">St&eacute;phanie ROGER</span></span></strong></span></span><br />\r\n<span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:10.0pt\"><span style=\"color:#44546a\">Directrice G&eacute;n&eacute;rale</span></span></span></span><br />\r\n<span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:10.0pt\"><span style=\"color:#44546a\">ETAI Tunisie &amp; Com Online</span></span></span></span><br />\r\n<span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:10.0pt\"><span style=\"color:#44546a\">01 75 60 55 63</span></span></span></span><br />\r\n<span style=\"font-size:11pt\"><span style=\"font-family:Calibri,sans-serif\"><span style=\"font-size:10.0pt\"><span style=\"color:#44546a\">GSM&nbsp;: (+216) 53&nbsp;222 555</span></span></span></span></p>\r\n\r\n<p><img alt=\"\" height=\"70\" src=\"/ckfinder/userfiles/images/RH/Image1.png\" style=\"float:left\" width=\"150\" /></p>\r\n', '/ckfinder/userfiles/images/RH/rh.png', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etai_intranet_comm_lecteurs`
+--
+
+CREATE TABLE `etai_intranet_comm_lecteurs` (
+  `etai_intranet_comm_lecteurs_id` int(11) NOT NULL,
+  `etai_intranet_comm_lecteurs_user` int(11) NOT NULL DEFAULT 0,
+  `etai_intranet_comm_id` int(11) NOT NULL DEFAULT 0,
+  `etai_intranet_comm_lecteurs_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1134,7 +1148,7 @@ CREATE TABLE `etai_intranet_membres` (
 
 INSERT INTO `etai_intranet_membres` (`id`, `pseudo`, `password`, `email`, `tel`, `adresse`, `cp`, `ville`, `genre`, `naissance`, `nom`, `prenom`, `description`, `id_avatar`, `mailing`, `activation`, `niveau`, `design`) VALUES
 (2, 'minaamrachdi', '$2y$10$QVYLU4Hjt8zBvW14cafC6OTJ6vyaWiHOxkmYWAh.tSil5qDYEAbh6', 'Mohamed.INAAMRACHDI@infopro-digital.com', '55 314 153', 'ANTONY PARC 2 10 PLACE DU GENERAL DE GAULLE', '92160', 'ANTONY', 1, '29 April, ', 'RACHDI', 'MED', '', 1, 0, 1, 3, 1),
-(5, 'Zied-jlassi', '$2y$10$QR/GrdXbp/GsyG/MHr0y2.6hvLznBZzo2Bwkz2mCFly/6n5f/1mR6\n', 'zied.jlassi@infopro-digital.com', '00.00.00.00.00', 'adresse', '00000', 'ville', 1, '12/11/1981', 'Jlassi', 'Mohamed Zied', '', 1, 1, 1, 3, 1);
+(5, 'Zied-jlassi', '$2y$10$QVYLU4Hjt8zBvW14cafC6OTJ6vyaWiHOxkmYWAh.tSil5qDYEAbh6', 'zied.jlassi@infopro-digital.com', '00.00.00.00.00', 'adresse', '00000', 'ville', 1, '12/11/1981', 'Jlassi', 'Mohamed Zied', '', 1, 1, 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -1158,35 +1172,10 @@ CREATE TABLE `etai_intranet_messagerie` (
 --
 
 INSERT INTO `etai_intranet_messagerie` (`id`, `id_expediteur`, `id_destinataire`, `titre`, `timestamp`, `message`, `lu`, `effacer`) VALUES
-(21, 2, 22, 'Bienvenue et Profil', '1614004980', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(22, 2, 23, 'Bienvenue et Profil', '1614005809', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(23, 2, 24, 'Bienvenue et Profil', '1614005842', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(3, 2, 3, 'Bienvenue et Profil', '1612881887', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(4, 2, 5, 'Bienvenue et Profil', '1614001921', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 1, 0),
-(5, 2, 6, 'Bienvenue et Profil', '1614002192', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(6, 2, 7, 'Bienvenue et Profil', '1614002209', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(7, 2, 8, 'Bienvenue et Profil', '1614002300', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(8, 2, 9, 'Bienvenue et Profil', '1614002315', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(9, 2, 10, 'Bienvenue et Profil', '1614002501', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(10, 2, 11, 'Bienvenue et Profil', '1614002592', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(11, 2, 12, 'Bienvenue et Profil', '1614002597', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(12, 2, 13, 'Bienvenue et Profil', '1614002606', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(13, 2, 14, 'Bienvenue et Profil', '1614002635', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(14, 2, 15, 'Bienvenue et Profil', '1614002639', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(15, 2, 16, 'Bienvenue et Profil', '1614002654', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(16, 2, 17, 'Bienvenue et Profil', '1614002877', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(17, 2, 18, 'Bienvenue et Profil', '1614002939', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(18, 2, 19, 'Bienvenue et Profil', '1614002978', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(19, 2, 20, 'Bienvenue et Profil', '1614003678', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(20, 2, 21, 'Bienvenue et Profil', '1614003864', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(24, 2, 25, 'Bienvenue et Profil', '1614005845', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(25, 2, 26, 'Bienvenue et Profil', '1614006097', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(26, 2, 27, 'Bienvenue et Profil', '1614062456', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(27, 2, 28, 'Bienvenue et Profil', '1614347179', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 1, 0),
-(28, 2, 29, 'Bienvenue et Profil', '1614349140', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0),
-(29, 2, 28, 'Objet test', '1614349532', 'TEST-test', 1, 0),
-(30, 28, 2, 'test reponse', '1614349627', 'test message reponse', 1, 0),
-(31, 2, 30, 'Bienvenue et Profil', '1619733758', 'Bienvenue dans votre espace membre<br />Pensez &agrave; mettre a jour votre profil', 0, 0);
+(1, 2, 5, 'Communication Générale', '1626695100', '<p>Bonjour &agrave; toutes et &agrave; tous,</p>\r\n\r\n<p>Je tiens &agrave; souhaiter A&iuml;d Mabrouk &agrave; chacun et chacune d&rsquo;entre vous &agrave; travers ce mail&nbsp;et que vous puissiez profiter de ce moment le mieux possible vu les circonstances. Effectivement, encore cette ann&eacute;e, cette f&ecirc;te familiale ne sera pas un A&iuml;d comme les autres.</p>\r\n\r\n<p>Mon plus grand souhait est que la sortie de crise sanitaire arrive le plus vite possible pour que la s&eacute;r&eacute;nit&eacute; puisse &ecirc;tre retrouv&eacute;e.</p>\r\n\r\n<p>Toutes les mesures en vigueur dans l&rsquo;entreprise&nbsp;: port du masque obligatoire en permanence, respect absolu des gestes barri&egrave;res, planning de l&rsquo;occupation du r&eacute;fectoire, t&eacute;l&eacute;travail, distanciation et &eacute;loignement des postes de travail pour ceux qui sont sur site vont rester en vigueur jusqu&rsquo;au vendredi 13 ao&ucirc;t inclus. Les d&eacute;cisions concernant la p&eacute;riode apr&egrave;s cette date d&eacute;pendront de l&rsquo;&eacute;volution de la situation sanitaire et vous seront communiqu&eacute;es &agrave; travers vos managers.</p>\r\n\r\n<p>Continuez &agrave; prendre soin de vous et de vos proches&nbsp;!</p>\r\n\r\n<hr />\r\n<p><strong>St&eacute;phanie ROGER</strong></p>\r\n\r\n<p>Directrice G&eacute;n&eacute;rale</p>\r\n\r\n<p>ETAI Tunisie &amp; Com Online</p>\r\n\r\n<p>01 75 60 55 63</p>\r\n\r\n<p>GSM&nbsp;: (+216) 53&nbsp;222 555</p>\r\n\r\n<p><img alt=\"\" height=\"41\" src=\"/ckfinder/userfiles/files/image-20210719134428-1.jpeg\" width=\"132\" /></p>\r\n', 1, 0),
+(2, 5, 2, 'Communication interne : Lancement d\'une plateforme de formation', '1626695337', '<p>Bonjour</p>\r\n\r\n<p>J&rsquo;ai mis &agrave; jour mon identifiant de connexion. Je voulais modifier dans mon compte le nom de la structure (OPUS 67 n&rsquo;existe plus et a &eacute;t&eacute; absorb&eacute;e par ALSACE HABITAT), mais je n&rsquo;y ai pas acc&egrave;s.</p>\r\n\r\n<p>Pourriez-vous effectuer cette manipulation de votre c&ocirc;t&eacute; svp&nbsp;?</p>\r\n\r\n<p>Merci d&rsquo;avance</p>\r\n\r\n<p>Cordialement,</p>\r\n\r\n<p>Merci</p>\r\n\r\n<p><img alt=\"\" height=\"70\" src=\"/ckfinder/userfiles/images/RH/Image1.png\" style=\"float:left\" width=\"150\" /></p>\r\n', 1, 1),
+(3, 2, 5, 'RGPD', '1626696020', 'Cher Client,<br />\r\n<br />\r\nDans quelques semaines, le mode de connexion au site Marches Online va &eacute;voluer. Votre adresse e-mail deviendra votre identifiant de connexion !<br />\r\n<br />\r\nMettez &agrave; jour votre compte d&egrave;s maintenant en suivant les &eacute;tapes suivantes :<br />\r\n1. Je me connecte &agrave; mon compte (identifiant et mot de passe habituel)<br />\r\n2. Je confirme ou modifie mon adresse email afin de la mettre &agrave; jour<br />\r\n3. Je m&eacute;morise ces &eacute;l&eacute;ments : identifiant actuel, adresse email &agrave; jour et enfin le mot de passe qui reste inchang&eacute;.<br />\r\n<br />\r\nUne fois l&rsquo;&eacute;volution du site MarchesOnline.com effective, vous serez alors inform&eacute; et vous pourrez ensuite utiliser votre adresse email comme identifiant pour vous connecter.<br />\r\n<br />\r\nJe me connecte pour mettre &agrave; jour mon compte !<br />\r\n<br />\r\nCordialement,<br />\r\n', 1, 0),
+(4, 2, 5, 'Communication interne : Lancement d\'une plateforme de formation', '1627463934', '<p>Bonjour &agrave; toutes et &agrave; tous,</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Je tiens &agrave; souhaiter A&iuml;d Mabrouk &agrave; chacun et chacune d&rsquo;entre vous &agrave; travers ce mail&nbsp;et que vous puissiez profiter de ce moment le mieux possible vu les circonstances. Effectivement, encore cette ann&eacute;e, cette f&ecirc;te familiale ne sera pas un A&iuml;d comme les autres.</p>\r\n\r\n<p>Mon plus grand souhait est que la sortie de crise sanitaire arrive le plus vite possible pour que la s&eacute;r&eacute;nit&eacute; puisse &ecirc;tre retrouv&eacute;e.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Toutes les mesures en vigueur dans l&rsquo;entreprise&nbsp;: port du masque obligatoire en permanence, respect absolu des gestes barri&egrave;res, planning de l&rsquo;occupation du r&eacute;fectoire, t&eacute;l&eacute;travail, distanciation et &eacute;loignement des postes de travail pour ceux qui sont sur site vont rester en vigueur jusqu&rsquo;au vendredi 13 ao&ucirc;t inclus. Les d&eacute;cisions concernant la p&eacute;riode apr&egrave;s cette date d&eacute;pendront de l&rsquo;&eacute;volution de la situation sanitaire et vous seront communiqu&eacute;es &agrave; travers vos managers.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Continuez &agrave; prendre soin de vous et de vos proches&nbsp;!</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>St&eacute;phanie ROGER</strong></p>\r\n\r\n<p>Directrice G&eacute;n&eacute;rale</p>\r\n\r\n<p>ETAI Tunisie &amp; Com Online</p>\r\n\r\n<p>01 75 60 55 63</p>\r\n\r\n<p>GSM&nbsp;: (+216) 53&nbsp;222 555</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" height=\"101\" src=\"/ckfinder/userfiles/images/RH/Image1.png\" style=\"float:left\" width=\"216\" /></p>\r\n', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1227,7 +1216,8 @@ CREATE TABLE `etai_intranet_secure` (
 --
 
 INSERT INTO `etai_intranet_secure` (`id`, `id_membre`, `jeton`, `ip_connexion`, `date`) VALUES
-(15, 2, 'q?ZK\n?^?:\"iz??/g', '::1', '1626187751');
+(15, 2, 'q?ZK\n?^?:\"iz??/g', '::1', '1627546959'),
+(16, 5, '$2y$10$wh76HsKdEKAKyJWyF3.FGumGdK0tiSrC9XhLTzCyIiL1So3QLs6My', '::1', '1627463966');
 
 -- --------------------------------------------------------
 
@@ -1339,6 +1329,12 @@ ALTER TABLE `etai_intranet_comm`
   ADD PRIMARY KEY (`etai_intranet_comm_id`);
 
 --
+-- Index pour la table `etai_intranet_comm_lecteurs`
+--
+ALTER TABLE `etai_intranet_comm_lecteurs`
+  ADD PRIMARY KEY (`etai_intranet_comm_lecteurs_id`);
+
+--
 -- Index pour la table `etai_intranet_membres`
 --
 ALTER TABLE `etai_intranet_membres`
@@ -1400,7 +1396,13 @@ ALTER TABLE `etai_intranet_avatar`
 -- AUTO_INCREMENT pour la table `etai_intranet_comm`
 --
 ALTER TABLE `etai_intranet_comm`
-  MODIFY `etai_intranet_comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `etai_intranet_comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `etai_intranet_comm_lecteurs`
+--
+ALTER TABLE `etai_intranet_comm_lecteurs`
+  MODIFY `etai_intranet_comm_lecteurs_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `etai_intranet_membres`
@@ -1412,7 +1414,7 @@ ALTER TABLE `etai_intranet_membres`
 -- AUTO_INCREMENT pour la table `etai_intranet_messagerie`
 --
 ALTER TABLE `etai_intranet_messagerie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `etai_intranet_niveau`
@@ -1424,7 +1426,7 @@ ALTER TABLE `etai_intranet_niveau`
 -- AUTO_INCREMENT pour la table `etai_intranet_secure`
 --
 ALTER TABLE `etai_intranet_secure`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `etai_intranet_smiley`
