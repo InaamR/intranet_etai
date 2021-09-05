@@ -182,14 +182,12 @@ $PDO_query_comm_unique->closeCursor();
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Shop</h2>
+                            <h2 class="content-header-title float-left mb-0">Liens Utiles</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">eCommerce</a>
-                                    </li>
-                                    <li class="breadcrumb-item active">Shop
+                                    <li class="breadcrumb-item active"><a href="#">Liens Utiles</a>
                                     </li>
                                 </ol>
                             </div>
@@ -209,7 +207,7 @@ $PDO_query_comm_unique->closeCursor();
                                         <button class="navbar-toggler shop-sidebar-toggler" type="button" data-toggle="collapse">
                                             <span class="navbar-toggler-icon d-block d-lg-none"><i data-feather="menu"></i></span>
                                         </button>
-                                        <div class="search-results">16285 results found</div>
+                                        <div class="search-results">16 results found</div>
                                     </div>
                                     <div class="view-options d-flex">
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -238,7 +236,7 @@ $PDO_query_comm_unique->closeCursor();
                         <div class="card ecommerce-card">
                             <div class="item-img text-center">
                                 <a href="app-ecommerce-details.html">
-                                    <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/1.png" alt="img-placeholder" /></a>
+                                    <img class="img-fluid card-img-top" src="../../../app-assets/images/slider/logo_18.jpg" alt="img-placeholder" /></a>
                             </div>
                             <div class="card-body">
                                 <div class="item-wrapper">
@@ -254,7 +252,7 @@ $PDO_query_comm_unique->closeCursor();
 
                                 </div>
                                 <h6 class="item-name">
-                                    <a class="text-body" href="app-ecommerce-details.html">Apple Watch Series 5</a>
+                                    <a class="text-body" href="app-ecommerce-details.html">CHAHIA</a>
                                     <span class="card-text item-company badge badge-glow badge-danger mt-50">Café / Resto</span>
                                 </h6>
                                 <p class="card-text item-description">
@@ -311,63 +309,40 @@ $PDO_query_comm_unique->closeCursor();
                                         <li>
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" id="category1" name="category-filter" class="custom-control-input" checked />
-                                                <label class="custom-control-label" for="category1">Appliances</label>
+                                                <label class="custom-control-label" for="category1">Resto / Café</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" id="category2" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category2">Audio</label>
+                                                <label class="custom-control-label" for="category2">Item 2</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" id="category3" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category3">Cameras & Camcorders</label>
+                                                <label class="custom-control-label" for="category3">Item 3</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" id="category4" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category4">Car Electronics & GPS</label>
+                                                <label class="custom-control-label" for="category4">Item 4</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" id="category5" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category5">Cell Phones</label>
+                                                <label class="custom-control-label" for="category5">Item 5</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" id="category6" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category6">Computers & Tablets</label>
+                                                <label class="custom-control-label" for="category6">Item 6</label>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="category7" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category7">Health, Fitness & Beauty</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="category8" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category8">Office & School Supplies</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="category9" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category9">TV & Home Theater</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="category10" name="category-filter" class="custom-control-input" />
-                                                <label class="custom-control-label" for="category10">Video Games</label>
-                                            </div>
-                                        </li>
+
                                     </ul>
                                 </div>
                                 <!-- Categories Ends -->

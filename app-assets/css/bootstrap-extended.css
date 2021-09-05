@@ -390,7 +390,7 @@ select.form-control.form-control-sm {
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before,
 .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
-  box-shadow: 0 2px 4px 0 rgba(115, 103, 240, 0.4) !important; }
+  box-shadow: 0 2px 4px 0 rgba(99, 99, 99, 0.4) !important; }
 
 .custom-checkbox .custom-control-input:disabled ~ .custom-control-label::before,
 .custom-radio .custom-control-input:disabled ~ .custom-control-label::before {
@@ -400,11 +400,11 @@ select.form-control.form-control-sm {
 .custom-checkbox .custom-control-input:focus ~ .custom-control-label::before,
 .custom-radio .custom-control-input:focus ~ .custom-control-label::before {
   border-color: none;
-  box-shadow: 0 2px 4px 0 rgba(115, 103, 240, 0.4) !important; }
+  box-shadow: 0 2px 4px 0 rgba(99, 99, 99, 0.4) !important; }
 
 .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
-  background-color: #7367f0;
-  border-color: #7367f0; }
+  background-color: #636363;
+  border-color: #636363; }
 
 /* Floating label Group */
 .form-label-group {
