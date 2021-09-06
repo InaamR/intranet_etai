@@ -780,6 +780,8 @@
             $listItem.addClass('open').removeClass('menu-collapsed-open');
             // $.app.menu.changeLogo('expand');
           }
+          $("#brand-logo").css("display", "none");
+          $("#brand-logo-big").css("display", "block");
         }
       }
 
@@ -800,6 +802,8 @@
                 $listItem.removeClass('open');
                 // $.app.menu.changeLogo();
               }
+              $("#brand-logo").css("display", "none");
+              $("#brand-logo-big").css("display", "block");
             }
           }, 1);
         }

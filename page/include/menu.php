@@ -4,10 +4,10 @@
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto">
                 <a class="navbar-brand" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/index.php">
-                    <span class="brand-logo">
+                    <span class="brand-logo" id="brand-logo">
                         <img src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/logo/favicon-48x48.png" alt="petit-logo" class="">
                     </span>
-                    <span class="brand-logo-big">
+                    <span class="brand-logo-big" id="brand-logo-big">
                         <img src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/logo/Infopro-logo-216x94.png" alt="">
                     </span>
                 </a>
