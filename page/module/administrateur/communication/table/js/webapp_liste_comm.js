@@ -208,7 +208,6 @@ $(function () {
     $('div.head-label').html('<h6 class="mb-0">Liste des communications générales ETAI / COL</h6>');
   
   }
-  // Flat Date picker
   if (dt_date_table.length) {
     dt_date_table.flatpickr({
       monthSelectorType: 'static',
@@ -216,8 +215,6 @@ $(function () {
     });
   }
 
-  // Add New record
-  // ? Remove/Update this code as per your requirements ?
   var count = 101;
   $('.data-submit').on('click', function () {
     var $new_name = $('.add-new-record .dt-full-name').val(),
@@ -260,8 +257,8 @@ $(function () {
 		}).then(function (result) {
 		  if (result.value) {
 							e.preventDefault();
-							var id      = $("#delete-record").data('id');
-							var name      = $("#delete-record").data('name');
+							var id      = $(this).data('id');
+							var name      = $(this).data('name');
 							var request = $.ajax({
 							url:          'table/php/data_liste_comm.php?job=del_com&id=' + id,
 							cache:        false,
@@ -275,7 +272,7 @@ $(function () {
 									  Swal.fire({
 										  type: "success",
 										  title: 'Supprimée!',
-										  text: "Niveau '" + name + "' effacé avec succès.",
+										  text: "Article :'" + name + "' effacé avec succès.",
 										  confirmButtonClass: 'btn btn-success',
 										});
                     dt_basic.ajax.reload();
