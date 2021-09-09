@@ -83,7 +83,7 @@ $(function () {
             var colorClass = $user_img === '' ? ' bg-light-' + $state + ' ' : '';
             // Creates full output for row
             var $row_output =
-              '<div class="d-flex justify-content-center align-items-center">' +'<div class="avatar ' +
+              '<div class="d-flex justify-content-left align-items-center">' +'<div class="avatar ' +
               colorClass +
               ' mr-1">' +
               $output +
@@ -243,6 +243,8 @@ $(function () {
 
   // Delete Record
   $(document).on('click', '#delete-record', function (e) {
+    var id      = $(this).data('id');
+	  var name      = $(this).data('name');
     Swal.fire({
 		  title: 'Êtes-vous sûr ?',
 		  text: "Vous ne pourrez pas annuler cela !",
@@ -256,9 +258,7 @@ $(function () {
 		  buttonsStyling: false,
 		}).then(function (result) {
 		  if (result.value) {
-							e.preventDefault();
-							var id      = $(this).data('id');
-							var name      = $(this).data('name');
+							e.preventDefault();							
 							var request = $.ajax({
 							url:          'table/php/data_liste_comm.php?job=del_com&id=' + id,
 							cache:        false,

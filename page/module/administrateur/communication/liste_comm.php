@@ -210,7 +210,7 @@ if(empty($_SESSION['id'])){
                                                     <th>Catégorie</th>
                                                     <th>Titre de l'article</th>                                                    
                                                     <th>Date d'insertion</th>
-                                                    <th>Statut</th>
+                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
