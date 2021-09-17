@@ -4,12 +4,12 @@
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto">
                 <a class="navbar-brand" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/index.php">
-                    <span class="brand-logo" id="brand-logo">
+                    <span class="brand-logo" id="brand-logo-">
                         <img src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/logo/favicon-48x48.png" alt="petit-logo" class="">
                     </span>
-                    <span class="brand-logo-big" id="brand-logo-big">
+                    <!-- <span class="brand-logo-big" id="brand-logo-big">
                         <img src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/logo/Infopro-logo-216x94.png" alt="">
-                    </span>
+                    </span> -->
                 </a>
             </li>
 
@@ -71,6 +71,20 @@
                             <span class="menu-item text-truncate" data-i18n="Archive">Archive</span>
                         </a>
                     </li>
+                    <?php
+                        
+                        if($file == 'liste_comm_cat.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/communication/liste_comm_cat.php">
+                            <i data-feather="circle"></i>
+                            <span class="menu-item text-truncate" data-i18n="Gestion des catégories de communication">Gestion Cat.</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
 
@@ -81,7 +95,19 @@
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="fas fa-shield-virus" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Pages">Hygiène & Santé </span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">COVID-19</span></a>
+                    <?php
+                        
+                        if($file == 'liste_comm_hygiene.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/hygiene/liste_comm_hygiene.php">
+                                <i data-feather="circle"></i>
+                                <span class="menu-item text-truncate" data-i18n="">COVID-19</span>
+                        </a>
                     </li>
                     <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Vie interne</span></a>
                     </li>

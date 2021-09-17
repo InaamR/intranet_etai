@@ -172,7 +172,7 @@ if(empty($_SESSION['id'])){
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
+                            <h2 class="content-header-title float-left mb-0">DIRECTION</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">Communications générales</li>
@@ -183,7 +183,7 @@ if(empty($_SESSION['id'])){
                 </div>
                 <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
                     <div class="form-group breadcrumb-right">
-                        <a class="btn-icon btn btn-primary btn-round btn-sm waves-effect waves-float waves-light" href="modif_comm.php">Ajouter une com</a>
+                        <a class="btn-icon btn btn-primary btn-round btn-sm waves-effect waves-float waves-light" href="modif_comm.php">Ajouter une communication</a>
                     </div>
                 </div>
             </div>

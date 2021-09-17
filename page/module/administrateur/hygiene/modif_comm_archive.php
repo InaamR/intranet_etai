@@ -86,7 +86,7 @@ $PDO_query_comm_unique->closeCursor();
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    
     <!-- END: Custom CSS-->
 </head>
 <!-- END: Head-->
@@ -174,25 +174,23 @@ $PDO_query_comm_unique->closeCursor();
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
             <div class="content-header row">
-                <div class="content-header-left col-md-8 col-8 mb-2">
+                <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
                             <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
                             <div class="breadcrumb-wrapper">
-                                <ol class="breadcrumb d-md-flex d-none">
-                                    <li class="breadcrumb-item">
-                                        <a href="liste_comm.php">Communications Générales</a>
-                                    </li>
-                                    <li class="breadcrumb-item active">Gestion des comm</li>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="liste_comm.php">Communications Générales</a></li>
+                                    <li class="breadcrumb-item active">Gestion des communications générales</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-right col-md-4 col-4">
-                    <div class="form-group breadcrumb-right float-right d-flex">
-                        <a style="font-size: 0.9rem !important;" class="btn-sm btn-gradient-success waves-effect waves-float waves-light text-nowrap w-50 mr-25" href="liste_comm.php"><i class="bi bi-reply" style="font-size: 1rem !important;"></i> Retour</a>
-                        <a style="font-size: 0.9rem !important;" class="btn-sm btn-gradient-secondary waves-effect waves-float waves-light text-nowrap w-50 mr-25" href="prev_comm.php?id=<?php echo $_GET["id"]?>" target="_blank"><i class="bi bi-arrows-fullscreen" style="font-size: 1rem !important;"></i> Preview</a>
+                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+                    <div class="form-group breadcrumb-right">                   
+                        <a class="btn-icon btn btn-success btn-round btn-sm waves-effect waves-float waves-light" href="liste_comm_archive.php">Revenir à la liste</a>
+                        <a class="btn-icon btn btn-dark btn-round btn-sm waves-effect waves-float waves-light" href="prev_comm.php?id=<?php echo $_GET["id"]?>" target="_blank">Prewiew</a>
                     </div>
                 </div>
             </div>
@@ -214,7 +212,7 @@ $PDO_query_comm_unique->closeCursor();
                                             <p class="card-text"><?php echo $date = date("d-m-Y");?></p>
                                         </div>
                                     </div>
-                                    
+
                                     <!-- Form -->
                                     <form method="post" id="jquery-val-form" class="<?php if(!empty($id_comm)){echo 'edit';}else{echo 'add';} ?>" data-id="<?php echo $id_comm; ?>">
                                                             
@@ -276,12 +274,12 @@ $PDO_query_comm_unique->closeCursor();
                                                                             <option value="5">CCE</option>
                                                                             ';
                                                                         }else{ 
-                                                                            echo '
-                                                                            <option value="1">Direction générale</option>
-                                                                            <option value="2">RH</option>
-                                                                            <option value="3">Services généraux</option>
-                                                                            <option value="5">CCE</option>
-                                                                            <option value="" selected>Selectionnez une catégorie ...</option>';
+                                                                                echo '
+                                                                                <option value="1">Direction générale</option>
+                                                                                <option value="2">RH</option>
+                                                                                <option value="3">Services généraux</option>
+                                                                                <option value="5">CCE</option>
+                                                                                <option value="" selected>Selectionnez une catégorie ...</option>';
                                                                         }
                                                                     break; 
 
@@ -294,12 +292,12 @@ $PDO_query_comm_unique->closeCursor();
                                                                             <option value="5">CCE</option>
                                                                             ';
                                                                         }else{ 
-                                                                            echo '
-                                                                            <option value="1">Direction générale</option>
-                                                                            <option value="2">RH</option>
-                                                                            <option value="3">Services généraux</option>
-                                                                            <option value="5">CCE</option>
-                                                                            <option value="" selected>Selectionnez une catégorie ...</option>';
+                                                                                echo '
+                                                                                <option value="1">Direction générale</option>
+                                                                                <option value="2">RH</option>
+                                                                                <option value="3">Services généraux</option>
+                                                                                <option value="5">CCE</option>
+                                                                                <option value="" selected>Selectionnez une catégorie ...</option>';
                                                                         }
                                                                     break;
                                                                     
@@ -312,12 +310,12 @@ $PDO_query_comm_unique->closeCursor();
                                                                             <option value="5" selected>CCE</option>
                                                                             ';
                                                                         }else{ 
-                                                                            echo '
-                                                                            <option value="1">Direction générale</option>
-                                                                            <option value="2">RH</option>
-                                                                            <option value="3">Services généraux</option>
-                                                                            <option value="5">CCE</option>
-                                                                            <option value="" selected>Selectionnez une catégorie ...</option>';
+                                                                                echo '
+                                                                                <option value="1">Direction générale</option>
+                                                                                <option value="2">RH</option>
+                                                                                <option value="3">Services généraux</option>
+                                                                                <option value="5">CCE</option>
+                                                                                <option value="" selected>Selectionnez une catégorie ...</option>';
                                                                         }
                                                                     break; 
                                                                 } 
@@ -325,12 +323,12 @@ $PDO_query_comm_unique->closeCursor();
 
                                                                 echo '
                                                                 <option value="1">Direction générale</option>
-                                                                <option value="2">RH</option>
-                                                                <option value="3">Services généraux</option>
-                                                                <option value="5">CCE</option>
+                                                                                <option value="2">RH</option>
+                                                                                <option value="3">Services généraux</option>
+                                                                                <option value="5">CCE</option>
                                                                 <option value="" selected>Selectionnez une catégorie ...</option>';
 
-                                                            }
+                                                            }                                                  
                                                         ?> 
                                                     </select>
                                                 </div>
@@ -360,14 +358,14 @@ $PDO_query_comm_unique->closeCursor();
                                                                     case '1':
                                                                         if($communication['etai_intranet_comm_statut'] == 1){ 
                                                                             echo '
-                                                                            <option value="1" selected>En attente</option>
+                                                                            <option value="1" selected>En attente de confirmation</option>
                                                                             <option value="2">Valider</option>
                                                                             <option value="3">Archiver</option>
                                                                             <option value="4">Annuler</option>
                                                                             ';
                                                                         }else{ 
                                                                                 echo '
-                                                                                <option value="1">En attente</option>
+                                                                                <option value="1">En attente de confirmation</option>
                                                                                 <option value="2">Valider</option>
                                                                                 <option value="3">Archiver</option>
                                                                                 <option value="4">Annuler</option>
@@ -378,67 +376,67 @@ $PDO_query_comm_unique->closeCursor();
                                                                     case '2':
                                                                         if($communication['etai_intranet_comm_statut'] == 2){ 
                                                                             echo '
-                                                                            <option value="1">En attente</option>
+                                                                            <option value="1">En attente de confirmation</option>
                                                                             <option value="2" selected>Valider</option>
                                                                             <option value="3">Archiver</option>
                                                                             <option value="4">Annuler</option>
                                                                             ';
                                                                         }else{ 
-                                                                            echo '
-                                                                            <option value="1">En attente</option>
-                                                                            <option value="2">Valider</option>
-                                                                            <option value="3">Archiver</option>
-                                                                            <option value="4">Annuler</option>
-                                                                            <option value="" selected>Selectionnez un statut ...</option>';
+                                                                                echo '
+                                                                                <option value="1">En attente de confirmation</option>
+                                                                                <option value="2">Valider</option>
+                                                                                <option value="3">Archiver</option>
+                                                                                <option value="4">Annuler</option>
+                                                                                <option value="" selected>Selectionnez un statut ...</option>';
                                                                         }
                                                                     break; 
 
                                                                     case '3':
                                                                         if($communication['etai_intranet_comm_statut'] == 3){ 
                                                                             echo '
-                                                                            <option value="1">En attente</option>
+                                                                            <option value="1">En attente de confirmation</option>
                                                                             <option value="2">Valider</option>
                                                                             <option value="3" selected>Archiver</option>
                                                                             <option value="4">Annuler</option>
                                                                             ';
                                                                         }else{ 
-                                                                            echo '
-                                                                            <option value="1">En attente</option>
-                                                                            <option value="2">Valider</option>
-                                                                            <option value="3">Archiver</option>
-                                                                            <option value="4">Annuler</option>
-                                                                            <option value="" selected>Selectionnez un statut ...</option>';
+                                                                                echo '
+                                                                                <option value="1">En attente de confirmation</option>
+                                                                                <option value="2">Valider</option>
+                                                                                <option value="3">Archiver</option>
+                                                                                <option value="4">Annuler</option>
+                                                                                <option value="" selected>Selectionnez un statut ...</option>';
                                                                         }
                                                                     break;
                                                                     
                                                                     case '4':
                                                                         if($communication['etai_intranet_comm_statut'] == 4){ 
                                                                             echo '
-                                                                            <option value="1">En attente</option>
+                                                                            <option value="1">En attente de confirmation</option>
                                                                             <option value="2">Valider</option>
                                                                             <option value="3">Archiver</option>
                                                                             <option value="4" selected>Annuler</option>
                                                                             ';
                                                                         }else{ 
-                                                                            echo '
-                                                                            <option value="1">En attente</option>
-                                                                            <option value="2">Valider</option>
-                                                                            <option value="3">Archiver</option>
-                                                                            <option value="4">Annuler</option>
-                                                                            <option value="" selected>Selectionnez un statut ...</option>';
+                                                                                echo '
+                                                                                <option value="1">En attente de confirmation</option>
+                                                                                <option value="2">Valider</option>
+                                                                                <option value="3">Archiver</option>
+                                                                                <option value="4">Annuler</option>
+                                                                                <option value="" selected>Selectionnez un statut ...</option>';
                                                                         }
                                                                     break; 
                                                                 } 
                                                             }else{
 
                                                                 echo '
-                                                                <option value="1">En attente</option>
+                                                                <option value="1">En attente de confirmation</option>
                                                                 <option value="2">Valider</option>
                                                                 <option value="3">Archiver</option>
                                                                 <option value="4">Annuler</option>
                                                                 <option value="" selected>Selectionnez un statut ...</option>';
 
-                                                            }
+                                                            }                                                  
                                                         ?>
                                                     </select>
                                                 </div>
@@ -470,11 +468,11 @@ $PDO_query_comm_unique->closeCursor();
                                                         <?php
                                                         if(!empty($id_comm))
                                                         {
-                                                            echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="300" alt="Blog Featured Image" />';
+                                                            echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';
                                                         }
                                                         else
                                                         {
-                                                            echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="300" alt="Blog Featured Image" />';
+                                                            echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';
                                                         }
                                                         ?>
 
@@ -497,9 +495,9 @@ $PDO_query_comm_unique->closeCursor();
                                                             </p>
 
                                                             <div class="d-inline-block col-12 ">
-                                                                    <div class="custom-file d-md-flex">
+                                                                    <div class="custom-file">
 
-                                                                        <div class="col-md-4 col-12">
+                                                                        <div class="col-md-4 col-6">
                                                                             <div class="form-group">
                                                                             <input id="ckfinder-input-1" type="text" class="form-control" name="img"  value="<?php 
                                                                                 if(!empty($id_comm)){
@@ -509,30 +507,36 @@ $PDO_query_comm_unique->closeCursor();
                                                                                     if(!isset($communication['etai_intranet_comm_img'])){
                                                                                         echo 'required';
                                                                                     }
-                                                                                    ?>>
+                                                                                    ?>> 
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-4 col-12">
+                                                                        <div class="col-md-4 col-6">
                                                                             <div class="form-group">
-                                                                            <a id="ckfinder-popup-1" class="btn btn-dark waves-effect waves-float waves-light text-nowrap">
-                                                                                <!-- <i data-feather="upload" class="mr-25"></i> -->
+                                                                            <a id="ckfinder-popup-1" class="btn btn-dark waves-effect waves-float waves-light">
+                                                                                <i data-feather="upload" class="mr-25"></i>
                                                                                 <span>Choisir une image</span>
                                                                             </a> 
                                                                             </div>
-                                                                        </div>
+                                                                        </div>                                       
+                                                                        
+
                                                                     </div>
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                     
                                                 </div>
                                             </div>
+
                                             <div class="col-12 mt-50">
                                                 <button type="submit" class="btn btn-primary mr-1">Enregistrement</button>
-                                                <button type="reset" class="btn btn-outline-secondary">vider les champs</button>
+                                                <button type="reset" class="btn btn-outline-secondary">Annuler les champs</button>
                                             </div>
+
                                         </div>
                                     </form>
+                                    
                                     <!--/ Form -->
                                 </div>
                             </div>
@@ -613,23 +617,75 @@ $PDO_query_comm_unique->closeCursor();
     <script src="../../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <!-- END: Page JS-->
 
-    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm.js"></script>
+    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_archive.js"></script>
 
-    <script src="../ckeditor/js/sf.js"></script>
-    <script src="../ckeditor/js/tree-a.js"></script>
-    <script src="https://cdn.ckeditor.com/4.12.1/full-all/ckeditor.js"></script>
-    <script src="../ckfinder/ckfinder.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script src="ckfinder/ckfinder.js"></script>
 
 <script>
         
-        CKEDITOR.disableAutoInline = true;
-		CKEDITOR.addCss( 'img {max-width:100%; height: auto;}' );
-		var editor = CKEDITOR.replace( 'editor', {
-			extraPlugins: 'uploadimage,image2',
-			removePlugins: 'image',
-			height:250
-		} );
-		CKFinder.setupCKEditor( editor );
+        ClassicEditor
+        .create( document.querySelector( '#editor' ), {
+
+
+            image: {
+            // Configure the available styles.
+                styles: [
+                    'alignLeft', 'alignCenter', 'alignRight'
+                ],
+
+            // Configure the available image resize options.
+                resizeOptions: [
+                    {
+                        name: 'resizeImage:original',
+                        label: 'Original',
+                        value: null
+                    },
+                    {
+                        name: 'resizeImage:50',
+                        label: '50%',
+                        value: '50'
+                    },
+                    {
+                        name: 'resizeImage:75',
+                        label: '75%',
+                        value: '75'
+                    }
+                ],
+
+            // You need to configure the image toolbar, too, so it shows the new style
+            // buttons as well as the resize buttons.
+                toolbar: [
+                    'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
+                    '|',
+                    'resizeImage',
+                    '|',
+                    'imageTextAlternative'
+                ]
+            },
+            ckfinder: {
+                uploadUrl: 'http://localhost/intranet_etai/page/module/administrateur/communication/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+            },
+            toolbar: {
+                items: [ 'ckfinder', 'imageUpload', '|', 'heading', '|',
+                'alignment', '|',
+                'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
+                'link', '|',
+                'bulletedList', 'numberedList', 'todoList',
+                '|', // break point
+                'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
+                'code', 'codeBlock', '|',
+                'insertTable', '|',
+                'outdent', 'indent', '|',
+                'blockQuote', '|',
+                'undo', 'redo' ],
+                viewportTopOffset: 30,
+                shouldNotGroupWhenFull: true
+            }
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
  
  
         $(window).on('load', function () {

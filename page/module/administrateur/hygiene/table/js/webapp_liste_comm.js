@@ -11,7 +11,6 @@ $(function () {
       assetPath = '../app-assets/';
   
   var form_comm = $('#form_comm');
-  var id_comm = $('#datatable').attr('data-id');
 
   
 
@@ -19,15 +18,16 @@ $(function () {
   // --------------------------------------------------------------------
   if (dt_basic_table.length) {
     var dt_basic = dt_basic_table.DataTable({
-      ajax: 'table/php/data_liste_comm_lecteur.php?job=get_liste_comm_lecteur&id_comm=' + id_comm,
+      ajax: 'table/php/data_liste_comm.php?job=get_liste_comm',
       columns: [    
         { data: 'responsive_id' },
         { data: 'id' },
         { data: 'id' }, // used for sorting so will hide this column    
         { data: 'full_name' },
-        { data: 'email' },
+        { data: 'cat' },
         { data: 'post' },
-        { data: 'date_lecteur' },
+        { data: 'start_date' },
+        { data: 'status' },
         { data: 'Actions' }
       ],
       columnDefs: [
@@ -205,10 +205,9 @@ $(function () {
         infoFiltered: "(filtré depuis _MAX_ total des enregistrements)"
       }
     });
-    $('div.head-label').html('<h6 class="mb-0">Liste des lecteurs</h6>');
+    $('div.head-label').html('<h6 class="mb-0">Liste des communications Hygiène & Santé COVID-19</h6>');
   
   }
-  // Flat Date picker
   if (dt_date_table.length) {
     dt_date_table.flatpickr({
       monthSelectorType: 'static',
@@ -216,8 +215,6 @@ $(function () {
     });
   }
 
-  // Add New record
-  // ? Remove/Update this code as per your requirements ?
   var count = 101;
   $('.data-submit').on('click', function () {
     var $new_name = $('.add-new-record .dt-full-name').val(),
@@ -246,6 +243,8 @@ $(function () {
 
   // Delete Record
   $(document).on('click', '#delete-record', function (e) {
+    var id      = $(this).data('id');
+	  var name      = $(this).data('name');
     Swal.fire({
 		  title: 'Êtes-vous sûr ?',
 		  text: "Vous ne pourrez pas annuler cela !",
@@ -259,9 +258,7 @@ $(function () {
 		  buttonsStyling: false,
 		}).then(function (result) {
 		  if (result.value) {
-							e.preventDefault();
-							var id      = $("#delete-record").data('id');
-							var name      = $("#delete-record").data('name');
+							e.preventDefault();							
 							var request = $.ajax({
 							url:          'table/php/data_liste_comm.php?job=del_com&id=' + id,
 							cache:        false,
@@ -275,7 +272,7 @@ $(function () {
 									  Swal.fire({
 										  type: "success",
 										  title: 'Supprimée!',
-										  text: "Niveau '" + name + "' effacé avec succès.",
+										  text: "Article :'" + name + "' effacé avec succès.",
 										  confirmButtonClass: 'btn btn-success',
 										});
                     dt_basic.ajax.reload();

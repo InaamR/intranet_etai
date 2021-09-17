@@ -7,11 +7,10 @@ $(function () {
 
   $(document).ready(function(){
   var dt_basic_table = $('.datatables-basic'),
-      dt_date_table = $('.dt-date'),
-      assetPath = '../app-assets/';
+    dt_date_table = $('.dt-date'),
+    assetPath = '../app-assets/';
   
   var form_comm = $('#form_comm');
-  var id_comm = $('#datatable').attr('data-id');
 
   
 
@@ -19,15 +18,16 @@ $(function () {
   // --------------------------------------------------------------------
   if (dt_basic_table.length) {
     var dt_basic = dt_basic_table.DataTable({
-      ajax: 'table/php/data_liste_comm_lecteur.php?job=get_liste_comm_lecteur&id_comm=' + id_comm,
+      ajax: 'table/php/data_liste_comm_archive.php?job=get_liste_comm',
       columns: [    
         { data: 'responsive_id' },
         { data: 'id' },
         { data: 'id' }, // used for sorting so will hide this column    
         { data: 'full_name' },
-        { data: 'email' },
+        { data: 'cat' },
         { data: 'post' },
-        { data: 'date_lecteur' },
+        { data: 'start_date' },
+        { data: 'status' },
         { data: 'Actions' }
       ],
       columnDefs: [
@@ -83,7 +83,7 @@ $(function () {
             var colorClass = $user_img === '' ? ' bg-light-' + $state + ' ' : '';
             // Creates full output for row
             var $row_output =
-              '<div class="d-flex justify-content-left align-items-center">' +'<div class="avatar ' +
+              '<div class="d-flex justify-content-center align-items-center">' +'<div class="avatar ' +
               colorClass +
               ' mr-1">' +
               $output +
@@ -154,7 +154,17 @@ $(function () {
               $(node).closest('.dt-buttons').removeClass('btn-group').addClass('d-inline-flex');
             }, 50);
           }
-        }
+        }/*,
+        {
+          text: feather.icons['plus'].toSvg({ class: 'mr-50 font-small-4' }) + 'Ecrire un article',
+          className: 'create-new btn btn-primary',
+          attr: {
+            'href': 'http://www.google.fr',
+          },
+          init: function (api, node, config) {
+            $(node).removeClass('btn-secondary');
+          }
+        }*/
       ],
       responsive: {
         details: {
@@ -200,12 +210,12 @@ $(function () {
         info: "Affichage page _PAGE_ jusqu'à _PAGES_",
         lengthMenu: "Affichage _MENU_ lignes par page",
         search: "Recherche :",
-        zeroRecords: "Aucunes données disponibles !",
+        zeroRecords: "Aucunes Archives disponibles !",
         infoEmpty: "Aucun enregistrement disponible",
         infoFiltered: "(filtré depuis _MAX_ total des enregistrements)"
       }
     });
-    $('div.head-label').html('<h6 class="mb-0">Liste des lecteurs</h6>');
+    $('div.head-label').html('<h6 class="mb-0">Liste des communications générales archivées ETAI / COL</h6>');
   
   }
   // Flat Date picker
@@ -245,7 +255,7 @@ $(function () {
   });
 
   // Delete Record
-  $(document).on('click', '#delete-record', function (e) {
+  $(document).on('click', '.delete-record', function (e) {
     Swal.fire({
 		  title: 'Êtes-vous sûr ?',
 		  text: "Vous ne pourrez pas annuler cela !",
@@ -260,10 +270,10 @@ $(function () {
 		}).then(function (result) {
 		  if (result.value) {
 							e.preventDefault();
-							var id      = $("#delete-record").data('id');
-							var name      = $("#delete-record").data('name');
+							var id      = $(".delete-record").data('id');
+							var name      = $(".delete-record").data('name');
 							var request = $.ajax({
-							url:          'table/php/data_liste_comm.php?job=del_com&id=' + id,
+							url:          'table/php/data_liste_comm_archive.php?job=del_com&id=' + id,
 							cache:        false,
 							dataType:     'json',
 							contentType:  'application/json; charset=utf-8',
@@ -310,98 +320,58 @@ $(function () {
 		})
   }); 
 
-  $(document).on('submit', '.add', function(e){
+  $(document).on('submit', '#jquery-val-form.add', function(){
 	  			
-    e.preventDefault();
-
       var form_data = $('#jquery-val-form').serialize();
-
-      var onSuccess = function (data) {
-        console.log('Success');
-        window.location.assign("liste_comm.php");
-    
-      };
-      var onError = function (jqXHR, textStatus, errorThrown) {
-          console.log(jqXHR);
-          console.log(textStatus);
-          console.log(errorThrown);
-          alert("Probléme de mise à jour de la base de donnée");
-      
-      };
-      
-      var onBeforeSend = function () {
-          console.log("Loading");
-          $.blockUI({
-            message: '<div class="spinner-border text-white" role="status"></div>',
-            timeout: 1000,
-            css: {
-              backgroundColor: 'transparent',
-              border: '0'
-            },
-            overlayCSS: {
-              opacity: 0.5
-            }
-          });
-          
-      };
 	  
       var request   = $.ajax({
-        url:          'table/php/data_liste_comm.php?job=add_comm',
+        url:          'table/php/data_liste_comm_archive.php?job=add_comm',
+        cache:        false,
         data:         form_data,
-        type:         'post',
-        async: false,
-        beforeSend: onBeforeSend,
-        error: onError,
-        success: onSuccess
-      });	  
-      
+        dataType:     'json',
+        contentType:  'application/json; charset=utf-8',
+        type:         'get',
+        success: function(data, textStatus) {
+          window.location.replace("liste_comm_archive.php");      
+        },
+        error : function(resultat, statut, erreur){
+          Swal.fire({
+            title: 'Annulée',
+            text: "Une erreur s'est produite lors de l'enregistrement",
+            type: 'error',
+            confirmButtonClass: 'btn btn-success',
+          })
+        }
+      });
   });
 
-  $(document).on('submit', '.edit', function(e){
+  $(document).on('submit', '#jquery-val-form.edit', function(e){
 
-		e.preventDefault();
+    var id        = $('#jquery-val-form').attr('data-id');
+    var form_data = $('#jquery-val-form').serialize();
 
-      var id        = $('#jquery-val-form').attr('data-id');
-      var form_data = $('#jquery-val-form').serialize();
-
-      var onSuccess = function (data) {
-        console.log('Success');
-        window.location.assign("liste_comm.php");
-    
-      };
-      var onError = function (jqXHR, textStatus, errorThrown) {
-          console.log(jqXHR);
-          console.log(textStatus);
-          console.log(errorThrown);
-          alert("Probléme de mise à jour de la base de donnée");
-      
-      };
-      
-      var onBeforeSend = function () {
-          console.log("Loading");          
-          $.blockUI({
-            message: '<div class="spinner-border text-white" role="status"></div>',
-            timeout: 1000,
-            css: {
-              backgroundColor: 'transparent',
-              border: '0'
-            },
-            overlayCSS: {
-              opacity: 0.5
-            }
-          });
-      };
-		  var request   = $.ajax({
-        url:          'table/php/data_liste_comm.php?job=comm_edit&id=' + id,
-        data:         form_data,
-        type:         'post',
-        async: false,
-        beforeSend: onBeforeSend,
-        error: onError,
-        success: onSuccess
-      });
-		
-	});
+    var request   = $.ajax({
+    url:          'table/php/data_liste_comm_archive.php?job=comm_edit&id=' + id,
+    cache:        true,
+    data:         form_data,
+    dataType:     'json',
+    contentType:  'application/json; charset=utf-8',
+    type:         'get',
+    success: function(data, textStatus) {
+        window.location.replace("liste_comm_archive.php"); 
+     
+    },
+    error : function(resultat, statut, erreur){
+      Swal.fire({
+        title: 'Annulée',
+        text: "Une erreur s'est produite lors de l'enregistrement",
+        type: 'error',
+        confirmButtonClass: 'btn btn-success',
+      })
+    }
+    });
+  
+});
 
 
 

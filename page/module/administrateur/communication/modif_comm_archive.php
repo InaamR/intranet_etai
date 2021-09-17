@@ -468,11 +468,11 @@ $PDO_query_comm_unique->closeCursor();
                                                         <?php
                                                         if(!empty($id_comm))
                                                         {
-                                                            echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';
+                                                            echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="300" alt="Blog Featured Image" />';
                                                         }
                                                         else
                                                         {
-                                                            echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" height="110" alt="Blog Featured Image" />';
+                                                            echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="300" alt="Blog Featured Image" />';
                                                         }
                                                         ?>
 
@@ -619,73 +619,21 @@ $PDO_query_comm_unique->closeCursor();
 
     <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_archive.js"></script>
 
-    <script src="ckeditor/ckeditor.js"></script>
-    <script src="ckfinder/ckfinder.js"></script>
+    <script src="../ckeditor/js/sf.js"></script>
+    <script src="../ckeditor/js/tree-a.js"></script>
+    <script src="https://cdn.ckeditor.com/4.12.1/full-all/ckeditor.js"></script>
+    <script src="../ckfinder/ckfinder.js"></script>
 
 <script>
         
-        ClassicEditor
-        .create( document.querySelector( '#editor' ), {
-
-
-            image: {
-            // Configure the available styles.
-                styles: [
-                    'alignLeft', 'alignCenter', 'alignRight'
-                ],
-
-            // Configure the available image resize options.
-                resizeOptions: [
-                    {
-                        name: 'resizeImage:original',
-                        label: 'Original',
-                        value: null
-                    },
-                    {
-                        name: 'resizeImage:50',
-                        label: '50%',
-                        value: '50'
-                    },
-                    {
-                        name: 'resizeImage:75',
-                        label: '75%',
-                        value: '75'
-                    }
-                ],
-
-            // You need to configure the image toolbar, too, so it shows the new style
-            // buttons as well as the resize buttons.
-                toolbar: [
-                    'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
-                    '|',
-                    'resizeImage',
-                    '|',
-                    'imageTextAlternative'
-                ]
-            },
-            ckfinder: {
-                uploadUrl: 'http://localhost/intranet_etai/page/module/administrateur/communication/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-            },
-            toolbar: {
-                items: [ 'ckfinder', 'imageUpload', '|', 'heading', '|',
-                'alignment', '|',
-                'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
-                'link', '|',
-                'bulletedList', 'numberedList', 'todoList',
-                '|', // break point
-                'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
-                'code', 'codeBlock', '|',
-                'insertTable', '|',
-                'outdent', 'indent', '|',
-                'blockQuote', '|',
-                'undo', 'redo' ],
-                viewportTopOffset: 30,
-                shouldNotGroupWhenFull: true
-            }
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
+        CKEDITOR.disableAutoInline = true;
+		CKEDITOR.addCss( 'img {max-width:100%; height: auto;}' );
+		var editor = CKEDITOR.replace( 'editor', {
+			extraPlugins: 'uploadimage,image2',
+			removePlugins: 'image',
+			height:250
+		} );
+		CKFinder.setupCKEditor( editor );
  
  
         $(window).on('load', function () {

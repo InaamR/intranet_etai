@@ -1375,6 +1375,10 @@ class Admin {
 		$lien = URLSITE.'/administrateur/communication/';
 		return $lien;
 	}
+	public static function menuhygiene() {
+		$lien = URLSITE.'/administrateur/hygiene/';
+		return $lien;
+	}
 	public static function menunavigation() {
 		$lien = URLSITE.'/administrateur/navigation/';
 		return $lien;

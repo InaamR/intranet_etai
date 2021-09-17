@@ -470,11 +470,11 @@ $PDO_query_comm_unique->closeCursor();
                                                         <?php
                                                         if(!empty($id_comm))
                                                         {
-                                                            echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="300" alt="Blog Featured Image" />';
+                                                            echo '<img src="'.$communication['etai_intranet_comm_img'].'" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" alt="Blog Featured Image" />';
                                                         }
                                                         else
                                                         {
-                                                            echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="300" alt="Blog Featured Image" />';
+                                                            echo '<img src="../../../../app-assets/images/slider/03.jpg" id="blog-feature-image" class="rounded mr-2 mb-1 mb-md-0" width="170" alt="Blog Featured Image" />';
                                                         }
                                                         ?>
 
@@ -615,10 +615,10 @@ $PDO_query_comm_unique->closeCursor();
 
     <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm.js"></script>
 
-    <script src="../ckeditor/js/sf.js"></script>
-    <script src="../ckeditor/js/tree-a.js"></script>
+    <script src="ckeditor/js/sf.js"></script>
+    <script src="ckeditor/js/tree-a.js"></script>
     <script src="https://cdn.ckeditor.com/4.12.1/full-all/ckeditor.js"></script>
-    <script src="../ckfinder/ckfinder.js"></script>
+    <script src="ckfinder/ckfinder.js"></script>
 
 <script>
         

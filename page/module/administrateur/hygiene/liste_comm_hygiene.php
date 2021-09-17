@@ -45,7 +45,7 @@ if(empty($_SESSION['id'])){
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <title>Communications Générale Archives - Infopro-Digital</title>
+    <title>Hygiène & Santé - COVID-19</title>
     <link rel="apple-touch-icon" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/images/ico/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
@@ -77,7 +77,6 @@ if(empty($_SESSION['id'])){
     <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/css/themes/bordered-layout.css">
     <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
     
-    
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -90,8 +89,7 @@ if(empty($_SESSION['id'])){
 
 <!-- BEGIN: Body-->
 
-<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click"
-    data-menu="vertical-menu-modern" data-col="">
+<body class="vertical-layout vertical-menu-modern navbar-floating footer-static" data-open="click" data-menu="vertical-menu-modern" data-col="">
 
     <!-- BEGIN: Header-->
     <?php
@@ -174,13 +172,18 @@ if(empty($_SESSION['id'])){
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">ADMINISTRATION</h2>
+                            <h2 class="content-header-title float-left mb-0">COLLABORATEUR</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">Communications générales Archives</li>
+                                    <li class="breadcrumb-item">Hygiène & Santé</li>
                                 </ol>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+                    <div class="form-group breadcrumb-right">
+                        <a class="btn-icon btn btn-primary btn-round btn-sm waves-effect waves-float waves-light" href="modif_comm.php">Ajouter une communication</a>
                     </div>
                 </div>
             </div>
@@ -207,7 +210,7 @@ if(empty($_SESSION['id'])){
                                                     <th>Catégorie</th>
                                                     <th>Titre de l'article</th>                                                    
                                                     <th>Date d'insertion</th>
-                                                    <th>Statut</th>
+                                                    <th></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -296,7 +299,7 @@ if(empty($_SESSION['id'])){
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script charset="utf-8"  src="<?php echo Admin::menucomm();?>table/js/webapp_liste_comm_archive.js"></script>
+    <script charset="utf-8"  src="<?php echo Admin::menuhygiene();?>table/js/webapp_liste_comm.js"></script>
 
     <script src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
     <script src="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/app-assets/vendors/js/extensions/polyfill.min.js"></script>
