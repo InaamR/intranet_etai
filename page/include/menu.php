@@ -109,29 +109,92 @@
                                 <span class="menu-item text-truncate" data-i18n="">COVID-19</span>
                         </a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Vie interne</span></a>
+                    <?php
+                        
+                        if($file == 'liste_comm_interne.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/interne/liste_comm_interne.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Vie interne</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Planning du medecin</span></a>
+                    <?php
+                        
+                        if($file == 'liste_comm_medoc.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/medoc/liste_comm_medoc.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Planning du medecin</span></a>
                     </li>
                 </ul>
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i class="far fa-handshake" aria-hidden="true"></i><span class="menu-title text-truncate" data-i18n="Vie Sociale">Vie Sociale</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Info service</span></a>
+                <?php
+                        
+                        if($file == 'liste_comm_infoservice.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/infoservice/liste_comm_infoservice.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Info service</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Events</span></a>
+                    <?php
+                        
+                        if($file == 'liste_comm_event.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/event/liste_comm_event.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Events</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Animation</span></a>
+                    <?php
+                        
+                        if($file == 'liste_comm_animation.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/animation/liste_comm_animation.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Animation</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Quiz</span></a>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Quiz (SOON)</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Jeux</span></a>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Jeux (SOON)</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Conventions</span></a>
+                    <?php
+                        
+                        if($file == 'liste_comm_convention.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/convention/liste_comm_convention.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Conventions</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Suggestions</span></a>
+                    <?php
+                        
+                        if($file == 'liste_comm_sug.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/sug/liste_comm_sug.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Suggestions</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Sondage</span></a>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Sondage (SOON)</span></a>
                     </li>
                 </ul>
             </li>
@@ -144,18 +207,24 @@
                     <span class="menu-title text-truncate" data-i18n="Pages" id="Dir. des Systèmes d'information">Dir. Systèmes info</span>
                 </a>
                 <ul class="menu-content">
-                    <li>
-                        <a class="d-flex align-items-center" href="#">
+                    <?php
+                        
+                        if($file == 'liste_comm_dsi.php'){
+                            
+                            echo'<li class="active">';
+                        }else{
+                            echo'<li class="">';
+                        }
+                        ?>
+                        <a class="d-flex align-items-center" href="http://<?php echo $_SERVER['SERVER_NAME']?>/intranet_etai/page/module/administrateur/dsi/liste_comm_dsi.php">
                             <i data-feather="plus"></i>
-                            <span class="menu-item text-truncate" data-i18n="">Gestion ...</span>
+                            <span class="menu-item text-truncate" data-i18n="">Communication</span>
                         </a>
                     </li> 
-                    <li>
-                        <a class="d-flex align-items-center" href="#">
-                            <i data-feather="plus"></i>
-                            <span class="menu-item text-truncate" data-i18n="">Gestion ...</span>
-                        </a>
-                    </li>                    
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Politiques des Sys Info</span></a>
+                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="">Réclamer un incident</span></a>
+                    </li>
+
                 </ul>
             </li>  
             <li class=" navigation-header"><span data-i18n="Ressources Humaines">RH</span><i data-feather="more-horizontal"></i></li>          

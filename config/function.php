@@ -1379,6 +1379,48 @@ class Admin {
 		$lien = URLSITE.'/administrateur/hygiene/';
 		return $lien;
 	}
+
+	public static function menuinterne() {
+		$lien = URLSITE.'/administrateur/interne/';
+		return $lien;
+	}
+
+	public static function menumedecin() {
+		$lien = URLSITE.'/administrateur/medoc/';
+		return $lien;
+	}
+
+	public static function menuinfoservice() {
+		$lien = URLSITE.'/administrateur/infoservice/';
+		return $lien;
+	}
+
+	public static function menuevent() {
+		$lien = URLSITE.'/administrateur/event/';
+		return $lien;
+	}
+
+	public static function menuanimation() {
+		$lien = URLSITE.'/administrateur/animation/';
+		return $lien;
+	}
+
+	public static function menuconvention() {
+		$lien = URLSITE.'/administrateur/convention/';
+		return $lien;
+	}
+
+	public static function menudsi() {
+		$lien = URLSITE.'/administrateur/dsi/';
+		return $lien;
+	}
+
+	public static function menusug() {
+		$lien = URLSITE.'/administrateur/sug/';
+		return $lien;
+	}
+
+
 	public static function menunavigation() {
 		$lien = URLSITE.'/administrateur/navigation/';
 		return $lien;
